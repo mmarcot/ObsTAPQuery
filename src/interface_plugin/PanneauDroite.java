@@ -1,10 +1,7 @@
 package interface_plugin;
 
 import java.awt.*;
-
 import javax.swing.*;
-
-import util.Configuration;
 
 
 /**
@@ -19,7 +16,7 @@ public class PanneauDroite extends JPanel {
 	 */
 	public PanneauDroite() {
 		this.setBackground(Color.blue);
-		this.setLayout(new GridLayout(Configuration.NB_LIGNE_PARTIE_DROITE, Configuration.NB_COL_PARTIE_DROITE));
+		this.setLayout(new GridLayout(2, 1));
 		
 		Where pan_where = new Where();
 		Requete pan_requete = new Requete();

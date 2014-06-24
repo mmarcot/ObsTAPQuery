@@ -1,7 +1,6 @@
 package interface_plugin;
 
 import java.awt.*;
-
 import javax.swing.*;
 
 import util.Configuration;
@@ -22,9 +21,12 @@ public class PluginLayout extends JPanel {
 		this.setLayout(new BorderLayout());
 		
 		Select pan_select = new Select();
+		JScrollPane scroller = new JScrollPane(pan_select);
+		this.add(scroller,BorderLayout.CENTER);
+		
 		PanneauDroite pan_droite = new PanneauDroite();
 		
-		this.add(pan_select, BorderLayout.LINE_START);
+		this.add(scroller, BorderLayout.LINE_START);
 		this.add(pan_droite, BorderLayout.CENTER);
 	}
 }
