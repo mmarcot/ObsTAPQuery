@@ -4,6 +4,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
+import util.Configuration;
+
 import metier.ColonnesObscore;
 
 
@@ -35,7 +37,7 @@ public class Select extends JPanel {
 		
 		// JLabel "Select" :
 		JLabel lab_select = new JLabel("    Select");
-		Font pol_select = new Font(Font.MONOSPACED, Font.BOLD, 20);
+		Font pol_select = new Font(Configuration.POLICE, Font.BOLD, 20);
 		lab_select.setFont(pol_select);
 		this.add(lab_select);
 		
