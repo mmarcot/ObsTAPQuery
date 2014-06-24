@@ -40,12 +40,15 @@ public class Requete extends JPanel {
 		JPanel bout_wrap = new JPanel();
 		bout_wrap.setLayout(new GridLayout(0,1));
 		
+		// création des boutons :
 		JButton but_generer = new JButton(Langage.getReq_generer());
 		JButton but_executer = new JButton(Langage.getReq_executer());
 		
+		// ajout des boutons au panel de boutons :
 		bout_wrap.add(but_generer);
 		bout_wrap.add(but_executer);
 		
+		// ajout du panel de bouton au panel requete :
 		this.add(bout_wrap, BorderLayout.EAST);
 	}
 
