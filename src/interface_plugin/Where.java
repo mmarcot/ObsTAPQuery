@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import util.Configuration;
+import util.Langage;
 
 
 /**
@@ -20,13 +21,26 @@ public class Where extends JPanel {
 	public Where() {
 		this.setLayout(new BorderLayout());
 		
-		// JLabel titre :
+		// Contenueur titre + boutons :
+		JPanel wrapper = new JPanel();
+		wrapper.setLayout(new BoxLayout(wrapper, BoxLayout.Y_AXIS));
+		
+		// JLabel de titre : "Where" :
 		JLabel lab_where = new JLabel("Where", JLabel.CENTER);
 		Font pol_where = new Font(Configuration.POLICE, Font.BOLD, 20);
 		lab_where.setFont(pol_where);
-		this.add(lab_where, BorderLayout.NORTH);
+		lab_where.setAlignmentX(Component.CENTER_ALIGNMENT);
+		wrapper.add(lab_where);
 		
-		// Gestionnaire de contraintes :
+		// JButton ajouter :
+		JButton but_add_contrainte = new JButton(Langage.getWhere_but_add());
+		but_add_contrainte.setAlignmentX(Component.CENTER_ALIGNMENT);
+		wrapper.add(but_add_contrainte);
+		
+		// Ajout du wrapper au panneau Where
+		this.add(wrapper, BorderLayout.NORTH);
+		
+		// Ajout du gestionnaire de contraintes :
 		GestionnaireDeContraintes gest = new GestionnaireDeContraintes();
 		this.add(gest, BorderLayout.CENTER);
 	}

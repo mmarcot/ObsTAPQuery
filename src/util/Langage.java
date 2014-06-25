@@ -66,4 +66,32 @@ public class Langage {
 		else
 			return "Perform";
 	}
+	
+	
+	/**
+	 * Texte correspondant au bouton ajouter contrainte
+	 * @return 
+	 */
+	public static String getWhere_but_add() {
+		if(lang.equals("FR"))
+			return "Ajouter";
+		else
+			return "Add";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

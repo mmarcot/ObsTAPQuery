@@ -1,6 +1,8 @@
 package interface_plugin;
 
+import java.awt.*;
 import javax.swing.*;
+
 
 
 /**
@@ -15,6 +17,8 @@ public class GestionnaireDeContraintes extends JPanel {
 	 * Constructeur d'un gestionnaire de contraintes
 	 */
 	public GestionnaireDeContraintes() {
+		this.setBackground(Color.yellow);
+		
 		
 	}
 }
