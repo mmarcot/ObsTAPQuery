@@ -1,5 +1,7 @@
 package interface_plugin;
 
+import java.awt.Color;
+
 import javax.swing.*;
 
 /**
@@ -13,7 +15,9 @@ public class LigneDeContrainte extends JPanel {
 	 * Constructeur d'une ligne de contrainte 
 	 */
 	public LigneDeContrainte() {
+		this.setBackground(Color.white);
 		
+		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 	}
 
 }
