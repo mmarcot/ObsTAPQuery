@@ -17,4 +17,10 @@ public class Configuration {
 	
 	/** Police par default du plug-in */
 	public static String POLICE = Font.MONOSPACED;
+	
+	/** Vitesse incrémentation scrollbar verticale */
+	public static int VITESSE_SCROLL_VER = 23;
+	/** Vitesse incrémentation scrollbar horizontale */ 
+	public static int VITESSE_SCROLL_HOR = 10;
+	
 }

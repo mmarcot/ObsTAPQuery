@@ -20,8 +20,11 @@ public class PluginLayout extends JPanel {
 		this.setPreferredSize(new Dimension(Configuration.LARGEUR_PLUGIN_PX, Configuration.HAUTEUR_PLUGIN_PX));
 		this.setLayout(new BorderLayout());
 		
+		// Gestion de la ScrollBar :
 		Select pan_select = new Select();
 		JScrollPane scroller = new JScrollPane(pan_select);
+		scroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
+		scroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
 		this.add(scroller,BorderLayout.CENTER);
 		
 		PanneauDroite pan_droite = new PanneauDroite();

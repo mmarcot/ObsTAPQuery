@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import util.Configuration;
+
 
 
 /**
@@ -21,11 +23,27 @@ public class GestionnaireDeContraintes extends JPanel {
 	 * Constructeur d'un gestionnaire de contraintes
 	 */
 	public GestionnaireDeContraintes() {
-		this.setBackground(Color.yellow);
-		
+		setBackground(Color.white);
 		this.liste_contraintes = new ArrayList<LigneDeContrainte>();
 		
 		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne();
+		this.ajouterLigne(); // TODO enlever
+
+		
+		double hauteur = getPreferredSize().getHeight();
+		this.setPreferredSize(new Dimension(100, (int)hauteur*liste_contraintes.size()));
 	}
 	
 	
@@ -34,11 +52,18 @@ public class GestionnaireDeContraintes extends JPanel {
 	 * gestionnaire de contraintes
 	 */
 	public void ajouterLigne() {
-		this.liste_contraintes.add(new LigneDeContrainte());
+		boolean liaison = false;
+		
+		if(liste_contraintes.size() > 0)
+			liaison = true;
+		
+		this.liste_contraintes.add(new LigneDeContrainte(liaison));
 		miseAJourVue();
 	}
 	
 	
+
+
 	/**
 	 * Methode qui permet de supprimer une ligne de contrainte au 
 	 * gestionnaire de contraintes

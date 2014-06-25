@@ -79,6 +79,19 @@ public class Langage {
 			return "Add";
 	}
 	
+	
+	
+	
+	/**
+	 * Texte correspondant au bouton ajouter contrainte
+	 * @return 
+	 */
+	public static String getWhere_but_remove() {
+		if(lang.equals("FR"))
+			return "Supprimer";
+		else
+			return "Remove";
+	}
 }
 
 

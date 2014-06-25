@@ -42,7 +42,17 @@ public class Where extends JPanel {
 		
 		// Ajout du gestionnaire de contraintes :
 		GestionnaireDeContraintes gest = new GestionnaireDeContraintes();
-		this.add(gest, BorderLayout.CENTER);
+		JScrollPane scroller_gest_cont = new JScrollPane(gest);
+		scroller_gest_cont.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
+		scroller_gest_cont.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
+		this.add(scroller_gest_cont, BorderLayout.CENTER);
+		
+//		// Gestion de la ScrollBar :
+//				Select pan_select = new Select();
+//				JScrollPane scroller = new JScrollPane(pan_select);
+//				scroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
+//				scroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
+//				this.add(scroller,BorderLayout.CENTER);
 	}
 
 }
