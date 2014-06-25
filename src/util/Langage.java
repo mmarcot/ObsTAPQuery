@@ -9,6 +9,7 @@ public class Langage {
 	public static String ENGLISH = "EN";
 	
 	
+	
 	/**
 	 * Permet de changer de langage
 	 * @param l le nouveau langage
@@ -16,6 +17,7 @@ public class Langage {
 	public static void setLangage(String l) {
 		lang = l;
 	}
+	
 	
 	
 	/**
@@ -28,6 +30,7 @@ public class Langage {
 		else
 			return "Resulting query";
 	}
+	
 	
 	
 	/**
@@ -44,15 +47,29 @@ public class Langage {
 	}
 	
 	
+	
 	/**
 	 * Texte correspondant au bouton générer
 	 * @return String
 	 */
 	public static String getReq_generer() {
 		if(lang.equals("FR"))
-			return "Générer";
+			return "Générer requête";
 		else
-			return "Generate";
+			return "Generate query";
+	}
+	
+	
+	
+	/**
+	 * Texte tooltip correspondant au bouton générer
+	 * @return String
+	 */
+	public static String getReq_generer_tt() {
+		if(lang.equals("FR"))
+			return "Génère la requête dans la zone de texte à gauche";
+		else
+			return "Generate the query in the left text area";
 	}
 	
 	
@@ -62,10 +79,46 @@ public class Langage {
 	 */
 	public static String getReq_executer() {
 		if(lang.equals("FR"))
-			return "Exécuter";
+			return "Exécuter requête";
 		else
-			return "Perform";
+			return "Perform query";
 	}
+	
+	
+	/**
+	 * Texte tooltip correspondant au bouton executer
+	 * @return String
+	 */
+	public static String getReq_executer_tt() {
+		if(lang.equals("FR"))
+			return "Permet d'exécuter la requête et de voir son résultat";
+		else
+			return "To perform the query in the left text area, and see the result";
+	}
+	
+	
+	/**
+	 * Texte correspondant au bouton help
+	 * @return String
+	 */
+	public static String getReq_help() {
+		if(lang.equals("FR"))
+			return "Aide";
+		else
+			return "Help";
+	}
+	
+	/**
+	 * Texte tooltip correspondant au bouton help
+	 * @return String
+	 */
+	public static String getReq_help_tt() {
+		if(lang.equals("FR"))
+			return "Pour recevoir de l'aide";
+		else
+			return "To get helped";
+	}
+	
 	
 	
 	/**
@@ -80,10 +133,22 @@ public class Langage {
 	}
 	
 	
+	/**
+	 * Texte correspondant au tooltip bouton 'ajouter contrainte'
+	 * @return 
+	 */
+	public static String getWhere_but_add_tt() {
+		if(lang.equals("FR"))
+			return "Ajoute une ligne de contrainte";
+		else
+			return "Add a constraint line";
+	}
+	
+	
 	
 	
 	/**
-	 * Texte correspondant au bouton ajouter contrainte
+	 * Texte correspondant au bouton supprime contrainte
 	 * @return 
 	 */
 	public static String getWhere_but_remove() {
@@ -91,6 +156,18 @@ public class Langage {
 			return "Supprimer";
 		else
 			return "Remove";
+	}
+	
+	
+	/**
+	 * Texte correspondant au tooltip du bouton supprimer contrainte
+	 * @return 
+	 */
+	public static String getWhere_but_remove_tt() {
+		if(lang.equals("FR"))
+			return "Supprimer cette contrainte";
+		else
+			return "Remove this constraint";
 	}
 }
 

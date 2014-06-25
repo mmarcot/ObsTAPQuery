@@ -43,11 +43,12 @@ public class LigneDeContrainte extends JPanel {
 		this.add(text_valeur);
 		
 		// JLabel espacement :
-		JLabel lab_esp = new JLabel("     ");
+		JLabel lab_esp = new JLabel("   ");
 		this.add(lab_esp);
 		
 		//JButton remove constraint :
 		JButton but_remove = new JButton(Langage.getWhere_but_remove());
+		but_remove.setToolTipText(Langage.getWhere_but_remove_tt());
 		this.add(but_remove);
 	}
 

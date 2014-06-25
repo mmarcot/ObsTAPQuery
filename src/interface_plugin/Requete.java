@@ -38,15 +38,20 @@ public class Requete extends JPanel {
 	private void initBoutonsPan() {
 		// création du panel conteneur :
 		JPanel bout_wrap = new JPanel();
-		bout_wrap.setLayout(new GridLayout(0,1));
+		bout_wrap.setLayout(new GridLayout(0, 1, 0, 10));
 		
-		// création des boutons :
+		// création des boutons + tooltip :
 		JButton but_generer = new JButton(Langage.getReq_generer());
+		but_generer.setToolTipText(Langage.getReq_generer_tt());
 		JButton but_executer = new JButton(Langage.getReq_executer());
+		but_executer.setToolTipText(Langage.getReq_executer_tt());
+		JButton but_help = new JButton(Langage.getReq_help());
+		but_help.setToolTipText(Langage.getReq_help_tt());
 		
 		// ajout des boutons au panel de boutons :
 		bout_wrap.add(but_generer);
 		bout_wrap.add(but_executer);
+		bout_wrap.add(but_help);
 		
 		// ajout du panel de bouton au panel requete :
 		this.add(bout_wrap, BorderLayout.EAST);

@@ -35,6 +35,7 @@ public class Where extends JPanel {
 		// JButton ajouter :
 		JButton but_add_contrainte = new JButton(Langage.getWhere_but_add());
 		but_add_contrainte.setAlignmentX(Component.CENTER_ALIGNMENT);
+		but_add_contrainte.setToolTipText(Langage.getWhere_but_add_tt());
 		wrapper.add(but_add_contrainte);
 		
 		// Ajout du wrapper au panneau Where
@@ -47,12 +48,6 @@ public class Where extends JPanel {
 		scroller_gest_cont.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
 		this.add(scroller_gest_cont, BorderLayout.CENTER);
 		
-//		// Gestion de la ScrollBar :
-//				Select pan_select = new Select();
-//				JScrollPane scroller = new JScrollPane(pan_select);
-//				scroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
-//				scroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
-//				this.add(scroller,BorderLayout.CENTER);
 	}
 
 }
