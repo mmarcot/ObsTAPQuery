@@ -1,6 +1,7 @@
 package metier;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 /**
@@ -58,7 +59,8 @@ public class ColonnesObscore {
 		liste_col.add("pol_stat");
 		liste_col.add("facility_name");
 		liste_col.add("instrument_name");
-
+		
+		Collections.sort(liste_col);
 		
 		return liste_col;
 	}

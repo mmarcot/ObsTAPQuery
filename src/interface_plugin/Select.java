@@ -2,7 +2,6 @@ package interface_plugin;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import javax.swing.*;
 
 import util.Configuration;
@@ -35,7 +34,7 @@ public class Select extends JPanel {
 	 */
 	private void afficherColonnesObscore() {
 		ArrayList<String> liste_col_str = ColonnesObscore.getColonnesObscore();
-		Collections.sort(liste_col_str);
+		
 		
 		// JLabel "Select" :
 		JLabel lab_select = new JLabel("    Select");
