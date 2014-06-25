@@ -1,13 +1,9 @@
 package interface_plugin;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-
+import java.awt.*;
 import javax.swing.*;
 
+import util.Configuration;
 import util.Langage;
 
 import metier.ColonnesObscore;
@@ -30,8 +26,7 @@ public class LigneDeContrainte extends JPanel {
 		
 		// Affichage éventuel de la liaison :
 		if(operateurDeLiaison) {
-			String[] tab_liaison = {"AND", "OR"};
-			JComboBox combo_liaison = new JComboBox(tab_liaison);
+			JComboBox combo_liaison = new JComboBox(Configuration.TAB_LIAISONS);
 			this.add(combo_liaison);
 		}
 		
@@ -40,8 +35,7 @@ public class LigneDeContrainte extends JPanel {
 		this.add(combo_col_obs);
 		
 		// JComboBox opérateurs :
-		String[] tab_oper = {"=", "!=", "<", ">", "<=", ">="};
-		JComboBox combo_oper = new JComboBox(tab_oper);
+		JComboBox combo_oper = new JComboBox(Configuration.TAB_OPERATEURS_WHERE);
 		this.add(combo_oper);
 		
 		// JTextField valeur :

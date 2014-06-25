@@ -23,8 +23,9 @@ public class GestionnaireDeContraintes extends JPanel {
 	 * Constructeur d'un gestionnaire de contraintes
 	 */
 	public GestionnaireDeContraintes() {
-		setBackground(Color.white);
+		this.setBackground(Color.white);
 		this.liste_contraintes = new ArrayList<LigneDeContrainte>();
+		this.setLayout(new FlowLayout(FlowLayout.CENTER, Configuration.HGAP_FLOWLAYOUT, Configuration.VGAP_FLOWLAYOUT));
 		
 		this.ajouterLigne();
 		this.ajouterLigne();
@@ -42,8 +43,8 @@ public class GestionnaireDeContraintes extends JPanel {
 		this.ajouterLigne(); // TODO enlever
 
 		
-		double hauteur = getPreferredSize().getHeight();
-		this.setPreferredSize(new Dimension(100, (int)hauteur*liste_contraintes.size()));
+		double hauteur = getPreferredSize().getHeight() - Configuration.VGAP_FLOWLAYOUT;
+		this.setPreferredSize(new Dimension(100, (int)hauteur*liste_contraintes.size()+Configuration.VGAP_FLOWLAYOUT));
 	}
 	
 	

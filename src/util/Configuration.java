@@ -1,6 +1,6 @@
 package util;
 
-import java.awt.Font;
+import java.awt.*;
 
 
 /**
@@ -22,5 +22,15 @@ public class Configuration {
 	public static int VITESSE_SCROLL_VER = 23;
 	/** Vitesse incrémentation scrollbar horizontale */ 
 	public static int VITESSE_SCROLL_HOR = 10;
+	
+	/** horizontal gap flowlayout dans le gestionnaire de contrainte */
+	public static int HGAP_FLOWLAYOUT = 5;
+	/** vertical gap flowlayout dans le gestionnaire de contrainte */
+	public static int VGAP_FLOWLAYOUT = 5;
+	
+	/** Tableau contenant l'ensemble des opérateurs du where */
+	public static String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">="};
+	/** Tableau contenant l'ensemble des opérateurs de liaison */
+	public static String[] TAB_LIAISONS = {"AND", "OR"};
 	
 }
