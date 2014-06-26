@@ -17,7 +17,7 @@ import util.Langage;
  */
 public class Where extends JPanel {
 	
-	private GestionnaireDeContraintes gest;
+	private GestionnaireDeContraintes gestionnaire;
 	
 	/**
 	 * Constructeur du panneau where
@@ -47,19 +47,21 @@ public class Where extends JPanel {
 		this.add(wrapper, BorderLayout.NORTH);
 		
 		// Ajout du gestionnaire de contraintes :
-		gest = new GestionnaireDeContraintes();
-		JScrollPane scroller_gest_cont = new JScrollPane(gest);
+		gestionnaire = new GestionnaireDeContraintes();
+		JScrollPane scroller_gest_cont = new JScrollPane(gestionnaire);
 		scroller_gest_cont.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
 		scroller_gest_cont.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
 		this.add(scroller_gest_cont, BorderLayout.CENTER);
 	}
 	
 	
+	
 	/**
-	 * Permet d'ajouter une ligne au gestionnaire de contraintes
+	 * Getter du gestionnaire de contraintes
+	 * @return le gestionnaire de contraintes
 	 */
-	public void ajouterLigne() {
-		this.gest.ajouterLigne();
+	public GestionnaireDeContraintes getGestionnaire() {
+		return gestionnaire;
 	}
-
+	
 }

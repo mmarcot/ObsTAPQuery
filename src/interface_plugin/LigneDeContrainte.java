@@ -18,7 +18,6 @@ public class LigneDeContrainte extends JPanel {
 	
 	private boolean operateurDeLiaison;
 	private boolean compo_between;
-	private int index_arraylist;
 	
 	/** zone de texte si pas de between */
 	private JTextField text_valeur;
@@ -34,12 +33,10 @@ public class LigneDeContrainte extends JPanel {
 	/**
 	 * Constructeur d'une ligne de contrainte 
 	 * @param liaison Liaison avec la contrainte précédente (AND ou OR)
-	 * @param index_al index de la ligne dans l'arraylist du gestionnaire
 	 */
-	public LigneDeContrainte(boolean liaison, int index_al) {
+	public LigneDeContrainte(boolean liaison) {
 		this.operateurDeLiaison = liaison;
 		this.compo_between = false;
-		this.index_arraylist = index_al;
 		
 		// Affichage éventuel de la liaison :
 		if(operateurDeLiaison) {
@@ -74,27 +71,22 @@ public class LigneDeContrainte extends JPanel {
 	 * Methode qui compose la ligne pour un between
 	 */
 	public void toBetweenComposition() {
-		int nb_composants = this.getComponents().length;
 		
-		// suppr grand JTextField :
+		// suppression grand JTextField :
 		this.remove(text_valeur);
 		this.text_valeur = null;
-		nb_composants--;
 		
 		// ajoute JTextField 1 :
 		text1_between = new JTextField(Configuration.TAILLE_JTEXTFIELD_BETWEEN);
-		this.add(text1_between, nb_composants-1);
-		nb_composants++;
+		this.add(text1_between, getComponentCount()-1);
 		
 		// ajoute JLabel "and" :
 		lab_and = new JLabel("AND");
-		this.add(lab_and, nb_composants-1);
-		nb_composants++;
+		this.add(lab_and, getComponentCount()-1);
 		
 		// ajoute JTextField 2 :
 		text2_between = new JTextField(Configuration.TAILLE_JTEXTFIELD_BETWEEN);
-		this.add(text2_between, nb_composants-1);
-		nb_composants++;
+		this.add(text2_between, getComponentCount()-1);
 		
 		// MAJ :
 		this.compo_between = true;
@@ -106,7 +98,6 @@ public class LigneDeContrainte extends JPanel {
 	 * Methode qui compose la ligne pour un opérateur normal
 	 */
 	public void toRegularComposition() {
-		int nb_composants = this.getComponents().length;
 		
 		// on enlève les composant dont on n'a plus besoin
 		this.remove(text1_between);
@@ -115,13 +106,11 @@ public class LigneDeContrainte extends JPanel {
 		this.text1_between = null;
 		this.lab_and = null;
 		this.text2_between = null;
-		nb_composants -= 3;
 		
 		// et on rajoute le nouveaux :
 		// JTextField valeur :
 		text_valeur = new JTextField(Configuration.TAILLE_JTEXTFIELD_NORMAL);
-		this.add(text_valeur, nb_composants-1);
-		nb_composants++;
+		this.add(text_valeur, getComponentCount()-1);
 		
 		// MAJ :
 		this.compo_between = false;
@@ -137,22 +126,6 @@ public class LigneDeContrainte extends JPanel {
 	 */
 	public boolean isBetweenCompo() {
 		return this.compo_between;
-	}
-
-
-	/**
-	 * @return the index_arraylist
-	 */
-	public int getIndex_arraylist() {
-		return index_arraylist;
-	}
-
-
-	/**
-	 * @param index_arraylist the index_arraylist to set
-	 */
-	public void setIndex_arraylist(int index_arraylist) {
-		this.index_arraylist = index_arraylist;
 	}
 
 }

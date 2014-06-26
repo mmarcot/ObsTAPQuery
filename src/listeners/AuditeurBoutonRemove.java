@@ -23,7 +23,7 @@ public class AuditeurBoutonRemove implements ActionListener {
 		LigneDeContrainte ligne = (LigneDeContrainte) but_src.getParent();
 		GestionnaireDeContraintes gest = (GestionnaireDeContraintes) but_src.getParent().getParent();
 		
-		gest.supprimerLigne(ligne.getIndex_arraylist());
+		gest.remove(ligne);
 	}
 
 }
