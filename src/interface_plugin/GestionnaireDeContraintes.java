@@ -44,6 +44,11 @@ public class GestionnaireDeContraintes extends JPanel {
 	@Override
 	public void remove(Component comp) {
 		super.remove(comp);
+		
+		if( getComponentCount() > 0 ) {
+			LigneDeContrainte premiere_ligne = (LigneDeContrainte) getComponent(0);
+			premiere_ligne.enleverLiaison();
+		}
 		updatePreferSize();
 		revalidate();
 		repaint();

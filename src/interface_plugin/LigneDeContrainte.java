@@ -27,6 +27,8 @@ public class LigneDeContrainte extends JPanel {
 	private JTextField text2_between;
 	/** label "AND" entre les 2 valeurs du between */
 	private JLabel lab_and;
+	/** Combo box de la liaison */
+	private JComboBox combo_liaison;
 	
 	
 	
@@ -40,7 +42,7 @@ public class LigneDeContrainte extends JPanel {
 		
 		// Affichage éventuel de la liaison :
 		if(operateurDeLiaison) {
-			JComboBox combo_liaison = new JComboBox(Configuration.TAB_LIAISONS);
+			combo_liaison = new JComboBox(Configuration.TAB_LIAISONS);
 			this.add(combo_liaison);
 		}
 		
@@ -115,6 +117,21 @@ public class LigneDeContrainte extends JPanel {
 		// MAJ :
 		this.compo_between = false;
 		this.revalidate();
+	}
+	
+	
+	
+	/**
+	 * Permet d'enlever la liaison d'une ligne de contrainte
+	 */
+	public void enleverLiaison() {
+		if(combo_liaison != null ) {
+			if(this.operateurDeLiaison) {
+				this.operateurDeLiaison = false;
+			}
+			this.remove(combo_liaison);
+			this.revalidate();
+		}
 	}
 	
 	
