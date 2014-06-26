@@ -29,7 +29,7 @@ public class Configuration {
 	public static int VGAP_FLOWLAYOUT = 5;
 	
 	/** Tableau contenant l'ensemble des opérateurs du where */
-	public static String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">="};
+	public static String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">=", "LIKE", "IS", "BETWEEN"};
 	/** Tableau contenant l'ensemble des opérateurs de liaison */
 	public static String[] TAB_LIAISONS = {"AND", "OR"};
 	
