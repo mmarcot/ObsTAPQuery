@@ -1,5 +1,8 @@
 package listeners;
 
+import interface_plugin.GestionnaireDeContraintes;
+import interface_plugin.LigneDeContrainte;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,7 +20,10 @@ public class AuditeurBoutonRemove implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton but_src = (JButton) e.getSource();
-		but_src.getParent().removeAll();
+		LigneDeContrainte ligne = (LigneDeContrainte) but_src.getParent();
+		GestionnaireDeContraintes gest = (GestionnaireDeContraintes) but_src.getParent().getParent();
+		
+		gest.supprimerLigne(ligne.getIndex_arraylist());
 	}
 
 }

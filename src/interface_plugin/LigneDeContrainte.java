@@ -18,6 +18,7 @@ public class LigneDeContrainte extends JPanel {
 	
 	private boolean operateurDeLiaison;
 	private boolean compo_between;
+	private int index_arraylist;
 	
 	/** zone de texte si pas de between */
 	private JTextField text_valeur;
@@ -29,13 +30,16 @@ public class LigneDeContrainte extends JPanel {
 	private JLabel lab_and;
 	
 	
+	
 	/**
 	 * Constructeur d'une ligne de contrainte 
 	 * @param liaison Liaison avec la contrainte précédente (AND ou OR)
+	 * @param index_al index de la ligne dans l'arraylist du gestionnaire
 	 */
-	public LigneDeContrainte(boolean liaison) {
+	public LigneDeContrainte(boolean liaison, int index_al) {
 		this.operateurDeLiaison = liaison;
 		this.compo_between = false;
+		this.index_arraylist = index_al;
 		
 		// Affichage éventuel de la liaison :
 		if(operateurDeLiaison) {
@@ -133,6 +137,22 @@ public class LigneDeContrainte extends JPanel {
 	 */
 	public boolean isBetweenCompo() {
 		return this.compo_between;
+	}
+
+
+	/**
+	 * @return the index_arraylist
+	 */
+	public int getIndex_arraylist() {
+		return index_arraylist;
+	}
+
+
+	/**
+	 * @param index_arraylist the index_arraylist to set
+	 */
+	public void setIndex_arraylist(int index_arraylist) {
+		this.index_arraylist = index_arraylist;
 	}
 
 }

@@ -32,7 +32,7 @@ public class GestionnaireDeContraintes extends JPanel {
 		this.ajouterLigne();
 		
 		hauteur_une_ligne = getPreferredSize().getHeight() - Configuration.VGAP_FLOWLAYOUT;
-		this.setPreferredSize(new Dimension(0, (int)hauteur_une_ligne));
+		//this.setPreferredSize(new Dimension(0, (int)hauteur_une_ligne));
 	}
 	
 	
@@ -46,7 +46,7 @@ public class GestionnaireDeContraintes extends JPanel {
 		if(liste_contraintes.size() > 0)
 			liaison = true;
 		
-		this.liste_contraintes.add(new LigneDeContrainte(liaison));
+		this.liste_contraintes.add(new LigneDeContrainte(liaison, liste_contraintes.size()));
 		miseAJourVue();
 	}
 	
@@ -60,6 +60,11 @@ public class GestionnaireDeContraintes extends JPanel {
 	 */
 	public void supprimerLigne(int index) {
 		this.liste_contraintes.remove(index);
+		
+		// on met à jour les index dans les lignes de contraintes :
+		for(int i=0; i<liste_contraintes.size(); i++) {
+			liste_contraintes.get(i).setIndex_arraylist(i);
+		}
 		miseAJourVue();
 	}
 	
@@ -72,16 +77,20 @@ public class GestionnaireDeContraintes extends JPanel {
 		// on supprime tous les composants du gestionnaire:
 		this.removeAll(); 
 		
-		// on met à jour la preferred size pour une gestion de la scrollbar :
-		if(liste_contraintes.size() > 1 )
-			this.setPreferredSize(new Dimension(100, (int)hauteur_une_ligne*liste_contraintes.size()+Configuration.VGAP_FLOWLAYOUT));
-		
-		// on rajoute le bon nombre :
+		// on rajoute le bon nombre de lignes :
 		for( LigneDeContrainte ligne : this.liste_contraintes ) {
 			this.add(ligne);
 		}
 		
+		// on met à jour la preferred size pour une gestion de la scrollbar :
+		if(liste_contraintes.size() > 1 ) {
+			int hauteur_totale = ((int) (hauteur_une_ligne*liste_contraintes.size())+Configuration.VGAP_FLOWLAYOUT);
+			System.out.println(hauteur_totale);
+			this.setPreferredSize(new Dimension(100, hauteur_totale));
+		}
+		
 		revalidate();
+		repaint();
 	}
 }
 
