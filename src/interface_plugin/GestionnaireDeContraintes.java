@@ -18,6 +18,8 @@ import util.Configuration;
 public class GestionnaireDeContraintes extends JPanel {
 	
 	private ArrayList<LigneDeContrainte> liste_contraintes;
+	/** hauteur d'une unique ligne de contrainte */
+	private double hauteur_une_ligne = 0.0;
 	
 	/**
 	 * Constructeur d'un gestionnaire de contraintes
@@ -29,8 +31,8 @@ public class GestionnaireDeContraintes extends JPanel {
 		
 		this.ajouterLigne();
 		
-		double hauteur = getPreferredSize().getHeight() - Configuration.VGAP_FLOWLAYOUT;
-		this.setPreferredSize(new Dimension(100, (int)hauteur*liste_contraintes.size()+Configuration.VGAP_FLOWLAYOUT));
+		hauteur_une_ligne = getPreferredSize().getHeight() - Configuration.VGAP_FLOWLAYOUT;
+		this.setPreferredSize(new Dimension(0, (int)hauteur_une_ligne));
 	}
 	
 	
@@ -69,6 +71,10 @@ public class GestionnaireDeContraintes extends JPanel {
 	public void miseAJourVue() {
 		// on supprime tous les composants du gestionnaire:
 		this.removeAll(); 
+		
+		// on met à jour la preferred size pour une gestion de la scrollbar :
+		if(liste_contraintes.size() > 1 )
+			this.setPreferredSize(new Dimension(100, (int)hauteur_une_ligne*liste_contraintes.size()+Configuration.VGAP_FLOWLAYOUT));
 		
 		// on rajoute le bon nombre :
 		for( LigneDeContrainte ligne : this.liste_contraintes ) {
