@@ -51,5 +51,36 @@ public class Select extends JPanel {
 		}
 	}
 	
+	
+	
+	/**
+	 * Retourne les champs checked dans le select
+	 * @return liste de String
+	 */
+	public ArrayList<String> getChecked() {
+		ArrayList<String> checked = new ArrayList<String>();
+		
+		for(JCheckBox check_box : liste_checkbox) {
+			if(check_box.isSelected()) 
+				checked.add(check_box.getText());
+		}
+		
+		return checked;
+	}
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
