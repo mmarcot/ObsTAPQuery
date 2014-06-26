@@ -5,6 +5,7 @@ import javax.swing.*;
 import util.Configuration;
 import util.Langage;
 
+import listeners.AuditeurBoutonRemove;
 import listeners.AuditeurOperateurs;
 import metier.ColonnesObscore;
 
@@ -49,6 +50,7 @@ public class LigneDeContrainte extends JPanel {
 		// JComboBox opérateurs :
 		JComboBox combo_oper = new JComboBox(Configuration.TAB_OPERATEURS_WHERE);
 		combo_oper.addActionListener(new AuditeurOperateurs());
+		combo_oper.setMaximumRowCount(Configuration.NB_LIGNES_COMBOBOX_OPER);
 		this.add(combo_oper);
 			
 		// JTextField valeur :
@@ -58,6 +60,7 @@ public class LigneDeContrainte extends JPanel {
 		//JButton remove constraint :
 		JButton but_remove = new JButton(Langage.getWhere_but_remove());
 		but_remove.setToolTipText(Langage.getWhere_but_remove_tt());
+		but_remove.addActionListener(new AuditeurBoutonRemove());
 		this.add(but_remove);
 		
 	}

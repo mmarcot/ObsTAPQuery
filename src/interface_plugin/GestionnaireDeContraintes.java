@@ -28,20 +28,6 @@ public class GestionnaireDeContraintes extends JPanel {
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, Configuration.HGAP_FLOWLAYOUT, Configuration.VGAP_FLOWLAYOUT));
 		
 		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne();
-		this.ajouterLigne(); // TODO enlever
-
 		
 		double hauteur = getPreferredSize().getHeight() - Configuration.VGAP_FLOWLAYOUT;
 		this.setPreferredSize(new Dimension(100, (int)hauteur*liste_contraintes.size()+Configuration.VGAP_FLOWLAYOUT));
@@ -89,7 +75,7 @@ public class GestionnaireDeContraintes extends JPanel {
 			this.add(ligne);
 		}
 		
-		repaint(); // TODO Vraiment utile ?
+		revalidate();
 	}
 }
 

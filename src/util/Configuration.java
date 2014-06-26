@@ -38,4 +38,8 @@ public class Configuration {
 	/** taille d'un grand JTextField (normal) */
 	public static int TAILLE_JTEXTFIELD_NORMAL = 14;
 	
+	/** Nombre de lignes max dans la combo box des opérateurs 
+	 * avant l'apparition de la scrollbar */
+	public static final int NB_LIGNES_COMBOBOX_OPER = TAB_OPERATEURS_WHERE.length;
+	
 }
