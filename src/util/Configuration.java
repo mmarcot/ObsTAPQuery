@@ -33,4 +33,9 @@ public class Configuration {
 	/** Tableau contenant l'ensemble des opérateurs de liaison */
 	public static String[] TAB_LIAISONS = {"AND", "OR"};
 	
+	/** taille d'un petit JTextField (pour between) */
+	public static int TAILLE_JTEXTFIELD_BETWEEN = 5;
+	/** taille d'un grand JTextField (normal) */
+	public static int TAILLE_JTEXTFIELD_NORMAL = 14;
+	
 }

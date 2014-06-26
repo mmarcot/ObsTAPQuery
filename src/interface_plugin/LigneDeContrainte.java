@@ -52,7 +52,7 @@ public class LigneDeContrainte extends JPanel {
 		this.add(combo_oper);
 			
 		// JTextField valeur :
-		text_valeur = new JTextField(12);
+		text_valeur = new JTextField(Configuration.TAILLE_JTEXTFIELD_NORMAL);
 		this.add(text_valeur);
 		
 		//JButton remove constraint :
@@ -75,7 +75,7 @@ public class LigneDeContrainte extends JPanel {
 		nb_composants--;
 		
 		// ajoute JTextField 1 :
-		text1_between = new JTextField(5);
+		text1_between = new JTextField(Configuration.TAILLE_JTEXTFIELD_BETWEEN);
 		this.add(text1_between, nb_composants-1);
 		nb_composants++;
 		
@@ -85,7 +85,7 @@ public class LigneDeContrainte extends JPanel {
 		nb_composants++;
 		
 		// ajoute JTextField 2 :
-		text2_between = new JTextField(5);
+		text2_between = new JTextField(Configuration.TAILLE_JTEXTFIELD_BETWEEN);
 		this.add(text2_between, nb_composants-1);
 		nb_composants++;
 		
@@ -112,7 +112,7 @@ public class LigneDeContrainte extends JPanel {
 		
 		// et on rajoute le nouveaux :
 		// JTextField valeur :
-		text_valeur = new JTextField(12);
+		text_valeur = new JTextField(Configuration.TAILLE_JTEXTFIELD_NORMAL);
 		this.add(text_valeur, nb_composants-1);
 		nb_composants++;
 		
