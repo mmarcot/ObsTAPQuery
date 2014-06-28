@@ -11,6 +11,8 @@ import javax.swing.*;
  */
 public class PanneauDroite extends JPanel {
 
+	private Where pan_where;
+	private Requete pan_requete;
 	/**
 	 * Contructeur du panneau de droite
 	 */
@@ -18,10 +20,26 @@ public class PanneauDroite extends JPanel {
 		this.setBackground(Color.blue);
 		this.setLayout(new GridLayout(2, 1));
 		
-		Where pan_where = new Where();
-		Requete pan_requete = new Requete();
+		pan_where = new Where();
+		pan_requete = new Requete();
 		
 		this.add(pan_where);
 		this.add(pan_requete);
+	}
+	
+	
+	/**
+	 * @return the pan_where
+	 */
+	public Where getWhere() {
+		return pan_where;
+	}
+	
+	
+	/**
+	 * @return the pan_requete
+	 */
+	public Requete getRequete() {
+		return pan_requete;
 	}
 }

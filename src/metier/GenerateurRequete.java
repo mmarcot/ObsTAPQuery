@@ -59,10 +59,10 @@ public class GenerateurRequete {
 		
 		// on ajoute les colonnes une à une :
 		for(String col : tab_col) {
-			ret += (col + " ,");
+			ret += (col + ", ");
 		}
 		// puis on enleve la virgule de fin :
-		ret = ret.substring(0, ret.length()-3);
+		ret = ret.substring(0, ret.length()-2);
 		
 		return ret;
 	}
