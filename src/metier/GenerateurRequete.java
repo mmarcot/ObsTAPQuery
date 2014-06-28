@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.ArrayList;
+
 import interface_plugin.Requete;
 import interface_plugin.Select;
 import interface_plugin.Where;
@@ -52,8 +54,17 @@ public class GenerateurRequete {
 	 * Methode qui génère la partie "select" de la requete
 	 */
 	private String genererSelect() {
-		return null;
+		String ret = new String("SELECT ");
+		ArrayList<String> tab_col = select.getChecked();
 		
+		// on ajoute les colonnes une à une :
+		for(String col : tab_col) {
+			ret += (col + " ,");
+		}
+		// puis on enleve la virgule de fin :
+		ret = ret.substring(0, ret.length()-3);
+		
+		return ret;
 	}
 	
 	
@@ -61,8 +72,7 @@ public class GenerateurRequete {
 	 * Methode qui génère la partie "from" de la requete
 	 */
 	private String genererFrom() {
-		return null;
-		
+		return new String("FROM Obscore");
 	}
 	
 	

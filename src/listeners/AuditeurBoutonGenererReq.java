@@ -3,6 +3,8 @@ package listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.*;
+
 
 /**
  * Classe auditrice qui réalise les actions suite à un clic sur 
@@ -14,8 +16,8 @@ public class AuditeurBoutonGenererReq implements ActionListener{
 
 	@Override
   public void actionPerformed(ActionEvent e) {
-	  // TODO Auto-generated method stub
-	  
+		JButton but_src = (JButton) e.getSource();
+		
   }
 
 }
