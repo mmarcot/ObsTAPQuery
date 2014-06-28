@@ -1,10 +1,12 @@
 package metier;
 
-import java.util.ArrayList;
-
+import interface_plugin.LigneDeContrainte;
 import interface_plugin.Requete;
 import interface_plugin.Select;
 import interface_plugin.Where;
+
+import java.awt.Component;
+import java.util.ArrayList;
 
 
 /**
@@ -62,7 +64,10 @@ public class GenerateurRequete {
 			ret += (col + ", ");
 		}
 		// puis on enleve la virgule de fin :
-		ret = ret.substring(0, ret.length()-2);
+		if(tab_col.size() > 0)
+			ret = ret.substring(0, ret.length()-2);
+		else
+			ret += "*";
 		
 		return ret;
 	}
@@ -72,7 +77,7 @@ public class GenerateurRequete {
 	 * Methode qui génère la partie "from" de la requete
 	 */
 	private String genererFrom() {
-		return new String("FROM Obscore");
+		return new String("FROM obscore");
 	}
 	
 	
@@ -80,8 +85,22 @@ public class GenerateurRequete {
 	 * Methode qui génère la partie "where" de la requete
 	 */
 	private String genererWhere() {
-		return null;
+		String ret = new String("WHERE ");
 		
+		// on récupère les lignes de contraintes :
+		Component[] tab_lignes_cont = where.getGestionnaire().getComponents();
+
+		// on les cast correctement et on les met dans une liste :
+		ArrayList<LigneDeContrainte> liste_cont = new ArrayList<LigneDeContrainte>();
+		for(Component ligne : tab_lignes_cont) {
+			liste_cont.add( (LigneDeContrainte) ligne);
+		}
+		
+//		for(LigneDeContrainte ligne : liste_cont) {
+//			ligne.
+//		}
+		
+		return ret;
 	}
 	
 	

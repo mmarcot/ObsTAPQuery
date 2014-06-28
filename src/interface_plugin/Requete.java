@@ -30,7 +30,8 @@ public class Requete extends JPanel {
 		
 		// création de la zone de texte :
 		text_area = new JTextArea();
-		this.add(text_area, BorderLayout.CENTER);
+		JScrollPane scroller = new JScrollPane(text_area);
+		this.add(scroller, BorderLayout.CENTER);
 		
 		initBoutonsPan();
 	}
