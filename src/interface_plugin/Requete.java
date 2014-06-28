@@ -4,6 +4,8 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import listeners.AuditeurBoutonGenererReq;
+
 import util.Configuration;
 import util.Langage;
 
@@ -46,6 +48,7 @@ public class Requete extends JPanel {
 		// création des boutons + tooltip :
 		JButton but_generer = new JButton(Langage.getReq_generer());
 		but_generer.setToolTipText(Langage.getReq_generer_tt());
+		but_generer.addActionListener(new AuditeurBoutonGenererReq());
 		JButton but_executer = new JButton(Langage.getReq_executer());
 		but_executer.setToolTipText(Langage.getReq_executer_tt());
 		JButton but_help = new JButton(Langage.getReq_help());
@@ -63,7 +66,7 @@ public class Requete extends JPanel {
 
 
 	/**
-	 * Methode qui initialise le JPanel de texte préliminaire 
+	 * Methode qui initialise le JPanel de texte préliminaire (titre + explication)
 	 */
 	private void initTextePan() {
 		// création d'un wrapper qui contient les textes préliminaires :
@@ -85,6 +88,7 @@ public class Requete extends JPanel {
 		// ajout du wrapper de texte :
 		this.add(text_wrap, BorderLayout.NORTH);
 	}
+	
 	
 	
 	/**
