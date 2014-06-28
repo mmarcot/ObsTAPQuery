@@ -15,6 +15,9 @@ import util.Langage;
  */
 public class Requete extends JPanel {
 	
+	private JTextArea text_area;
+	
+	
 	/**
 	 * Constructeur du panneau requete
 	 */
@@ -24,7 +27,7 @@ public class Requete extends JPanel {
 		initTextePan();
 		
 		// création de la zone de texte :
-		JTextArea text_area = new JTextArea("SELECT *\nFROM obscore\nWHERE t_min IS NOT NULL;");
+		text_area = new JTextArea();
 		this.add(text_area, BorderLayout.CENTER);
 		
 		initBoutonsPan();
@@ -82,5 +85,38 @@ public class Requete extends JPanel {
 		// ajout du wrapper de texte :
 		this.add(text_wrap, BorderLayout.NORTH);
 	}
+	
+	
+	/**
+	 * Affiche la requete passée en paramêtre dans la zone de texte
+	 * de la requete résultante
+	 * @param txt Le texte à mettre
+	 */
+	public void setTexteRequete(String txt) {
+		text_area.setText(txt);
+	}
+	
+	
+	/**
+	 * Methode qui va aujouter du texte à la requete existante
+	 * @param txt Le texte à ajouter
+	 */
+	public void addToTexteRequete(String txt) {
+		String texte_actuel = text_area.getText();
+		
+		text_area.setText( texte_actuel.trim() + "\n" + txt );
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
