@@ -36,6 +36,10 @@ public class GestionnaireDeContraintes extends JPanel {
 		super.add(comp);
 		updatePreferSize();
 		revalidate();
+		repaint();
+		
+		// fix bug affichage java 8 :
+		getComponent(getComponentCount()-1).repaint();
 		
 		return comp;
 	}
@@ -52,6 +56,10 @@ public class GestionnaireDeContraintes extends JPanel {
 		updatePreferSize();
 		revalidate();
 		repaint();
+		
+		// fix bug affichage java 8 :
+		if(getComponentCount() > 0)
+			getComponent(getComponentCount()-1).repaint();
 	}
 	
 	
