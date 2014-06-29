@@ -29,6 +29,10 @@ public class LigneDeContrainte extends JPanel {
 	private JLabel lab_and;
 	/** Combo box de la liaison */
 	private JComboBox combo_liaison;
+	/** Combo box de la colonne obscore */
+	private JComboBox combo_col_obs;
+	/** Combo box de l'opérateur */
+	private JComboBox combo_oper;
 	
 	
 	
@@ -47,11 +51,11 @@ public class LigneDeContrainte extends JPanel {
 		}
 		
 		// JComboBox colonnes obscore :
-		JComboBox combo_col_obs = new JComboBox(ColonnesObscore.getColonnesObscore().toArray());
+		combo_col_obs = new JComboBox(ColonnesObscore.getColonnesObscore().toArray());
 		this.add(combo_col_obs);
 		
 		// JComboBox opérateurs :
-		JComboBox combo_oper = new JComboBox(Configuration.TAB_OPERATEURS_WHERE);
+		combo_oper = new JComboBox(Configuration.TAB_OPERATEURS_WHERE);
 		combo_oper.addActionListener(new AuditeurOperateurs());
 		combo_oper.setMaximumRowCount(Configuration.NB_LIGNES_COMBOBOX_OPER);
 		this.add(combo_oper);
@@ -143,6 +147,31 @@ public class LigneDeContrainte extends JPanel {
 	 */
 	public boolean isBetweenCompo() {
 		return this.compo_between;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		String ret = new String();
+		
+		if(operateurDeLiaison)
+			ret += (String)combo_liaison.getSelectedItem() + " ";
+		
+		ret += (String)combo_col_obs.getSelectedItem() + " ";
+		ret += (String)combo_oper.getSelectedItem() + " ";
+		
+		if(!compo_between) {
+			ret += (String) text_valeur.getText() + " ";
+		}
+		else {
+			ret += (String) text1_between.getText() + " ";
+			ret += "AND ";
+			ret += (String) text2_between.getText() + " ";
+		}
+		
+		
+		return ret;
 	}
 
 }

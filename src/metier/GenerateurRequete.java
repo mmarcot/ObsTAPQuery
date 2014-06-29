@@ -79,6 +79,7 @@ public class GenerateurRequete {
 	private String genererFrom() {
 		return new String("FROM obscore");
 	}
+
 	
 	
 	/**
@@ -88,21 +89,33 @@ public class GenerateurRequete {
 		String ret = new String("WHERE ");
 		
 		// on récupère les lignes de contraintes :
-		Component[] tab_lignes_cont = where.getGestionnaire().getComponents();
-
-		// on les cast correctement et on les met dans une liste :
-		ArrayList<LigneDeContrainte> liste_cont = new ArrayList<LigneDeContrainte>();
-		for(Component ligne : tab_lignes_cont) {
-			liste_cont.add( (LigneDeContrainte) ligne);
-		}
+		LigneDeContrainte[] tab_lignes_cont = where.getGestionnaire().getLignes();
 		
-//		for(LigneDeContrainte ligne : liste_cont) {
-//			ligne.
-//		}
+		for(LigneDeContrainte ligne : tab_lignes_cont) {
+			ret += ligne.toString() + '\n';
+		}
 		
 		return ret;
 	}
 	
 	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
