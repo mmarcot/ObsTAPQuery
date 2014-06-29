@@ -8,6 +8,12 @@ import javax.swing.*;
 import util.Langage;
 
 
+/**
+ * Classe qui détermine les actions à réaliser lors du clic sur le 
+ * bouton 'aide'
+ * @author Mallory Marcot
+ *
+ */
 public class AuditeurBoutonHelp implements ActionListener {
 
 	@Override

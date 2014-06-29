@@ -6,6 +6,7 @@ import javax.swing.*;
 
 import listeners.AuditeurBoutonGenererReq;
 import listeners.AuditeurBoutonHelp;
+import listeners.AuditeurBoutonPerform;
 
 import util.Configuration;
 import util.Langage;
@@ -47,12 +48,15 @@ public class Requete extends JPanel {
 		JPanel bout_wrap = new JPanel();
 		bout_wrap.setLayout(new GridLayout(0, 1, 0, 10));
 		
-		// création des boutons + tooltip :
+		// création des boutons + tooltip + auditeur :
 		JButton but_generer = new JButton(Langage.getReq_generer());
 		but_generer.setToolTipText(Langage.getReq_generer_tt());
 		but_generer.addActionListener(new AuditeurBoutonGenererReq());
+		
 		JButton but_executer = new JButton(Langage.getReq_executer());
 		but_executer.setToolTipText(Langage.getReq_executer_tt());
+		but_executer.addActionListener(new AuditeurBoutonPerform());
+		
 		JButton but_help = new JButton(Langage.getReq_help());
 		but_help.setToolTipText(Langage.getReq_help_tt());
 		but_help.addActionListener(new AuditeurBoutonHelp());
