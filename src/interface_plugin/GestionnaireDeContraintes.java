@@ -1,6 +1,7 @@
 package interface_plugin;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -72,6 +73,28 @@ public class GestionnaireDeContraintes extends JPanel {
 			int hauteur_totale = ((int) (hauteur_une_ligne*getComponentCount())+Configuration.VGAP_FLOWLAYOUT);
 			this.setPreferredSize(new Dimension(100, hauteur_totale));
 		}
+	}
+	
+	
+	
+	/**
+	 * Retourne toutes les lignes du gestionnaire de contraintes
+	 * sous forme de tableau
+	 * @return Tableau de LigneDeContrainte
+	 */
+	public LigneDeContrainte[] getLignes() {
+			// on récupère les lignes de contraintes :
+			Component[] tab_lignes_cont = getComponents();
+
+			// on les cast correctement et on les met dans un tableau :
+			LigneDeContrainte[] tab_cont_ret = new LigneDeContrainte[getComponentCount()];
+			int i = 0;
+			for(Component ligne : tab_lignes_cont) {
+				tab_cont_ret[i] = (LigneDeContrainte) ligne;
+				i++;
+			}
+			
+			return tab_cont_ret;
 	}
 	
 }
