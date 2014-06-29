@@ -157,6 +157,8 @@ public class LigneDeContrainte extends JPanel {
 		
 		if(operateurDeLiaison)
 			ret += (String)combo_liaison.getSelectedItem() + " ";
+		else
+			ret += "WHERE ";
 		
 		ret += (String)combo_col_obs.getSelectedItem() + " ";
 		ret += (String)combo_oper.getSelectedItem() + " ";

@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import listeners.AuditeurBoutonGenererReq;
+import listeners.AuditeurBoutonHelp;
 
 import util.Configuration;
 import util.Langage;
@@ -54,6 +55,7 @@ public class Requete extends JPanel {
 		but_executer.setToolTipText(Langage.getReq_executer_tt());
 		JButton but_help = new JButton(Langage.getReq_help());
 		but_help.setToolTipText(Langage.getReq_help_tt());
+		but_help.addActionListener(new AuditeurBoutonHelp());
 		
 		// ajout des boutons au panel de boutons :
 		bout_wrap.add(but_generer);

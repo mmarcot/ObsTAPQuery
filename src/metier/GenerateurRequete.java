@@ -86,7 +86,7 @@ public class GenerateurRequete {
 	 * Methode qui génère la partie "where" de la requete
 	 */
 	private String genererWhere() {
-		String ret = new String("WHERE ");
+		String ret = new String();
 		
 		// on récupère les lignes de contraintes :
 		LigneDeContrainte[] tab_lignes_cont = where.getGestionnaire().getLignes();

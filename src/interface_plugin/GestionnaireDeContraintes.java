@@ -26,11 +26,10 @@ public class GestionnaireDeContraintes extends JPanel {
 		this.setBackground(Color.white);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, Configuration.HGAP_FLOWLAYOUT, Configuration.VGAP_FLOWLAYOUT));
 		
-		this.add(new LigneDeContrainte(false));
-		
 		hauteur_une_ligne = getPreferredSize().getHeight() - Configuration.VGAP_FLOWLAYOUT;
 	}
 	
+
 	
 	@Override
 	public Component add(Component comp) {
