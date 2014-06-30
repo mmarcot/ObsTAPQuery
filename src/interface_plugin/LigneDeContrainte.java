@@ -164,16 +164,17 @@ public class LigneDeContrainte extends JPanel {
 		ret += (String)combo_oper.getSelectedItem() + " ";
 		
 		if(!compo_between) {
-			ret += (String) text_valeur.getText() + " ";
+			ret += formatterPourRequete((String) text_valeur.getText());
 		}
 		else {
-			ret += (String) text1_between.getText() + " ";
+			ret += formatterPourRequete((String) text1_between.getText()) + " ";
 			ret += "AND ";
-			ret += (String) text2_between.getText() + " ";
+			ret += formatterPourRequete((String) text2_between.getText());
 		}
 		
 		return ret;
 	}
+	
 	
 	
 	/**
@@ -181,11 +182,35 @@ public class LigneDeContrainte extends JPanel {
 	 * @param str La chaine a parser
 	 * @return vrai ou faux
 	 */
-	public static boolean isString(String str) {
-		if(str.contains(Configuration.LISTE_CARACTERE_STRING) || str.contains(Configuration.LISTE_CARACTERE_STRING.toLowerCase()) ) 
-			return true;
-		else 
-			return false;
+	private static boolean isString(String str) {
+		
+		String str_upper = new String(str.toUpperCase());
+		for(int i=0; i<str_upper.length(); i++) {
+			if( Configuration.LISTE_CARACTERE_STRING.contains(str_upper.charAt(i) + ""))
+				return true;
+		}
+		
+		return false;
+	}
+	
+	
+	/**
+	 * Methode qui met les guillements ( ' ' ) ou non en fonction de si
+	 * l'expression passée en paramêtre est une chaîne de caractère ou pas
+	 * @param str Expression à parser
+	 * @return La chaine correctement formattée
+	 */
+	private static String formatterPourRequete(String str) {
+		String str_ret;
+		
+		System.out.println(isString(str));
+		
+		if(isString(str))
+			str_ret = new String("'" + str + "'");
+		else
+			str_ret = new String(str);
+		
+		return str_ret;
 	}
 
 }
