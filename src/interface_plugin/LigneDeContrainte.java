@@ -174,6 +174,19 @@ public class LigneDeContrainte extends JPanel {
 		
 		return ret;
 	}
+	
+	
+	/**
+	 * Methode statique qui dit si une expression est une chaine de caractère ou non
+	 * @param str La chaine a parser
+	 * @return vrai ou faux
+	 */
+	public static boolean isString(String str) {
+		if(str.contains(Configuration.LISTE_CARACTERE_STRING) || str.contains(Configuration.LISTE_CARACTERE_STRING.toLowerCase()) ) 
+			return true;
+		else 
+			return false;
+	}
 
 }
 

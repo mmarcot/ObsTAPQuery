@@ -45,4 +45,7 @@ public class Configuration {
 	/** hauteur d'une ligne de contrainte dans le gestionnaire de contraintes */
 	public static final int HAUTEUR_UNE_LIGNE_CONTRAINTE = 35 + VGAP_FLOWLAYOUT;
 	
+	/** Liste des caractère définissant une chaine de carac */
+	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_-[]^";
+	
 }
