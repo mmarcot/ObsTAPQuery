@@ -1,5 +1,12 @@
 package util;
 
+
+/**
+ * Classe qui regroupe l'ensemble des chaines de caractère visible pour
+ * l'utilisateur afin de pouvoir changer de langue facilement
+ * @author Mallory Marcot
+ *
+ */
 public class Langage {
 	private static String lang = "EN";
 	
@@ -93,7 +100,7 @@ public class Langage {
 		if(lang.equals("FR"))
 			return "Permet d'exécuter la requête et de voir son résultat";
 		else
-			return "To perform the query in the left text area, and see the result";
+			return "To perform the query and see the result";
 	}
 	
 	
@@ -180,6 +187,55 @@ public class Langage {
 			return "Le contenu de l'aide";
 		else
 			return "Content help";
+	}
+
+
+
+	/**
+	 * Texte correspondant au bouton clear
+	 * @return texte
+	 */
+	public static String getReq_clear() {
+		if(lang.equals("FR"))
+			return "Recommencer";
+		else
+			return "Clear all";
+	}
+	
+	
+	/**
+	 * Texte correspondant au tooltip du bouton clear
+	 * @return texte
+	 */
+	public static String getReq_clear_tt() {
+		if(lang.equals("FR"))
+			return "Vider tous les champs";
+		else
+			return "Clear all fields";
+	}
+	
+	
+	/**
+	 * Texte correspondant au titre de la confirm dialog pour clear
+	 * @return texte
+	 */
+	public static String getReq_clear_titre_dialog() {
+		if(lang.equals("FR"))
+			return "Attention";
+		else
+			return "Warning";
+	}
+	
+	
+	/**
+	 * Texte correspondant au message de la confirm dialog pour clear
+	 * @return texte
+	 */
+	public static String getReq_clear_message_dialog() {
+		if(lang.equals("FR"))
+			return "Etes-vous sûr de vouloir recommencer la saisie ?";
+		else
+			return "Are you sure that you want to clear all fields ?";
 	}
 	
 }

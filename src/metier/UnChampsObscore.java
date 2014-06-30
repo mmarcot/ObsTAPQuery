@@ -38,6 +38,7 @@ public class UnChampsObscore {
 	}
 
 	
+	@Override
 	public String toString() {
 		String ret = new String("Data type : " + this.datatype);
 		

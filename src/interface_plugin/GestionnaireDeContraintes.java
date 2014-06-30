@@ -34,12 +34,8 @@ public class GestionnaireDeContraintes extends JPanel {
 	@Override
 	public Component add(Component comp) {
 		super.add(comp);
-		updatePreferSize();
-		revalidate();
-		repaint();
 		
-		// fix bug affichage java 8 :
-		getComponent(getComponentCount()-1).repaint();
+		mettreAJour();
 		
 		return comp;
 	}
@@ -53,6 +49,15 @@ public class GestionnaireDeContraintes extends JPanel {
 			LigneDeContrainte premiere_ligne = (LigneDeContrainte) getComponent(0);
 			premiere_ligne.enleverLiaison();
 		}
+		
+		mettreAJour();
+	}
+	
+	
+	/**
+	 * Permet de mettre à jour l'affichage dans le gestionnaire de contraintes
+	 */
+	public void mettreAJour() {
 		updatePreferSize();
 		revalidate();
 		repaint();
@@ -61,7 +66,6 @@ public class GestionnaireDeContraintes extends JPanel {
 		if(getComponentCount() > 0)
 			getComponent(getComponentCount()-1).repaint();
 	}
-	
 	
 	
 	/**

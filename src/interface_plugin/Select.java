@@ -68,6 +68,16 @@ public class Select extends JPanel {
 		return checked;
 	}
 	
+	
+	/**
+	 * Methode qui va décocher toutes les check box dans le select
+	 */
+	public void uncheckAll() {
+		for(JCheckBox check_box : liste_checkbox) {
+			check_box.setSelected(false);
+		}
+	}
+	
 
 }
 

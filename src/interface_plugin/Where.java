@@ -64,4 +64,13 @@ public class Where extends JPanel {
 		return gestionnaire;
 	}
 	
+	
+	/**
+	 * Methode qui enlève toutes les lignes du gestionnaire de contraintes
+	 */
+	public void toutEnlever() {
+		gestionnaire.removeAll();
+		gestionnaire.mettreAJour();
+	}
+	
 }
