@@ -2,6 +2,9 @@ package metier;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+
+import util.Configuration;
 
 
 /**
@@ -16,51 +19,40 @@ public class ColonnesObscore {
 	 * à incorporer dans le plug-in
 	 * @return ArrayList<String> liste colonnes
 	 */
-	public static ArrayList getColonnesObscore() {
-		ArrayList<String> liste_col = new ArrayList<String>();
+	public static ArrayList<UnChampsObscore> getColonnesObscore() {
+		ArrayList<UnChampsObscore> liste_col = new ArrayList<UnChampsObscore>();
 		
-		liste_col.add("sky_pixel_csa");
-		liste_col.add("dataproduct_type");
-		liste_col.add("calib_level");
-		liste_col.add("target_name");
-		liste_col.add("target_class");
-		liste_col.add("obs_id");
-		liste_col.add("obs_collection");
-		liste_col.add("obs_creator_name");
-		liste_col.add("obs_publisher_did");
-		liste_col.add("bib_reference");
-		liste_col.add("data_rights");
-		liste_col.add("access_url");
-		liste_col.add("access_format");
-		liste_col.add("access_estsize");
-		liste_col.add("datalink");
-		liste_col.add("s_ra");
-		liste_col.add("s_dec");
-		liste_col.add("s_fov");
-		liste_col.add("s_region");
-		liste_col.add("s_resolution");
-		liste_col.add("s_ucd");
-		liste_col.add("t_min");
-		liste_col.add("t_max");
-		liste_col.add("t_exptime");
-		liste_col.add("t_resolution");
-		liste_col.add("t_cal_status");
-		liste_col.add("t_stat_err");
-		liste_col.add("em_min");
-		liste_col.add("em_max");
-		liste_col.add("em_res_power");
-		liste_col.add("em_resolpower_min");
-		liste_col.add("em_resolpower_max");
-		liste_col.add("em_resolution");
-		liste_col.add("em_stat_err");
-		liste_col.add("o_ucd");
-		liste_col.add("o_calib_status");
-		liste_col.add("o_stat_err");
-		liste_col.add("pol_stat");
-		liste_col.add("facility_name");
-		liste_col.add("instrument_name");
-		
-		Collections.sort(liste_col);
+		liste_col.add(new UnChampsObscore("sky_pixel_csa", Configuration.INTEGER));
+		liste_col.add(new UnChampsObscore("dataproduct_type", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("calib_level", Configuration.INTEGER));
+		liste_col.add(new UnChampsObscore("target_name", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("obs_id", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("obs_collection", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("obs_creator_name", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("obs_publisher_did", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("data_rights", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("access_url", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("access_format", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("access_estsize", Configuration.INTEGER));
+		liste_col.add(new UnChampsObscore("datalink", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("s_ra", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("s_dec", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("s_fov", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("s_region", Configuration.REGION));
+		liste_col.add(new UnChampsObscore("s_resolution", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("t_min", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("t_max", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("t_exptime", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("t_resolution", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("em_min", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("em_max", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("em_res_power", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("em_resolpower_min", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("em_resolpower_max", Configuration.DOUBLE));
+		liste_col.add(new UnChampsObscore("o_ucd", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("pol_stat", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("facility_name", Configuration.VARCHAR));
+		liste_col.add(new UnChampsObscore("instrument_name", Configuration.VARCHAR));
 		
 		return liste_col;
 	}

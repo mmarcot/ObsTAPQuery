@@ -48,4 +48,13 @@ public class Configuration {
 	/** Liste des caractère définissant une chaine de carac */
 	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_-[]^";
 	
+	// centralisation des types de données possible pour les champs obscore :
+	public static final String INTEGER = "integer";
+	public static final String DOUBLE = "double";
+	public static final String VARCHAR = "varchar";
+	public static final String CLOB = "clob";
+	public static final String REGION = "region";
+	
+	
+	
 }

@@ -7,6 +7,7 @@ import javax.swing.*;
 import util.Configuration;
 
 import metier.ColonnesObscore;
+import metier.UnChampsObscore;
 
 
 /**
@@ -33,7 +34,7 @@ public class Select extends JPanel {
 	 * Methode qui va charger et afficher les champs obscore dans le select
 	 */
 	private void afficherColonnesObscore() {
-		ArrayList<String> liste_col_str = ColonnesObscore.getColonnesObscore();
+		ArrayList<UnChampsObscore> liste_col_str = ColonnesObscore.getColonnesObscore();
 		
 		// JLabel "Select" :
 		JLabel lab_select = new JLabel("    Select");
@@ -43,8 +44,8 @@ public class Select extends JPanel {
 		
 		// on transforme les String récupéré en JCheckBox et les ajoute
 		// au JPanel select :
-		for(String col_str : liste_col_str) {
-			JCheckBox cb = new JCheckBox(col_str);
+		for(UnChampsObscore champs : liste_col_str) {
+			JCheckBox cb = new JCheckBox(champs.getName());
 			this.liste_checkbox.add(cb);
 			this.add(cb);
 		}
