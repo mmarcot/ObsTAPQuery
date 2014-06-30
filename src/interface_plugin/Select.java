@@ -35,7 +35,6 @@ public class Select extends JPanel {
 	private void afficherColonnesObscore() {
 		ArrayList<String> liste_col_str = ColonnesObscore.getColonnesObscore();
 		
-		
 		// JLabel "Select" :
 		JLabel lab_select = new JLabel("    Select");
 		Font pol_select = new Font(Configuration.POLICE, Font.BOLD, 20);

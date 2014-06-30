@@ -170,6 +170,18 @@ public class Langage {
 			return "Remove this constraint";
 	}
 	
+	
+	/**
+	 * Texte correspondant à l'aide 
+	 * @return L'aide
+	 */
+	public static String getAide() {
+		if(lang.equals("FR"))
+			return "Le contenu de l'aide";
+		else
+			return "Content help";
+	}
+	
 }
 
 
