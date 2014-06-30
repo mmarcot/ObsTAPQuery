@@ -42,4 +42,7 @@ public class Configuration {
 	 * avant l'apparition de la scrollbar */
 	public static final int NB_LIGNES_COMBOBOX_OPER = TAB_OPERATEURS_WHERE.length;
 	
+	/** hauteur d'une ligne de contrainte dans le gestionnaire de contraintes */
+	public static final int HAUTEUR_UNE_LIGNE_CONTRAINTE = 35 + VGAP_FLOWLAYOUT;
+	
 }

@@ -172,7 +172,6 @@ public class LigneDeContrainte extends JPanel {
 			ret += (String) text2_between.getText() + " ";
 		}
 		
-		
 		return ret;
 	}
 
