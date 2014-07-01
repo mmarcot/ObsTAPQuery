@@ -238,6 +238,30 @@ public class Langage {
 			return "Are you sure that you want to clear all fields ?";
 	}
 	
+	
+	/**
+	 * Texte correspondant au titre de la confirm dialog pour perform
+	 * @return texte
+	 */
+	public static String getReq_perform_titre_dialog() {
+		if(lang.equals("FR"))
+			return "Erreur";
+		else
+			return "Error";
+	}
+	
+	
+	/**
+	 * Texte correspondant au message de la confirm dialog pour perform
+	 * @return texte
+	 */
+	public static String getReq_perform_message_dialog_err() {
+		if(lang.equals("FR"))
+			return "Le plug-in doit fonctionner avec Aladin";
+		else
+			return "The plug-in must run with Aladin";
+	}
+	
 }
 
 

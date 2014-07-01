@@ -23,8 +23,7 @@ public class LanceurAladin extends AladinPlugin{
 	public void exec() throws AladinException {
 		JFrame fen = new JFrame("ObsTAP Query");
 		
-		PluginLayout plug_lay = new PluginLayout();
-		
+		PluginLayout plug_lay = new PluginLayout(aladin);
 		fen.setContentPane(plug_lay);
 		fen.pack();
 		fen.setVisible(true);

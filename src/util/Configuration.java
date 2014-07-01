@@ -11,7 +11,7 @@ import java.awt.*;
 public class Configuration {
 	
 	/** Largeur totale du plug-in */
-	public static int LARGEUR_PLUGIN_PX = 800;
+	public static int LARGEUR_PLUGIN_PX = 850;
 	/** Hauteur totale du plug-in */
 	public static int HAUTEUR_PLUGIN_PX = 600;
 	
@@ -42,9 +42,6 @@ public class Configuration {
 	 * avant l'apparition de la scrollbar */
 	public static final int NB_LIGNES_COMBOBOX_OPER = TAB_OPERATEURS_WHERE.length;
 	
-	/** hauteur d'une ligne de contrainte dans le gestionnaire de contraintes */
-	public static final int HAUTEUR_UNE_LIGNE_CONTRAINTE = 35 + VGAP_FLOWLAYOUT;
-	
 	/** Liste des caractère définissant une chaine de carac */
 	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_-[]^";
 	
@@ -54,6 +51,7 @@ public class Configuration {
 	public static final String VARCHAR = "varchar";
 	public static final String CLOB = "clob";
 	public static final String REGION = "region";
+	
 	
 	
 	

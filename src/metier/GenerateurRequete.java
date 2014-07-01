@@ -77,7 +77,7 @@ public class GenerateurRequete {
 	 * Methode qui génère la partie "from" de la requete
 	 */
 	private String genererFrom() {
-		return new String("FROM obscore");
+		return new String("FROM ivoa.ObsCore");
 	}
 
 	
@@ -97,6 +97,7 @@ public class GenerateurRequete {
 		
 		return ret;
 	}
+	
 	
 	
 }
