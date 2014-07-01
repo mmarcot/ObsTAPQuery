@@ -123,6 +123,15 @@ public class Requete extends JPanel {
 		
 		text_area.setText( texte_actuel.trim() + "\n" + txt );
 	}
+	
+	
+	/**
+	 * Methode qui retourne le texte de la requete résultante
+	 * @return String
+	 */
+	public String getTexte() {
+		return text_area.getText();
+	}
 
 }
 
