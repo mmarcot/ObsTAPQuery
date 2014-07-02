@@ -36,17 +36,17 @@ public class AuditeurBoutonPerform implements ActionListener {
 			try {
 				requete = URLEncoder.encode(pan_req.getTexte(), "UTF-8");
 			} catch (UnsupportedEncodingException e1) {
-				JOptionPane.showMessageDialog(plug_lay, e1.getMessage(), Langage.getReq_perform_titre_dialog(), JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(plug_lay, e1.getMessage(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
 			}
 			
 			// on exécute et affiche le résultat de la requete (VOTable) dans Aladin :
-			String commande_aladin = "get File(" + Configuration.URL_BDD + "/tap/sync?REQUEST=doQuery&LANG=ADQL&QUERY="+ requete + ")";
+			String commande_aladin = "get File(" + Configuration.URL_SERVICE_TAP + "/sync?REQUEST=doQuery&LANG=ADQL&QUERY="+ requete + ")";
 			Aladin aladin = plug_lay.getAladin();
 			aladin.execCommand(commande_aladin);
 		}
 		else {
 			// erreur :
-			JOptionPane.showMessageDialog(plug_lay, Langage.getReq_perform_message_dialog_err(), Langage.getReq_perform_titre_dialog(), JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(plug_lay, Langage.getReq_perform_message_dialog_err(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
 		}
 
 	}

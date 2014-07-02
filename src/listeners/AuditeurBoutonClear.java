@@ -24,7 +24,7 @@ public class AuditeurBoutonClear implements ActionListener {
 		JButton but_src = (JButton) e.getSource();
 		PluginLayout plug_lay = (PluginLayout) but_src.getParent().getParent().getParent().getParent();
 		
-		if( JOptionPane.showConfirmDialog(plug_lay, Langage.getReq_clear_message_dialog(), Langage.getReq_clear_titre_dialog(), JOptionPane.YES_NO_CANCEL_OPTION) == JOptionPane.YES_OPTION ) {		
+		if( JOptionPane.showConfirmDialog(plug_lay, Langage.getReq_clear_message_dialog(), Langage.getAttention(), JOptionPane.YES_NO_CANCEL_OPTION) == JOptionPane.YES_OPTION ) {		
 			// on nettoye tout :
 			plug_lay.getSelect().uncheckAll();
 			plug_lay.getWhere().toutEnlever();

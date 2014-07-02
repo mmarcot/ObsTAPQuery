@@ -219,7 +219,7 @@ public class Langage {
 	 * Texte correspondant au titre de la confirm dialog pour clear
 	 * @return texte
 	 */
-	public static String getReq_clear_titre_dialog() {
+	public static String getAttention() {
 		if(lang.equals("FR"))
 			return "Attention";
 		else
@@ -243,7 +243,7 @@ public class Langage {
 	 * Texte correspondant au titre de la confirm dialog pour perform
 	 * @return texte
 	 */
-	public static String getReq_perform_titre_dialog() {
+	public static String getErreur() {
 		if(lang.equals("FR"))
 			return "Erreur";
 		else
@@ -260,6 +260,15 @@ public class Langage {
 			return "Le plug-in doit fonctionner avec Aladin";
 		else
 			return "The plug-in must run with Aladin";
+	}
+
+
+
+	public static String getMessage_err_conn_bdd() {
+		if(lang.equals("FR"))
+			return "Impossible de se connecter à la base de données";
+		else
+			return "Connection with the database failed";
 	}
 	
 }

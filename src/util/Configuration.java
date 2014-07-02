@@ -52,8 +52,13 @@ public class Configuration {
 	public static final String CLOB = "clob";
 	public static final String REGION = "region";
 	
-	/** Url vers la base de donnée Saada */
-	public static final String URL_BDD = "http://obs-stage-s4.u-strasbg.fr:8088/VizieR";
+	/** Url vers le service tap de Saada */
+	public static final String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8088/VizieR/tap";
+	public static final String URL_BDD_JDBC = "jdbc:postgresql://localhost:5432/VizieR";
+	/** user de la bdd */
+	public static final String USER_BDD = "postgres";
+	/** mot de passe de la bdd */
+	public static final String MOT_DE_PASSE_BDD = "reverser";
 	
 	
 	
