@@ -23,17 +23,42 @@ public class ColonnesObscore {
 	 */
 	public static ArrayList<UnChampsObscore> getColonnesObscore() {
 		ArrayList<UnChampsObscore> liste_col = new ArrayList<UnChampsObscore>();
-
+		
+		// on tente de se connecter à la BDD :
+		Connection conn;
 		try {
 			Class.forName("org.postgresql.Driver");
-
-			Connection conn = DriverManager.getConnection(Configuration.URL_BDD_JDBC, Configuration.USER_BDD, Configuration.MOT_DE_PASSE_BDD);
+			conn = DriverManager.getConnection(Configuration.URL_BDD_JDBC, Configuration.USER_BDD, Configuration.MOT_DE_PASSE_BDD);
 		} 
 		catch (Exception e) {
 			JOptionPane.showMessageDialog(null, Langage.getMessage_err_conn_bdd(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+			return liste_col;
 		}
-
-		//liste_col.add(new UnChampsObscore("instrument_name", Configuration.VARCHAR));
+		
+		try {
+			// recupération des colonnes obscore et de leur descrition :
+			Statement state = conn.createStatement();
+			ResultSet result = state.executeQuery("select column_name, datatype, unit, ucd, utype " +
+													"from columns " +
+													"where table_name = 'ivoa.ObsCore'");
+			
+			
+			// on crée tous les champs et on les ajoutent à la liste :
+			while(result.next()) {
+				String column_name = result.getString("column_name");
+				String datatype = result.getString("datatype");
+				String unit = result.getString("unit");
+				String ucd = result.getString("ucd");
+				String utype = result.getString("utype");
+				
+				liste_col.add(new UnChampsObscore(column_name, datatype, unit, ucd, utype));
+			}
+		}
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e.getStackTrace(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+			return liste_col;
+		}
+				
 
 		return liste_col;
 	}
