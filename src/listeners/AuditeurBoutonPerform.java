@@ -10,6 +10,7 @@ import java.net.URLEncoder;
 
 import javax.swing.*;
 
+import util.Configuration;
 import util.Langage;
 
 import cds.aladin.Aladin;
@@ -39,7 +40,7 @@ public class AuditeurBoutonPerform implements ActionListener {
 			}
 			
 			// on exécute et affiche le résultat de la requete (VOTable) dans Aladin :
-			String commande_aladin = "get File(http://obs-stage-s4.u-strasbg.fr:8088/VizieR/tap/sync?REQUEST=doQuery&LANG=ADQL&QUERY="+ requete + ")";
+			String commande_aladin = "get File(" + Configuration.URL_BDD + "/tap/sync?REQUEST=doQuery&LANG=ADQL&QUERY="+ requete + ")";
 			Aladin aladin = plug_lay.getAladin();
 			aladin.execCommand(commande_aladin);
 		}

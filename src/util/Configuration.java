@@ -52,6 +52,9 @@ public class Configuration {
 	public static final String CLOB = "clob";
 	public static final String REGION = "region";
 	
+	/** Url vers la base de donnée Saada */
+	public static final String URL_BDD = "http://obs-stage-s4.u-strasbg.fr:8088/VizieR";
+	
 	
 	
 	
