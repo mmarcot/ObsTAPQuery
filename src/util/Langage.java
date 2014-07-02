@@ -268,7 +268,7 @@ public class Langage {
 		if(lang.equals("FR"))
 			return "Impossible de se connecter à la base de données";
 		else
-			return "Connection with the database failed";
+			return "Failing to connect with the database";
 	}
 	
 }
