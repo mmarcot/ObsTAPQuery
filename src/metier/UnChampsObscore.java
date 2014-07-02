@@ -49,7 +49,12 @@ public class UnChampsObscore {
 	
 	@Override
 	public String toString() {
-		String ret = new String("Data type : " + this.datatype);
+		String ret = new String("<html>");
+		ret += "datatype : " + this.datatype + "<br/>";
+		ret += "unit : " + this.unit + "<br/>";
+		ret += "ucd : " + this.ucd + "<br/>";
+		ret += "utype : " + this.utype;
+		ret += "</html>";
 		
 		return ret;
 	}
