@@ -18,7 +18,7 @@ import cds.aladin.Aladin;
 
 /**
  * Classe qui détermine les actions à réaliser lors du clic sur le 
- * bouton 'Générer'
+ * bouton 'Perform query'
  * @author Mallory Marcot
  *
  */
