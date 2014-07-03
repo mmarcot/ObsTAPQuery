@@ -34,6 +34,7 @@ public class GenerateurRequete {
 	}
 	
 	
+	
 	/**
 	 * Methode qui va générer la requête et l'afficher dans la zone de texte
 	 * requête résultante
@@ -50,6 +51,7 @@ public class GenerateurRequete {
 		// affichage :
 		requete.setTexteRequete(req);
 	}
+	
 	
 	
 	/**
@@ -71,6 +73,7 @@ public class GenerateurRequete {
 		
 		return ret;
 	}
+	
 	
 	
 	/**

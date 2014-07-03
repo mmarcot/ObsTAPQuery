@@ -12,7 +12,7 @@ import util.Langage;
 /**
  * Classe qui contient l'ensemble des champs obscore
  * @author Mallory Marcot
- *
+ * 
  */
 public class ColonnesObscore {
 	
@@ -65,7 +65,8 @@ public class ColonnesObscore {
 				}
 			}
 			catch(Exception e) {
-				JOptionPane.showMessageDialog(null, e.getStackTrace(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, Langage.getMessage_err_recup_bdd(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
 				return liste_col;
 			}
 		}

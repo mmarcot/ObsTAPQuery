@@ -115,6 +115,7 @@ public class Langage {
 			return "Help";
 	}
 	
+	
 	/**
 	 * Texte tooltip correspondant au bouton help
 	 * @return String
@@ -263,12 +264,29 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * Message de la boite de dialogue lorsque l'on arrive pas à se connecter 
+	 * à la base de donnée
+	 * @return
+	 */
 	public static String getMessage_err_conn_bdd() {
 		if(lang.equals("FR"))
 			return "Impossible de se connecter à la base de données";
 		else
 			return "Failing to connect with the database";
+	}
+	
+	
+	/**
+	 * Message de la boite de dialogue lorsque l'on arrive pas à se récupérer 
+	 * les chamsp obscore dans la base de donnée
+	 * @return
+	 */
+	public static String getMessage_err_recup_bdd() {
+		if(lang.equals("FR"))
+			return "Impossible recupérer le TAP schéma";
+		else
+			return "Unable to get the TAP schema";
 	}
 	
 }
