@@ -27,6 +27,7 @@ public class GestionnaireDeContraintes extends JPanel {
 		this.setBackground(Color.white);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, Configuration.HGAP_FLOWLAYOUT, Configuration.VGAP_FLOWLAYOUT));
 		
+		// prise de dimension d'une ligne :
 		add(new LigneDeContrainte(true));
 		hauteur_une_ligne = (int) (getPreferredSize().getHeight() - Configuration.VGAP_FLOWLAYOUT);
 		largeur_une_ligne = (int) getPreferredSize().getWidth();

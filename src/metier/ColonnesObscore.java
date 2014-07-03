@@ -31,7 +31,6 @@ public class ColonnesObscore {
 		// sinon on retourne simplement la liste 
 		// cela permet de limiter les accès à la BDD et donc d'être + rapide :
 		if(liste_col == null) {
-			System.out.println("ACCES");
 			liste_col = new ArrayList<UnChampsObscore>();
 			
 			// on tente de se connecter à la BDD :
@@ -42,6 +41,7 @@ public class ColonnesObscore {
 			} 
 			catch (Exception e) {
 				JOptionPane.showMessageDialog(null, Langage.getMessage_err_conn_bdd(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
 				return liste_col;
 			}
 			

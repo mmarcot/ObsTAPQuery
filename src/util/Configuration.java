@@ -32,15 +32,14 @@ public class Configuration {
 	public static String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">=", "LIKE", "IS", "BETWEEN"};
 	/** Tableau contenant l'ensemble des opérateurs de liaison */
 	public static String[] TAB_LIAISONS = {"AND", "OR"};
+	/** Nombre de lignes max dans la combo box des opérateurs 
+	 * avant l'apparition de la scrollbar */
+	public static final int NB_LIGNES_COMBOBOX_OPER = TAB_OPERATEURS_WHERE.length;
 	
 	/** taille d'un petit JTextField (pour between) */
 	public static int TAILLE_JTEXTFIELD_BETWEEN = 5;
 	/** taille d'un grand JTextField (normal) */
 	public static int TAILLE_JTEXTFIELD_NORMAL = 14;
-	
-	/** Nombre de lignes max dans la combo box des opérateurs 
-	 * avant l'apparition de la scrollbar */
-	public static final int NB_LIGNES_COMBOBOX_OPER = TAB_OPERATEURS_WHERE.length;
 	
 	/** Liste des caractère définissant une chaine de carac */
 	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_-[]^";
