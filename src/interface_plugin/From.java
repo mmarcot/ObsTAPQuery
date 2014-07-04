@@ -42,6 +42,7 @@ public class From extends JPanel {
 		for(String table : liste_tables) {
 			combo_tables.addItem(table);
 		}
+		combo_tables.setSelectedItem("ivoa.ObsCore");
 		add(combo_tables);
 		
 		// espacement :
