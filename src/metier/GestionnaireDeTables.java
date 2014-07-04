@@ -74,6 +74,14 @@ public class GestionnaireDeTables {
 	}
 	
 	
+	/**
+	 * @return the liste_tables
+	 */
+	public ArrayList<String> getListe_tables() {
+		return liste_tables;
+	}
+	
+	
 }
 
 
