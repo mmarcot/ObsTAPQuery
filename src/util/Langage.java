@@ -289,6 +289,19 @@ public class Langage {
 			return "Unable to get the TAP schema";
 	}
 	
+	
+	
+	/**
+	 * Texte correspondant à la check box select all
+	 * @return texte
+	 */
+	public static String getSelect_all() {
+		if(lang.equals("FR"))
+			return "Tout cocher";
+		else
+			return "Select all";
+	}
+	
 }
 
 

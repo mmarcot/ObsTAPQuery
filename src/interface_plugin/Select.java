@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import util.Configuration;
+import util.Langage;
 
+import listeners.AuditeurCheckSelectAll;
 import metier.ColonnesObscore;
 import metier.UnChampsObscore;
 
@@ -18,12 +20,28 @@ import metier.UnChampsObscore;
 public class Select extends JPanel {
 	
 	private ArrayList<JCheckBox> liste_checkbox;
+	private JCheckBox cb_select_all;
 	
 	/**
 	 * Constructeur de la vue sur le select
 	 */
 	public Select() {
 		this.liste_checkbox = new ArrayList<JCheckBox>();
+		
+		// JLabel "Select" :
+		JLabel lab_select = new JLabel("    Select");
+		Font pol_select = new Font(Configuration.POLICE, Font.BOLD, 20);
+		lab_select.setFont(pol_select);
+		this.add(lab_select);
+		
+		// JCheckBox select all :
+		this.cb_select_all = new JCheckBox(Langage.getSelect_all());
+		cb_select_all.addActionListener(new AuditeurCheckSelectAll());
+		this.add(cb_select_all);
+		
+		// JLabel separateur :
+		this.add(new JLabel(" "));
+		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		this.afficherColonnesObscore();
@@ -35,12 +53,6 @@ public class Select extends JPanel {
 	 */
 	private void afficherColonnesObscore() {
 		ArrayList<UnChampsObscore> liste_col_str = ColonnesObscore.getColonnesObscore();
-		
-		// JLabel "Select" :
-		JLabel lab_select = new JLabel("    Select");
-		Font pol_select = new Font(Configuration.POLICE, Font.BOLD, 20);
-		lab_select.setFont(pol_select);
-		this.add(lab_select);
 		
 		// on transforme les String récupéré en JCheckBox et les ajoute
 		// au JPanel select :
@@ -76,6 +88,28 @@ public class Select extends JPanel {
 		for(JCheckBox check_box : liste_checkbox) {
 			check_box.setSelected(false);
 		}
+	}
+	
+	
+	/**
+	 * Methode qui va cocher toutes les check box dans le select
+	 */
+	public void checkAll() {
+		for(JCheckBox check_box : liste_checkbox) {
+			check_box.setSelected(true);
+		}
+	}
+	
+	
+	/**
+	 * Methode qui renvoie l'état de la checkbox select all
+	 * @return vrai ou faux
+	 */
+	public boolean isAllSelected() {
+		if(cb_select_all.isSelected())
+			return true;
+		else
+			return false;
 	}
 	
 

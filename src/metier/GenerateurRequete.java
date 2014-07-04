@@ -59,17 +59,22 @@ public class GenerateurRequete {
 	 */
 	private String genererSelect() {
 		String ret = new String("SELECT ");
-		ArrayList<String> tab_col = select.getChecked();
+		ArrayList<String> liste_col_checked = select.getChecked();
+		boolean all_selected = select.isAllSelected();
 		
-		// on ajoute les colonnes une à une :
-		for(String col : tab_col) {
-			ret += (col + ", ");
-		}
-		// puis on enleve la virgule de fin :
-		if(tab_col.size() > 0)
-			ret = ret.substring(0, ret.length()-2);
-		else
+		if(all_selected) {
 			ret += "*";
+		}
+		else {
+			// on ajoute les colonnes une à une :
+			for(String col : liste_col_checked) 
+				ret += (col + ", ");
+			// puis on enleve la virgule de fin :
+			if(liste_col_checked.size() > 0)
+				ret = ret.substring(0, ret.length()-2);
+			else
+				ret += "*";
+		}
 		
 		return ret;
 	}
