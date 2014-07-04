@@ -301,6 +301,16 @@ public class Langage {
 		else
 			return "Select all";
 	}
+
+
+
+	public static String getMessage_err_recup_bdd_tables() {
+		if(lang.equals("FR"))
+			return "Impossible de récupérer les différentes tables dans la base de données";
+		else
+			return "Unable to get tables from database";
+	}
+
 	
 }
 

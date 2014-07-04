@@ -5,7 +5,6 @@ import interface_plugin.Requete;
 import interface_plugin.Select;
 import interface_plugin.Where;
 
-import java.awt.Component;
 import java.util.ArrayList;
 
 

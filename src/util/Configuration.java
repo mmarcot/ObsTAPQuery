@@ -11,9 +11,9 @@ import java.awt.*;
 public class Configuration {
 	
 	/** Largeur totale du plug-in */
-	public static int LARGEUR_PLUGIN_PX = 850;
+	public static int LARGEUR_PLUGIN_PX = 1000;
 	/** Hauteur totale du plug-in */
-	public static int HAUTEUR_PLUGIN_PX = 600;
+	public static int HAUTEUR_PLUGIN_PX = 700;
 	
 	/** Police par default du plug-in */
 	public static String POLICE = Font.MONOSPACED;
