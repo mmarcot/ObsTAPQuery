@@ -28,12 +28,6 @@ public class Select extends JPanel {
 	public Select() {
 		this.liste_checkbox = new ArrayList<JCheckBox>();
 		
-		// JLabel "Select" :
-		JLabel lab_select = new JLabel("    Select");
-		Font pol_select = new Font(Configuration.POLICE, Font.BOLD, 20);
-		lab_select.setFont(pol_select);
-		this.add(lab_select);
-		
 		// JCheckBox select all :
 		this.cb_select_all = new JCheckBox(Langage.getSelect_all());
 		cb_select_all.addActionListener(new AuditeurCheckSelectAll());

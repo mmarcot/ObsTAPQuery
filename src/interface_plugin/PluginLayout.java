@@ -17,6 +17,7 @@ public class PluginLayout extends JPanel {
 	
 	private Select pan_select;
 	private Where pan_where;
+	private From pan_from;
 	private Requete pan_requete;
 	private boolean avec_aladin;
 	private Aladin aladin;
@@ -29,22 +30,20 @@ public class PluginLayout extends JPanel {
 		this.setPreferredSize(new Dimension(Configuration.LARGEUR_PLUGIN_PX, Configuration.HAUTEUR_PLUGIN_PX));
 		this.setLayout(new BorderLayout());
 		
-		// Gestion de la ScrollBar :
-		pan_select = new Select();
-		JScrollPane scroller = new JScrollPane(pan_select);
-		scroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
-		scroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
-		this.add(scroller,BorderLayout.CENTER);
 		
+		PartieGauche pan_gauche = new PartieGauche();
 		PanneauDroite pan_droite = new PanneauDroite();
+		pan_select = pan_gauche.getSelect();
+		pan_from = pan_gauche.getFrom();
 		pan_where = pan_droite.getWhere();
 		pan_requete = pan_droite.getRequete();
 		
-		this.add(scroller, BorderLayout.LINE_START);
-		this.add(pan_droite, BorderLayout.CENTER);
+		add(pan_gauche, BorderLayout.WEST);
+		add(pan_droite, BorderLayout.CENTER);
 	}
 	
 	
+
 	/**
 	 * Constructeur de l'interface avec Aladin
 	 * @param aladin
@@ -96,6 +95,14 @@ public class PluginLayout extends JPanel {
 	 */
 	public Requete getRequete() {
 		return pan_requete;
+	}
+	
+	
+	/**
+	 * @return the pan_from
+	 */
+	public From getFrom() {
+		return pan_from;
 	}
 	
 	
