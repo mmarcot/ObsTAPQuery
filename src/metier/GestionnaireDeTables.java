@@ -16,22 +16,14 @@ import util.Langage;
  *
  */
 public class GestionnaireDeTables {
-	private ArrayList<String> liste_tables;
+	private static ArrayList<String> liste_tables;
 	
-	
-	/**
-	 * Constructeur du gestionnaire de tables
-	 */
-	public GestionnaireDeTables() {
-		liste_tables = new ArrayList<String>();
-		chercherTables();
-	}
-	
+
 	
 	/**
 	 * Methode qui va chercher les tables dans la base de données
 	 */
-	private void chercherTables() {
+	private static void chercherTables() {
 		Connection conn = seConnecterBDD();
 		// Si la connection est OK :
 		if( conn != null) {
@@ -59,7 +51,7 @@ public class GestionnaireDeTables {
 	/**
 	 * Methode qui se connecte à la base de données
 	 */
-	private Connection seConnecterBDD() {
+	private static Connection seConnecterBDD() {
 		Connection conn = null;
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -77,7 +69,12 @@ public class GestionnaireDeTables {
 	/**
 	 * @return the liste_tables
 	 */
-	public ArrayList<String> getListe_tables() {
+	public static ArrayList<String> getListe_tables() {
+		if(liste_tables == null) {
+			liste_tables = new ArrayList<String>();
+			chercherTables();
+		}
+		
 		return liste_tables;
 	}
 	

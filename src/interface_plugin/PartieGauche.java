@@ -19,7 +19,7 @@ public class PartieGauche extends JPanel {
 		this.setLayout(new BorderLayout());
 		
 		// JLabel "Select" :
-		JLabel lab_select = new JLabel("     Select");
+		JLabel lab_select = new JLabel("    Select");
 		Font pol_select = new Font(Configuration.POLICE, Font.BOLD, 20);
 		lab_select.setFont(pol_select);
 		add(lab_select, BorderLayout.NORTH);

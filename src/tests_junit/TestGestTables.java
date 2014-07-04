@@ -15,12 +15,14 @@ public class TestGestTables {
 	 */
 	@Test
 	public void test() {
-		GestionnaireDeTables gest = new GestionnaireDeTables();
-		ArrayList<String> ls_tables = gest.getListe_tables();
+		ArrayList<String> ls_tables = GestionnaireDeTables.getListe_tables();
 		
 		for(String table : ls_tables) {
 			System.out.println(table);
 		}
+		
+		if(ls_tables == null || ls_tables.size() == 0) 
+			fail("Aucune table n'a été récupérée");
 	}
 
 }

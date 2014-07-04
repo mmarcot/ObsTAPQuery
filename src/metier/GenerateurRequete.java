@@ -1,5 +1,6 @@
 package metier;
 
+import interface_plugin.From;
 import interface_plugin.LigneDeContrainte;
 import interface_plugin.Requete;
 import interface_plugin.Select;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class GenerateurRequete {
 
 	private Select select;
+	private From from;
 	private Where where;
 	private Requete requete;
 
@@ -26,8 +28,9 @@ public class GenerateurRequete {
 	 * @param where Référence vers le where du plug-in
 	 * @param requete Référence vers la zone de requete resultante du plug-in
 	 */
-	public GenerateurRequete(Select sel, Where whe, Requete req) {
+	public GenerateurRequete(Select sel, From fro, Where whe, Requete req) {
 		this.select = sel;
+		this.from = fro;
 		this.where = whe;
 		this.requete = req;
 	}
@@ -84,7 +87,10 @@ public class GenerateurRequete {
 	 * Methode qui génère la partie "from" de la requete
 	 */
 	private String genererFrom() {
-		return new String("FROM ivoa.ObsCore");
+		String ret = "FROM ";
+		ret += from.getSelectedTable();
+		
+		return ret;
 	}
 
 	

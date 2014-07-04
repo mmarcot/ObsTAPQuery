@@ -23,7 +23,7 @@ public class AuditeurBoutonGenererReq implements ActionListener{
 		JButton but_src = (JButton) e.getSource();
 		PluginLayout plug_lay = (PluginLayout)but_src.getParent().getParent().getParent().getParent();
 		
-		GenerateurRequete gen_req = new GenerateurRequete(plug_lay.getSelect(), plug_lay.getWhere(), plug_lay.getRequete());
+		GenerateurRequete gen_req = new GenerateurRequete(plug_lay.getSelect(), plug_lay.getFrom(), plug_lay.getWhere(), plug_lay.getRequete());
 		gen_req.generer();
   }
 
