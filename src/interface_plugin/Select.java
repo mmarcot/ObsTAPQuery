@@ -8,6 +8,7 @@ import util.Configuration;
 import util.Langage;
 
 import listeners.AuditeurCheckSelectAll;
+import listeners.AuditeurCheckboxColObs;
 import metier.ColonnesObscore;
 import metier.UnChampsObscore;
 
@@ -58,6 +59,7 @@ public class Select extends JPanel {
 		// au JPanel select :
 		for(UnChampsObscore champs : liste_col_str) {
 			JCheckBox cb = new JCheckBox(champs.getName());
+			cb.addActionListener(new AuditeurCheckboxColObs());
 			this.liste_checkbox.add(cb);
 			this.add(cb);
 		}
@@ -85,6 +87,7 @@ public class Select extends JPanel {
 	 * Methode qui va décocher toutes les check box dans le select
 	 */
 	public void uncheckAll() {
+		cb_select_all.setSelected(false);
 		for(JCheckBox check_box : liste_checkbox) {
 			check_box.setSelected(false);
 		}
@@ -102,14 +105,10 @@ public class Select extends JPanel {
 	
 	
 	/**
-	 * Methode qui renvoie l'état de la checkbox select all
-	 * @return vrai ou faux
+	 * @return La JCheckBox select all
 	 */
-	public boolean isAllSelected() {
-		if(cb_select_all.isSelected())
-			return true;
-		else
-			return false;
+	public JCheckBox getCb_select_all() {
+		return cb_select_all;
 	}
 	
 

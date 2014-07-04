@@ -60,7 +60,7 @@ public class GenerateurRequete {
 	private String genererSelect() {
 		String ret = new String("SELECT ");
 		ArrayList<String> liste_col_checked = select.getChecked();
-		boolean all_selected = select.isAllSelected();
+		boolean all_selected = select.getCb_select_all().isSelected();
 		
 		if(all_selected) {
 			ret += "*";
