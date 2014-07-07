@@ -45,7 +45,7 @@ public class PluginLayout extends JPanel {
 	
 
 	/**
-	 * Constructeur de l'interface avec Aladin
+	 * Constructeur de l'interface avec pour lanceur Aladin
 	 * @param aladin
 	 */
 	public PluginLayout(Aladin aladin) {

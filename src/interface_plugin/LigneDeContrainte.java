@@ -10,7 +10,7 @@ import util.Langage;
 
 import listeners.AuditeurBoutonRemove;
 import listeners.AuditeurOperateurs;
-import metier.ColonnesObscore;
+import metier.ColonnesDisponibles;
 import metier.UnChampsObscore;
 
 /**
@@ -58,7 +58,7 @@ public class LigneDeContrainte extends JPanel {
 		combo_col_obs = new JComboBox();
 		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
 		combo_col_obs.setRenderer(renderer);
-		ArrayList<UnChampsObscore> liste_col_obs = ColonnesObscore.getColonnesObscore();
+		ArrayList<UnChampsObscore> liste_col_obs = ColonnesDisponibles.getColonnesDisponibles();
 		ArrayList<String> tooltips_col_obs = new ArrayList<String>();
 		// ajout de l'item et du tooltip :
 		for(int i=0; i<liste_col_obs.size(); i++) {

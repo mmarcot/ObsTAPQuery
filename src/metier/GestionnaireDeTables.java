@@ -38,6 +38,7 @@ public class GestionnaireDeTables {
 					String nom_table = res_set.getString("table_name");
 					liste_tables.add(nom_table);
 				}
+				conn.close();
 			}
 			catch(Exception e) {
 				JOptionPane.showMessageDialog(null, Langage.getMessage_err_recup_bdd_tables(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);

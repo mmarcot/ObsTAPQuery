@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import listeners.AuditeurComboBoxFrom;
 import metier.GestionnaireDeTables;
 
 import util.Configuration;
@@ -43,6 +44,7 @@ public class From extends JPanel {
 			combo_tables.addItem(table);
 		}
 		combo_tables.setSelectedItem("ivoa.ObsCore");
+		combo_tables.addActionListener(new AuditeurComboBoxFrom());
 		add(combo_tables);
 		
 		// espacement :
@@ -52,11 +54,20 @@ public class From extends JPanel {
 	
 	
 	/**
+	 * Methode qui permet de remettre la selection par défault
+	 */
+	public void recommencer() {
+		combo_tables.setSelectedItem("ivoa.ObsCore");
+	}
+	
+	
+	/**
 	 * @return La table selectionnée dans la JComboBox
 	 */
 	public String getSelectedTable() {
 		return (String) combo_tables.getSelectedItem();
 	}
+	
 }
 
 

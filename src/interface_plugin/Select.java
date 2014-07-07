@@ -8,7 +8,7 @@ import util.Configuration;
 import util.Langage;
 import listeners.AuditeurCheckSelectAll;
 import listeners.AuditeurCheckboxColObs;
-import metier.ColonnesObscore;
+import metier.ColonnesDisponibles;
 import metier.UnChampsObscore;
 
 
@@ -46,7 +46,7 @@ public class Select extends JPanel {
 	 * Methode qui va charger et afficher les champs obscore dans le select
 	 */
 	private void afficherColonnesObscore() {
-		ArrayList<UnChampsObscore> liste_col_str = ColonnesObscore.getColonnesObscore();
+		ArrayList<UnChampsObscore> liste_col_str = ColonnesDisponibles.getColonnesDisponibles();
 		
 		// on transforme les String récupéré en JCheckBox et les ajoute
 		// au JPanel select :
