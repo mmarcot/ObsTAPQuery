@@ -18,6 +18,60 @@ import util.Langage;
 public class GestionnaireDeTables {
 	private static ArrayList<String> liste_tables;
 	
+	
+	
+	/**
+	 * @return the liste_tables
+	 */
+	public static ArrayList<String> getListe_tables() {
+		if(liste_tables == null) {
+			liste_tables = new ArrayList<String>();
+			chercherTables();
+		}
+		
+		return liste_tables;
+	}
+	
+	
+	
+	/**
+	 * Methode qui va chercher les colonnes présentes dans une table donnée
+	 * @param table La table voulue
+	 */
+	public static ArrayList<UnChamps> getColonnes(String table) {
+		ArrayList<UnChamps> liste_colonnes = new ArrayList<UnChamps>();
+		
+		Connection conn = seConnecterBDD();
+		
+		if(conn != null) {
+			try {
+				Statement state = conn.createStatement();
+				ResultSet res_set = state.executeQuery("SELECT column_name, datatype, unit, ucd, utype " + 
+														"FROM columns " +
+														"WHERE table_name = '" + table + "' ");
+				
+				// parcours et ajout des resultats de la requete dans la liste :
+				while(res_set.next()) {
+					String column_name = res_set.getString("column_name");
+					String datatype = res_set.getString("datatype");
+					String unit = res_set.getString("unit");
+					String ucd = res_set.getString("ucd");
+					String utype = res_set.getString("utype");
+					
+					liste_colonnes.add(new UnChamps(column_name, datatype, unit, ucd, utype));
+				}
+				conn.close();
+			}
+			catch(Exception e) {
+				JOptionPane.showMessageDialog(null, Langage.getMessage_err_recup_bdd_colonnes(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			}
+		}
+		
+		return liste_colonnes;
+	}
+	
+	
 
 	
 	/**
@@ -49,6 +103,8 @@ public class GestionnaireDeTables {
 	}
 	
 	
+	
+	
 	/**
 	 * Methode qui se connecte à la base de données
 	 */
@@ -64,19 +120,6 @@ public class GestionnaireDeTables {
 		}
 		
 		return conn;
-	}
-	
-	
-	/**
-	 * @return the liste_tables
-	 */
-	public static ArrayList<String> getListe_tables() {
-		if(liste_tables == null) {
-			liste_tables = new ArrayList<String>();
-			chercherTables();
-		}
-		
-		return liste_tables;
 	}
 	
 	

@@ -304,11 +304,27 @@ public class Langage {
 
 
 
+	/**
+	 * Message d'erreur lors de la récupération des tables dans le TAP SCHEMA
+	 * @return
+	 */
 	public static String getMessage_err_recup_bdd_tables() {
 		if(lang.equals("FR"))
 			return "Impossible de récupérer les différentes tables dans la base de données";
 		else
 			return "Unable to get tables from database";
+	}
+	
+	
+	/**
+	 * Message d'erreur lors de la récupération des colonnes dans le TAP SCHEMA
+	 * @return
+	 */
+	public static String getMessage_err_recup_bdd_colonnes() {
+		if(lang.equals("FR"))
+			return "Impossible de récupérer les différentes colonnes dans la table";
+		else
+			return "Unable to get columns from table";
 	}
 
 	

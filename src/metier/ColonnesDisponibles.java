@@ -16,7 +16,7 @@ import util.Langage;
  */
 public class ColonnesDisponibles {
 	
-	private static ArrayList<UnChampsObscore> liste_col;
+	private static ArrayList<UnChamps> liste_col;
 
 	/**
 	 * Methode statique qui renvoie l'ensemble des colonnes obscores
@@ -25,13 +25,13 @@ public class ColonnesDisponibles {
 	 * contenant le TAP_SCHEMA
 	 * @return ArrayList<String> liste colonnes
 	 */
-	public static ArrayList<UnChampsObscore> getColonnesDisponibles() {
+	public static ArrayList<UnChamps> getColonnesDisponibles() {
 		
 		// si la liste de colonne n'a pas encore été initialisée alors on le fait,
 		// sinon on retourne simplement la liste 
 		// cela permet de limiter les accès à la BDD et donc d'être + rapide :
 		if(liste_col == null) {
-			liste_col = new ArrayList<UnChampsObscore>();
+			liste_col = new ArrayList<UnChamps>();
 			
 			// on tente de se connecter à la BDD :
 			Connection conn;
@@ -61,7 +61,7 @@ public class ColonnesDisponibles {
 					String ucd = result.getString("ucd");
 					String utype = result.getString("utype");
 					
-					liste_col.add(new UnChampsObscore(column_name, datatype, unit, ucd, utype));
+					liste_col.add(new UnChamps(column_name, datatype, unit, ucd, utype));
 				}
 				
 				conn.close();

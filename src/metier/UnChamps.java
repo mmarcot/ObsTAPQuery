@@ -6,7 +6,7 @@ package metier;
  * @author Mallory Marcot
  *
  */
-public class UnChampsObscore {
+public class UnChamps {
 	
 	private String name;
 	private String datatype;
@@ -22,7 +22,7 @@ public class UnChampsObscore {
 	 * @param ucd Unité de la donnée
 	 * @param utype Type de l'unité
 	 */
-	public UnChampsObscore(String name, String datatype, String unit, String ucd, String utype) {
+	public UnChamps(String name, String datatype, String unit, String ucd, String utype) {
 		this.name = name;
 		this.datatype = datatype;
 		this.unit = unit;
