@@ -241,6 +241,19 @@ public class Langage {
 	
 	
 	/**
+	 * Texte correspondant au message de la confirm dialog pour clear
+	 * @return texte
+	 */
+	public static String getReq_changer_table_message_dialog() {
+		if(lang.equals("FR"))
+			return "Cette action va nettoyer la saisie";
+		else
+			return "It's going to clear all fields, please confirm";
+	}
+	
+	
+	
+	/**
 	 * Texte correspondant au titre de la confirm dialog pour perform
 	 * @return texte
 	 */
