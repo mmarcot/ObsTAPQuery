@@ -252,10 +252,10 @@ public class LigneDeContrainte extends JPanel {
 	 * @return La chaine correctement formattée
 	 */
 	private static String formatterPourRequete(String str) {
-		if(isString(str))
+		if(isString(str) && !str.toLowerCase().equals("null"))
 			str = "'" + str + "'";
 		
-		return str;
+		return " "+ str;
 	}
 
 }

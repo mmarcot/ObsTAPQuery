@@ -25,6 +25,7 @@ public class From extends JPanel {
 	 * Constructeur du panneau From (vue)
 	 */
 	public From() {
+		setPreferredSize(new Dimension(Configuration.LARGEUR_FROM_PX, Configuration.HAUTEUR_FROM_PX));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		add(new JLabel(" ")); // espacement

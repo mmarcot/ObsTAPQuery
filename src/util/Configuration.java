@@ -15,6 +15,11 @@ public class Configuration {
 	/** Hauteur totale du plug-in */
 	public static int HAUTEUR_PLUGIN_PX = 600;
 	
+	/** Largeur du panneau From */
+	public static int LARGEUR_FROM_PX = 190;
+	/** Hauteur du panneau From */
+	public static int HAUTEUR_FROM_PX = 100;
+	
 	/** Police par default du plug-in */
 	public static String POLICE = Font.MONOSPACED;
 	
@@ -42,7 +47,7 @@ public class Configuration {
 	public static int TAILLE_JTEXTFIELD_NORMAL = 14;
 	
 	/** Liste des caractère définissant une chaine de carac */
-	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_-[]^";
+	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_[]^";
 	
 	/** Url vers le service tap de Saada */
 	public static final String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8080/vizier2/tap";
