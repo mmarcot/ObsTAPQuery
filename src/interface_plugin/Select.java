@@ -34,11 +34,11 @@ public class Select extends JPanel {
 		this.add(cb_select_all);
 		
 		// JLabel separateur :
-		this.add(new JLabel(" "));
+		add(new JLabel(" "));
 		
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-		this.afficherColonnes();
+		afficherColonnes();
 	}
 	
 	

@@ -45,15 +45,13 @@ public class Configuration {
 	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_-[]^";
 	
 	/** Url vers le service tap de Saada */
-	public static final String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8088/VizieR/tap";
+	public static final String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8080/vizier2/tap";
 	/** Url de la base de donnée pour JDBC */
-	public static final String URL_BDD_JDBC = "jdbc:postgresql://obs-stage-s4.u-strasbg.fr:5432/VizieR";
+	public static final String URL_BDD_JDBC = "jdbc:postgresql://obs-stage-s4.u-strasbg.fr:5432/vizier2";
 	/** user de la bdd */
 	public static final String USER_BDD = "postgres";
 	/** mot de passe de la bdd */
 	public static final String MOT_DE_PASSE_BDD = "reverser";
-	
-	
 	
 	
 }

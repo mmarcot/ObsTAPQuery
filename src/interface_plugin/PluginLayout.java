@@ -24,28 +24,19 @@ public class PluginLayout extends JPanel {
 
 	/**
 	 * Constructeur de l'interface principal avec le lanceur normal
+	 *    /!\ Il y a 2 constructeurs
 	 */
 	public PluginLayout() {
 		this.avec_aladin = false;
-		this.setPreferredSize(new Dimension(Configuration.LARGEUR_PLUGIN_PX, Configuration.HAUTEUR_PLUGIN_PX));
-		this.setLayout(new BorderLayout());
 		
-		
-		PartieGauche pan_gauche = new PartieGauche();
-		PanneauDroite pan_droite = new PanneauDroite();
-		pan_select = pan_gauche.getSelect();
-		pan_from = pan_gauche.getFrom();
-		pan_where = pan_droite.getWhere();
-		pan_requete = pan_droite.getRequete();
-		
-		add(pan_gauche, BorderLayout.WEST);
-		add(pan_droite, BorderLayout.CENTER);
+		initPanneaux();
 	}
 	
 	
 
 	/**
 	 * Constructeur de l'interface avec pour lanceur Aladin
+	 *    /!\ Il y a 2 constructeurs
 	 * @param aladin
 	 */
 	public PluginLayout(Aladin aladin) {
@@ -53,23 +44,26 @@ public class PluginLayout extends JPanel {
 		this.avec_aladin = true;
 		this.aladin = aladin;
 		
-		// mise en page :
-		this.setPreferredSize(new Dimension(Configuration.LARGEUR_PLUGIN_PX, Configuration.HAUTEUR_PLUGIN_PX));
-		this.setLayout(new BorderLayout());
+		initPanneaux();
+	}
+	
+	
+	/**
+	 * Méthode qui initialise les panneaux et leur disposition
+	 */
+	private void initPanneaux() {
+		setPreferredSize(new Dimension(Configuration.LARGEUR_PLUGIN_PX, Configuration.HAUTEUR_PLUGIN_PX));
+		setLayout(new BorderLayout());
 		
-		// Gestion de la ScrollBar :
-		pan_select = new Select();
-		JScrollPane scroller = new JScrollPane(pan_select);
-		scroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
-		scroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
-		this.add(scroller,BorderLayout.CENTER);
-		
+		PartieGauche pan_gauche = new PartieGauche();
 		PanneauDroite pan_droite = new PanneauDroite();
+		pan_from = pan_gauche.getFrom();
+		pan_select = pan_gauche.getSelect();
 		pan_where = pan_droite.getWhere();
 		pan_requete = pan_droite.getRequete();
 		
-		this.add(scroller, BorderLayout.LINE_START);
-		this.add(pan_droite, BorderLayout.CENTER);
+		add(pan_gauche, BorderLayout.WEST);
+		add(pan_droite, BorderLayout.CENTER);
 	}
 
 

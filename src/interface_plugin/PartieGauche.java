@@ -24,16 +24,16 @@ public class PartieGauche extends JPanel {
 		lab_select.setFont(pol_select);
 		add(lab_select, BorderLayout.NORTH);
 		
+		// Panneau From :
+		pan_from = new From();
+		add(pan_from, BorderLayout.SOUTH);
+		
 		// Panneau select :
 		pan_select = new Select();
 		JScrollPane scroller = new JScrollPane(pan_select);
 		scroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
 		scroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
 		add(scroller,BorderLayout.CENTER);
-		
-		// Panneau From :
-		pan_from = new From();
-		add(pan_from, BorderLayout.SOUTH);
 	}
 	
 	

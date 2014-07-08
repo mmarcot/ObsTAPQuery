@@ -25,6 +25,7 @@ public class GenerateurRequete {
 	/**
 	 * Constructeur d'un générateur de requête avec les bonnes références
 	 * @param select Référence vers le select du plug-in
+	 * @param from Référence vers le from du plug-in
 	 * @param where Référence vers le where du plug-in
 	 * @param requete Référence vers la zone de requete resultante du plug-in
 	 */
