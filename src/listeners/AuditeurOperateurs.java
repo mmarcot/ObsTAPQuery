@@ -16,15 +16,17 @@ public class AuditeurOperateurs implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JComboBox combo_source = (JComboBox)e.getSource();
-		LigneDeContrainte ligne_source = (LigneDeContrainte)combo_source.getParent();
+		LigneDeContrainte ligne_src = (LigneDeContrainte)combo_source.getParent();
+		String item = (String) combo_source.getSelectedItem();
 		
 		// on met la composition qu'il faut en fonction de la valeur de la combobox :
-		if( combo_source.getSelectedItem().equals("BETWEEN") && ligne_source.isBetweenCompo() == false ) {
-			ligne_source.toBetweenComposition();
+		if( (item.equals("BETWEEN") || item.equals("NOT BETW")) && ligne_src.isBetweenCompo() == false ) {
+			ligne_src.toBetweenComposition();
 		}
-		else if( combo_source.getSelectedItem().equals("BETWEEN") == false && ligne_source.isBetweenCompo() == true ) {
-			ligne_source.toRegularComposition();
+		else if( (item.equals("BETWEEN") || item.equals("NOT BETW")) == false && ligne_src.isBetweenCompo() == true ) {
+			ligne_src.toRegularComposition();
 		}
+
 	}
 
 }

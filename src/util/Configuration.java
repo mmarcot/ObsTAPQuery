@@ -29,12 +29,12 @@ public class Configuration {
 	public static int VGAP_FLOWLAYOUT = 5;
 	
 	/** Tableau contenant l'ensemble des opérateurs du where */
-	public static String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">=", "LIKE", "IS", "BETWEEN"};
+	public static String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">=", "LIKE", "NOT LIKE", "IS", "IS NOT", "BETWEEN", "NOT BETW"};
 	/** Tableau contenant l'ensemble des opérateurs de liaison */
 	public static String[] TAB_LIAISONS = {"AND", "OR"};
 	/** Nombre de lignes max dans la combo box des opérateurs 
 	 * avant l'apparition de la scrollbar */
-	public static final int NB_LIGNES_COMBOBOX_OPER = TAB_OPERATEURS_WHERE.length;
+	public static final int NB_LIGNES_COMBOBOX_OPER = 9;
 	
 	/** taille d'un petit JTextField (pour between) */
 	public static int TAILLE_JTEXTFIELD_BETWEEN = 5;

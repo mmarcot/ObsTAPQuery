@@ -191,7 +191,9 @@ public class LigneDeContrainte extends JPanel {
 	}
 	
 	
-	
+	/**
+	 * Formatte la ligne pour pouvoir l'afficher directement dans la requete résultante
+	 */
 	@Override
 	public String toString() {
 		String ret = new String();
@@ -201,9 +203,16 @@ public class LigneDeContrainte extends JPanel {
 		else
 			ret += "WHERE ";
 		
+		// concat colonne :
 		ret += (String)combo_col_obs.getSelectedItem() + " ";
-		ret += (String)combo_oper.getSelectedItem() + " ";
 		
+		// concat de l'opérateur :
+		if( ((String)combo_oper.getSelectedItem()).equals("NOT BETW") )
+			ret += (String)combo_oper.getSelectedItem() + "EEN ";
+		else 
+			ret += (String)combo_oper.getSelectedItem();
+		
+		// concat des champs texte :
 		if(!compo_between) {
 			ret += formatterPourRequete((String) text_valeur.getText());
 		}
