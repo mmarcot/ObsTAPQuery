@@ -57,7 +57,7 @@ public class GestionnaireDeTables {
 	 * Methode qui va chercher les colonnes présentes dans une table donnée
 	 * @param table La table voulue
 	 */
-	public static ArrayList<UnChamps> getColonnes(String table) {
+	public static ArrayList<UnChamps> getColonnes() {
 		ArrayList<UnChamps> liste_colonnes = new ArrayList<UnChamps>();
 		
 		Connection conn = seConnecterBDD();
@@ -67,7 +67,7 @@ public class GestionnaireDeTables {
 				Statement state = conn.createStatement();
 				ResultSet res_set = state.executeQuery("SELECT column_name, datatype, unit, ucd, utype " + 
 														"FROM columns " +
-														"WHERE table_name = '" + table + "' ");
+														"WHERE table_name = '" + table_selectionnee + "' ");
 				
 				// parcours et ajout des resultats de la requete dans la liste :
 				while(res_set.next()) {

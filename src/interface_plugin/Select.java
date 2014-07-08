@@ -50,7 +50,7 @@ public class Select extends JPanel {
 	 * Methode qui va charger et afficher les champs obscore dans le select
 	 */
 	private void afficherColonnes() {
-		ArrayList<UnChamps> liste_col_str = GestionnaireDeTables.getColonnes(nom_table);
+		ArrayList<UnChamps> liste_col_str = GestionnaireDeTables.getColonnes();
 		
 		// on transforme les String récupéré en JCheckBox et les ajoute
 		// au JPanel select :
