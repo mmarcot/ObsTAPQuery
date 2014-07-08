@@ -20,7 +20,6 @@ public class Select extends JPanel {
 	
 	private ArrayList<JCheckBox> liste_checkbox;
 	private JCheckBox cb_select_all;
-	private String nom_table;
 	
 	
 	/**
@@ -29,7 +28,6 @@ public class Select extends JPanel {
 	 */
 	public Select(String nom_table) {
 		this.liste_checkbox = new ArrayList<JCheckBox>();
-		this.nom_table = nom_table;
 		this.cb_select_all = new JCheckBox(Langage.getSelect_all());
 		
 		cb_select_all.addActionListener(new AuditeurCheckSelectAll());
@@ -82,6 +80,7 @@ public class Select extends JPanel {
 		for(JCheckBox cb : liste_checkbox) {
 			remove(cb);
 		}
+		liste_checkbox.clear();
 	}
 	
 	
