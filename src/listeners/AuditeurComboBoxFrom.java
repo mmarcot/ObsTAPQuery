@@ -25,6 +25,7 @@ public class AuditeurComboBoxFrom implements ActionListener{
 		
 		GestionnaireDeTables.changerTableSelectionnee((String) combo_src.getSelectedItem());
 		plug_lay.getSelect().mettreAJourColonnes();
+		plug_lay.getWhere().getGestionnaire().mettreAJourColonnes();
 	}
 
 }

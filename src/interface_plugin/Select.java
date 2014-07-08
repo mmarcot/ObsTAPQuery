@@ -4,7 +4,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-import util.Configuration;
 import util.Langage;
 import listeners.AuditeurCheckSelectAll;
 import listeners.AuditeurCheckboxColObs;

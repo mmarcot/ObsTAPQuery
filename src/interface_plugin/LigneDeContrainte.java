@@ -54,19 +54,10 @@ public class LigneDeContrainte extends JPanel {
 			this.add(combo_liaison);
 		}
 		
-		// JComboBox colonnes obscore :
+		// JComboBox des colonnes :
 		combo_col_obs = new JComboBox();
-		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
-		combo_col_obs.setRenderer(renderer);
-		ArrayList<UnChamps> liste_col_obs = GestionnaireDeTables.getColonnes();
-		ArrayList<String> tooltips_col_obs = new ArrayList<String>();
-		// ajout de l'item et du tooltip :
-		for(int i=0; i<liste_col_obs.size(); i++) {
-			combo_col_obs.addItem(liste_col_obs.get(i).getName());
-			tooltips_col_obs.add((liste_col_obs.get(i).toString()));
-		}
-		renderer.setTooltips(tooltips_col_obs);
-		this.add(combo_col_obs);
+		chargerComboBoxColonnes();
+		add(combo_col_obs);
 		
 		// JComboBox opérateurs :
 		combo_oper = new JComboBox(Configuration.TAB_OPERATEURS_WHERE);
@@ -84,6 +75,43 @@ public class LigneDeContrainte extends JPanel {
 		but_remove.addActionListener(new AuditeurBoutonRemove());
 		this.add(but_remove);
 	}
+	
+	
+	
+	/**
+	 * Permet de mettre à jour les JComboBox en prennant en compte les 
+	 * colonnes de la table selectionnée
+	 */
+	public void mettreAJourColonnesComboBox() {
+		viderComboBox();
+		chargerComboBoxColonnes();
+	}
+	
+	
+	/**
+	 * Permet de charger le JComboBox contenant l'ensemble des colonnes
+	 */
+	private void chargerComboBoxColonnes() {
+		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
+		combo_col_obs.setRenderer(renderer);
+		ArrayList<UnChamps> liste_col_obs = GestionnaireDeTables.getColonnes();
+		ArrayList<String> tooltips_col_obs = new ArrayList<String>();
+		// ajout de l'item et du tooltip :
+		for(int i=0; i<liste_col_obs.size(); i++) {
+			combo_col_obs.addItem(liste_col_obs.get(i).getName());
+			tooltips_col_obs.add((liste_col_obs.get(i).toString()));
+		}
+		renderer.setTooltips(tooltips_col_obs);
+	}
+	
+	
+	/**
+	 * Permet de supprimer tous les items (colonnes) présents dans la combo box
+	 */
+	private void viderComboBox() {
+		combo_col_obs.removeAllItems();
+	}
+	
 	
 	
 	/**
@@ -111,6 +139,7 @@ public class LigneDeContrainte extends JPanel {
 		this.compo_between = true;
 		this.revalidate();
 	}
+	
 	
 	
 	/**
@@ -205,6 +234,7 @@ public class LigneDeContrainte extends JPanel {
 		
 		return false;
 	}
+	
 	
 	
 	/**

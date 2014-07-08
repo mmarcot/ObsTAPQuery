@@ -35,6 +35,20 @@ public class GestionnaireDeContraintes extends JPanel {
 	}
 	
 
+	/**
+	 * Permet de mettre à jour les Lignes de contrainte pour que leur JComboBox
+	 * prennent en compte le changement de table dans le from
+	 */
+	public void mettreAJourColonnes() {
+		LigneDeContrainte[] tab_lignes = getLignes();
+		
+		for(LigneDeContrainte ligne : tab_lignes) {
+			ligne.mettreAJourColonnesComboBox();
+		}
+		
+	}
+	
+	
 	
 	@Override
 	public Component add(Component comp) {
