@@ -10,7 +10,6 @@ import util.Langage;
 
 import listeners.AuditeurBoutonRemove;
 import listeners.AuditeurOperateurs;
-import metier.ColonnesDisponibles;
 import metier.GestionnaireDeTables;
 import metier.UnChamps;
 

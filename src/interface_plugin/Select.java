@@ -8,7 +8,6 @@ import util.Configuration;
 import util.Langage;
 import listeners.AuditeurCheckSelectAll;
 import listeners.AuditeurCheckboxColObs;
-import metier.ColonnesDisponibles;
 import metier.GestionnaireDeTables;
 import metier.UnChamps;
 
