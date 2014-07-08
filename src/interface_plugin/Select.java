@@ -52,6 +52,7 @@ public class Select extends JPanel {
 	public void mettreAJourColonnes() {
 		supprimerColonnes();
 		afficherColonnes();
+		cb_select_all.setSelected(false);
 		
 		revalidate();
 	}
