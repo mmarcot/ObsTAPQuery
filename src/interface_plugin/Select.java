@@ -46,6 +46,19 @@ public class Select extends JPanel {
 	}
 	
 	
+	
+	/**
+	 * Methode qui permet de mettre à jour dynamiquement le select en fonction de
+	 * la selection dans le from
+	 */
+	public void mettreAJourColonnes() {
+		supprimerColonnes();
+		afficherColonnes();
+		
+		revalidate();
+	}
+	
+	
 	/**
 	 * Methode qui va charger et afficher les champs obscore dans le select
 	 */
@@ -59,6 +72,16 @@ public class Select extends JPanel {
 			cb.addActionListener(new AuditeurCheckboxColObs());
 			this.liste_checkbox.add(cb);
 			this.add(cb);
+		}
+	}
+	
+	
+	/**
+	 * Permet de supprimer toutes les colonnes dans le select
+	 */
+	private void supprimerColonnes() {
+		for(JCheckBox cb : liste_checkbox) {
+			remove(cb);
 		}
 	}
 	
