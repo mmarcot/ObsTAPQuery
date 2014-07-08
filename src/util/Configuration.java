@@ -53,5 +53,8 @@ public class Configuration {
 	/** mot de passe de la bdd */
 	public static final String MOT_DE_PASSE_BDD = "reverser";
 	
+	/** table selectionnée par default dans le from */
+	public static String TABLE_PAR_DEFAULT = "ivoa.ObsCore";
+	
 	
 }

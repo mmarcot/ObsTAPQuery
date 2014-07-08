@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import metier.GestionnaireDeTables;
+
 
 /**
  * Classe auditrice qui implémente les actions à réaliser lors de la
@@ -20,6 +22,8 @@ public class AuditeurComboBoxFrom implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JComboBox combo_src = (JComboBox) e.getSource();
 		PluginLayout plug_lay = (PluginLayout) combo_src.getParent().getParent().getParent();
+		
+		GestionnaireDeTables.changerTableSelectionnee((String) combo_src.getSelectedItem());
 	}
 
 }

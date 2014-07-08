@@ -20,6 +20,7 @@ public class From extends JPanel {
 	
 	private JComboBox combo_tables;
 
+	
 	/**
 	 * Constructeur du panneau From (vue)
 	 */
@@ -43,7 +44,7 @@ public class From extends JPanel {
 		for(String table : liste_tables) {
 			combo_tables.addItem(table);
 		}
-		combo_tables.setSelectedItem("ivoa.ObsCore");
+		combo_tables.setSelectedItem(Configuration.TABLE_PAR_DEFAULT);
 		combo_tables.addActionListener(new AuditeurComboBoxFrom());
 		add(combo_tables);
 		
@@ -57,7 +58,7 @@ public class From extends JPanel {
 	 * Methode qui permet de remettre la selection par défault
 	 */
 	public void recommencer() {
-		combo_tables.setSelectedItem("ivoa.ObsCore");
+		combo_tables.setSelectedItem(Configuration.TABLE_PAR_DEFAULT);
 	}
 	
 	

@@ -29,7 +29,7 @@ public class PartieGauche extends JPanel {
 		add(pan_from, BorderLayout.SOUTH);
 		
 		// Panneau select :
-		pan_select = new Select();
+		pan_select = new Select(getFrom().getSelectedTable());
 		JScrollPane scroller = new JScrollPane(pan_select);
 		scroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
 		scroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);

@@ -16,8 +16,27 @@ import util.Langage;
  *
  */
 public class GestionnaireDeTables {
-	private static ArrayList<String> liste_tables;
 	
+	private static ArrayList<String> liste_tables;
+	/** permet de centraliser la table selectionnée afin qu'elle soit accessible de partout */
+	private static String table_selectionnee = Configuration.TABLE_PAR_DEFAULT;
+	
+	
+	/**
+	 * Methode statique qui permet de changer la table selectionnée
+	 * @param nouvelle_table
+	 */
+	public static void changerTableSelectionnee(String nouvelle_table) {
+		table_selectionnee = nouvelle_table;
+	}
+	
+	
+	/**
+	 * @return Retourne la table actuellement selectionnée dans le from
+	 */
+	public static String getTableSelectionnee() {
+		return table_selectionnee;
+	}
 	
 	
 	/**

@@ -9,6 +9,7 @@ import util.Langage;
 import listeners.AuditeurCheckSelectAll;
 import listeners.AuditeurCheckboxColObs;
 import metier.ColonnesDisponibles;
+import metier.GestionnaireDeTables;
 import metier.UnChamps;
 
 
@@ -21,17 +22,20 @@ public class Select extends JPanel {
 	
 	private ArrayList<JCheckBox> liste_checkbox;
 	private JCheckBox cb_select_all;
+	private String nom_table;
+	
 	
 	/**
 	 * Constructeur de la vue sur le select
+	 * @param nom_table nom de la table voulue
 	 */
-	public Select() {
+	public Select(String nom_table) {
 		this.liste_checkbox = new ArrayList<JCheckBox>();
-		
-		// JCheckBox select all :
+		this.nom_table = nom_table;
 		this.cb_select_all = new JCheckBox(Langage.getSelect_all());
+		
 		cb_select_all.addActionListener(new AuditeurCheckSelectAll());
-		this.add(cb_select_all);
+		add(cb_select_all);
 		
 		// JLabel separateur :
 		add(new JLabel(" "));
@@ -46,7 +50,7 @@ public class Select extends JPanel {
 	 * Methode qui va charger et afficher les champs obscore dans le select
 	 */
 	private void afficherColonnes() {
-		ArrayList<UnChamps> liste_col_str = ColonnesDisponibles.getColonnesDisponibles();
+		ArrayList<UnChamps> liste_col_str = GestionnaireDeTables.getColonnes(nom_table);
 		
 		// on transforme les String récupéré en JCheckBox et les ajoute
 		// au JPanel select :
