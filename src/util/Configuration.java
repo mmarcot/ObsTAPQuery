@@ -13,7 +13,7 @@ public class Configuration {
 	/** Largeur totale du plug-in */
 	public static int LARGEUR_PLUGIN_PX = 850;
 	/** Hauteur totale du plug-in */
-	public static int HAUTEUR_PLUGIN_PX = 600;
+	public static int HAUTEUR_PLUGIN_PX = 620;
 	
 	/** Largeur du panneau From */
 	public static int LARGEUR_FROM_PX = 190;

@@ -1,5 +1,7 @@
 package util;
 
+import javax.swing.Icon;
+
 
 /**
  * Classe qui regroupe l'ensemble des chaines de caractère visible pour
@@ -338,6 +340,77 @@ public class Langage {
 			return "Impossible de récupérer les différentes colonnes dans la table";
 		else
 			return "Unable to get columns from table";
+	}
+
+
+	/**
+	 * @return Texte correspondant au JMenu "Option"
+	 */
+	public static String getMenuOption() {
+		if(lang.equals("FR"))
+			return "Option";
+		else
+			return "Option";
+	}
+
+
+	/**
+	 * @return Texte correspondant au JMenuItem "url du serveur"
+	 */
+	public static String getMenuItemUrlBDD() {
+		if(lang.equals("FR"))
+			return "URL du serveur";
+		else
+			return "Server's URL";
+	}
+
+
+	/**
+	 * @return Texte correspondant au JMenu "fichier"
+	 */
+	public static String getMenuFichier() {
+		if(lang.equals("FR"))
+			return "Fichier";
+		else
+			return "File";
+	}
+
+
+	/**
+	 * @return Texte correspondant au JMenuItem "enregistrer la requete"
+	 */
+	public static String getMenuItemEnrReq() {
+		if(lang.equals("FR"))
+			return "Sauv. requête";
+		else
+			return "Save query";
+	}
+
+
+
+	public static String getMenuHelp() {
+		if(lang.equals("FR"))
+			return "Aide";
+		else
+			return "Help";
+	}
+
+
+
+	public static String getMenuItemDocu() {
+		if(lang.equals("FR"))
+			return "Documentation";
+		else
+			return "Documentation";
+	}
+
+
+
+	public static String getMenuItemAbout() {
+		if(lang.equals("FR"))
+			return "À propos";
+		else
+			return "About";
 	}
 
 	

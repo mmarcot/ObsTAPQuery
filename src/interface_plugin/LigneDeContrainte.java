@@ -208,7 +208,7 @@ public class LigneDeContrainte extends JPanel {
 		
 		// concat de l'opérateur :
 		if( ((String)combo_oper.getSelectedItem()).equals("NOT BETW") )
-			ret += (String)combo_oper.getSelectedItem() + "EEN ";
+			ret += (String)combo_oper.getSelectedItem() + "EEN";
 		else 
 			ret += (String)combo_oper.getSelectedItem();
 		
@@ -217,8 +217,8 @@ public class LigneDeContrainte extends JPanel {
 			ret += formatterPourRequete((String) text_valeur.getText());
 		}
 		else {
-			ret += formatterPourRequete((String) text1_between.getText()) + " ";
-			ret += "AND ";
+			ret += formatterPourRequete((String) text1_between.getText());
+			ret += " AND";
 			ret += formatterPourRequete((String) text2_between.getText());
 		}
 		

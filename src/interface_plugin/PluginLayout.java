@@ -22,6 +22,7 @@ public class PluginLayout extends JPanel {
 	private boolean avec_aladin;
 	private Aladin aladin;
 
+	
 	/**
 	 * Constructeur de l'interface principal avec le lanceur normal
 	 *    /!\ Il y a 2 constructeurs
@@ -55,6 +56,7 @@ public class PluginLayout extends JPanel {
 		setPreferredSize(new Dimension(Configuration.LARGEUR_PLUGIN_PX, Configuration.HAUTEUR_PLUGIN_PX));
 		setLayout(new BorderLayout());
 		
+		BarreDeMenu barre_menu = new BarreDeMenu();
 		PartieGauche pan_gauche = new PartieGauche();
 		PanneauDroite pan_droite = new PanneauDroite();
 		pan_from = pan_gauche.getFrom();
@@ -62,6 +64,7 @@ public class PluginLayout extends JPanel {
 		pan_where = pan_droite.getWhere();
 		pan_requete = pan_droite.getRequete();
 		
+		add(barre_menu, BorderLayout.NORTH);
 		add(pan_gauche, BorderLayout.WEST);
 		add(pan_droite, BorderLayout.CENTER);
 	}
