@@ -387,7 +387,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant au JMenu help
+	 */
 	public static String getMenuHelp() {
 		if(lang.equals("FR"))
 			return "Aide";
@@ -396,7 +398,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant au JMenuItem documentation
+	 */
 	public static String getMenuItemDocu() {
 		if(lang.equals("FR"))
 			return "Documentation";
@@ -405,12 +409,36 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant au JMenuItem about
+	 */
 	public static String getMenuItemAbout() {
 		if(lang.equals("FR"))
 			return "À propos";
 		else
 			return "About";
+	}
+
+
+	/**
+	 * @return Texte correspondant à cancel
+	 */
+	public static String getCancel() {
+		if(lang.equals("FR"))
+			return "Annuler";
+		else
+			return "Cancel";
+	}
+	
+	
+	/**
+	 * @return Texte correspondant à OK
+	 */
+	public static String getOk() {
+		if(lang.equals("FR"))
+			return "OK";
+		else
+			return "OK";
 	}
 
 	

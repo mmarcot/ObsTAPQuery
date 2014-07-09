@@ -59,7 +59,14 @@ public class Configuration {
 	public static final String MOT_DE_PASSE_BDD = "reverser";
 	
 	/** table selectionnée par default dans le from */
-	public static String TABLE_PAR_DEFAULT = "ivoa.ObsCore";
+	public static final String TABLE_PAR_DEFAULT = "ivoa.ObsCore";
+	
+	/** Tableau contenant tous les champs à faire apparaitre pour la configuration des serveurs TAP et Saada */
+	public static final String[] TAB_CHAMPS_CONF_SERVEUR = {"TAP service URL :", "Database URL :", "User : ", "Password : "};
+	/** Index du champs password dans le tableau de champs pour la conf serveur */
+	public static final int INDEX_PASSWD_TAB_CHAMPS_CONF_SERVEUR = 3;
+	/** Taille des JTextField pour la configuration des serveurs */
+	public static final int TAILLE_JTEXTFIELD_CONF_SERV = 30;
 	
 	
 }
