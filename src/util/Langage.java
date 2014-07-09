@@ -1,5 +1,7 @@
 package util;
 
+import java.awt.GraphicsConfiguration;
+
 import javax.swing.Icon;
 
 
@@ -439,6 +441,18 @@ public class Langage {
 			return "OK";
 		else
 			return "OK";
+	}
+
+
+	/**
+	 * @return Texte correspondant au titre de la frame de 
+	 * configuration du serveur
+	 */
+	public static String getTitreConfServeur() {
+		if(lang.equals("FR"))
+			return "Configuration des serveurs";
+		else
+			return "Servers configuration";
 	}
 
 	

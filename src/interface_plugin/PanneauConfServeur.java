@@ -1,9 +1,13 @@
 package interface_plugin;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import listeners.AuditeurBoutonOkConfServeur;
 
 import util.Configuration;
 import util.Langage;
@@ -36,8 +40,19 @@ public class PanneauConfServeur extends JPanel {
 		pan_but.setLayout(new GridLayout(0,3,10,0));
 		pan_but.setBorder(new EmptyBorder(10, 10, 10, 10));
 		
+		// bouton cancel :
 		JButton cancel = new JButton(Langage.getCancel());
+		cancel.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JButton but_src = (JButton) e.getSource();
+				((JFrame) but_src.getParent().getParent().getParent().getParent().getParent()).dispose();
+			}
+		});
+		
+		// bouton ok :
 		JButton ok = new JButton(Langage.getOk());
+		ok.addActionListener(new AuditeurBoutonOkConfServeur());
 		
 		pan_but.add(new JLabel(" "));
 		pan_but.add(cancel);

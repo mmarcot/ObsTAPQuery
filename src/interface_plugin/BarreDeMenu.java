@@ -1,5 +1,8 @@
 package interface_plugin;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 import util.Langage;
@@ -43,6 +46,19 @@ public class BarreDeMenu extends JMenuBar {
 		JMenu option = new JMenu(Langage.getMenuOption());
 		
 		JMenuItem url_bdd = new JMenuItem(Langage.getMenuItemUrlBDD());
+		url_bdd.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame fen = new JFrame(Langage.getTitreConfServeur());
+				
+				PanneauConfServeur pan_conf = new PanneauConfServeur();
+				
+				fen.setContentPane(pan_conf);
+				fen.pack();
+				fen.setVisible(true);
+				fen.setLocationRelativeTo(null);
+			}
+		});
 		
 		option.add(url_bdd);
 		add(option);
