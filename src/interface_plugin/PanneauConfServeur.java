@@ -38,7 +38,7 @@ public class PanneauConfServeur extends JPanel {
 	private void initPanBoutons() {
 		JPanel pan_but = new JPanel();
 		pan_but.setLayout(new GridLayout(0,3,10,0));
-		pan_but.setBorder(new EmptyBorder(10, 10, 10, 10));
+		pan_but.setBorder(new EmptyBorder(0, 10, 10, 10));
 		
 		// bouton cancel :
 		JButton cancel = new JButton(Langage.getCancel());
@@ -71,9 +71,9 @@ public class PanneauConfServeur extends JPanel {
 		pan_champs.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		// on ajoute les champs et leur label un à un :
-		for(int i = 0; i < Configuration.TAB_CHAMPS_CONF_SERVEUR.length; i++) {
+		for(int i = 0; i < Configuration.TAB_NOM_CHAMPS_CONF_SERVEUR.length; i++) {
 			// label :
-			JLabel lab = new JLabel(Configuration.TAB_CHAMPS_CONF_SERVEUR[i], JLabel.TRAILING);
+			JLabel lab = new JLabel(Configuration.TAB_NOM_CHAMPS_CONF_SERVEUR[i], JLabel.TRAILING);
 			pan_champs.add(lab);
 			
 			// champs :
@@ -84,6 +84,7 @@ public class PanneauConfServeur extends JPanel {
 				textField = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
 			
 			lab.setLabelFor(textField);
+			textField.setText(Configuration.TAB_CONTENU_CHAMPS_CONF_SERVEUR[i]);
 			pan_champs.add(textField);
 			pan_champs.add(new JLabel(" ")); // espacement
 		}

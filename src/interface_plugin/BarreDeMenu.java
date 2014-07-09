@@ -1,5 +1,6 @@
 package interface_plugin;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -53,14 +54,13 @@ public class BarreDeMenu extends JMenuBar {
 	private void initMenuOption() {
 		JMenu option = new JMenu(Langage.getMenuOption());
 		
+		// fenetre conf url serveur :
 		JMenuItem url_bdd = new JMenuItem(Langage.getMenuItemUrlBDD());
 		url_bdd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame fen = new JFrame(Langage.getTitreConfServeur());
-				
 				PanneauConfServeur pan_conf = new PanneauConfServeur();
-				
 				fen.setContentPane(pan_conf);
 				fen.pack();
 				fen.setVisible(true);
@@ -80,7 +80,21 @@ public class BarreDeMenu extends JMenuBar {
 	private void initMenuHelp() {
 		JMenu help = new JMenu(Langage.getMenuHelp());
 		
+		// fenetre de documentation :
 		JMenuItem documentation = new JMenuItem(Langage.getMenuItemDocu());
+		documentation.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame fen_aide = new JFrame(Langage.getReq_help());
+				PanneauAide pan_aide = new PanneauAide();
+				pan_aide.setPreferredSize(new Dimension(200,200));
+				fen_aide.setContentPane(pan_aide);
+				fen_aide.pack();
+				fen_aide.setVisible(true);
+				fen_aide.setLocationRelativeTo(null);
+			}
+		});
+		
 		JMenuItem about = new JMenuItem(Langage.getMenuItemAbout());
 		
 		help.add(documentation);
