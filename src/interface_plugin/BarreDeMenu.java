@@ -33,8 +33,16 @@ public class BarreDeMenu extends JMenuBar {
 		JMenu fichier = new JMenu(Langage.getMenuFichier());
 		
 		JMenuItem enr_req = new JMenuItem(Langage.getMenuItemEnrReq());
+		JMenuItem quitter = new JMenuItem(Langage.getQuitter());
+		quitter.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				((JFrame) getParent().getParent().getParent().getParent()).dispose();
+			}
+		});
 		
 		fichier.add(enr_req);
+		fichier.add(quitter);
 		add(fichier);
 	}
 	

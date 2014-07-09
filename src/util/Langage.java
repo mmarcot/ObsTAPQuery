@@ -455,6 +455,18 @@ public class Langage {
 			return "Servers configuration";
 	}
 
+
+
+	/**
+	 * @return Texte correspondant au mot quitter
+	 */
+	public static String getQuitter() {
+		if(lang.equals("FR"))
+			return "Quitter";
+		else
+			return "Exit";
+	}
+
 	
 }
 

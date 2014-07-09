@@ -45,8 +45,7 @@ public class PanneauConfServeur extends JPanel {
 		cancel.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JButton but_src = (JButton) e.getSource();
-				((JFrame) but_src.getParent().getParent().getParent().getParent().getParent()).dispose();
+				((JFrame)getParent().getParent().getParent()).dispose();
 			}
 		});
 		
