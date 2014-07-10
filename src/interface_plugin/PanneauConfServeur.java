@@ -3,6 +3,8 @@ package interface_plugin;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -21,16 +23,35 @@ import util.Langage;
  */
 public class PanneauConfServeur extends JPanel {
 	
+	private ArrayList<JTextField> ls_textfiels;
+	
+
 	/**
-	 * Constructeur d'une panneau de configuration pour l'url
+	 * Constructeur d'un panneau de configuration pour l'url
 	 * du serveur tap et de la BDD
 	 */
 	public PanneauConfServeur() {
+		this.ls_textfiels = new ArrayList<JTextField>();
+		
 		setLayout(new BorderLayout());
 		initPanChamps();
 		initPanBoutons();
 	}
 	
+	
+	/**
+	 * @return le contenu des JTextFields
+	 */
+	public ArrayList<String> getLs_conf_serv() {
+		ArrayList<String> ls_conf_serv = new ArrayList<String>();
+		
+		for(JTextField tf : ls_textfiels) {
+			ls_conf_serv.add(tf.getText());
+		}
+		
+		return ls_conf_serv;
+	}
+
 	
 	/**
 	 * Permet d'initialiser les boutons
@@ -61,6 +82,7 @@ public class PanneauConfServeur extends JPanel {
 	}
 	
 	
+	
 	/**
 	 * Permet d'initialiser le panneau contenant les champs texte
 	 * à remplir
@@ -83,6 +105,7 @@ public class PanneauConfServeur extends JPanel {
 			else 
 				textField = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
 			
+			ls_textfiels.add(textField);
 			lab.setLabelFor(textField);
 			textField.setText(Configuration.TAB_CONTENU_CHAMPS_CONF_SERVEUR[i]);
 			pan_champs.add(textField);
@@ -93,3 +116,11 @@ public class PanneauConfServeur extends JPanel {
 	}
 
 }
+
+
+
+
+
+
+
+
