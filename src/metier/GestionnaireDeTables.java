@@ -1,7 +1,12 @@
 package metier;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.*;
 
@@ -143,7 +148,40 @@ public class GestionnaireDeTables {
 	}
 	
 	
+
+	/**
+	 * Permet de récupérer le contenu du fichier CSV distant
+	 * @param url URL du fichier CSV
+	 * @return Contenu du fichier CSV
+	 */
+	public static String telechargerFichierCSV(URL url) {
+		InputStream input = null;
+		String content = "";
+		
+		try {
+			URLConnection connection = url.openConnection();
+//			if(connection.getContentLength() == -1) {
+//				throw new IOException("Invalid URL");
+//			}
+			input = connection.getInputStream();
+			content = new Scanner(input,"UTF-8").useDelimiter("\\A").next();
+			
+		} 
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		return content;
+	}
+	
+	
 }
+
+
+
+
+
+
 
 
 
