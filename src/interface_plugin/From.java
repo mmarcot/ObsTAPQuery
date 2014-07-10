@@ -31,7 +31,7 @@ public class From extends JPanel {
 		
 		add(new JLabel(" ")); // espacement
 		
-		// JLabel "Select" :
+		// JLabel "From" :
 		JLabel lab_from = new JLabel("From");
 		lab_from.setAlignmentX(CENTER_ALIGNMENT);
 		Font pol_select = new Font(Configuration.POLICE, Font.BOLD, 20);
@@ -61,9 +61,9 @@ public class From extends JPanel {
 	
 	
 	/**
-	 * Methode qui permet de remettre la selection par défault
+	 * Methode qui permet de remet la table par défault
 	 */
-	public void recommencer() {
+	public void mettreAJour() {
 		combo_tables.setSelectedItem(Configuration.TABLE_PAR_DEFAULT);
 	}
 	
@@ -74,6 +74,7 @@ public class From extends JPanel {
 	public String getSelectedTable() {
 		return (String) combo_tables.getSelectedItem();
 	}
+	
 	
 }
 

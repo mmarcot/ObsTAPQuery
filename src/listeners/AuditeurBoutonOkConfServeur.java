@@ -14,6 +14,7 @@ import javax.swing.*;
 import metier.GestionnaireDeTables;
 
 import util.Configuration;
+import util.Langage;
 
 
 /**
@@ -56,12 +57,12 @@ public class AuditeurBoutonOkConfServeur implements ActionListener {
 		
 		// on nettoye tout :
 		plug_lay.getSelect().uncheckAll();
-		plug_lay.getFrom().recommencer();
 		plug_lay.getWhere().toutEnlever();
 		plug_lay.getRequete().setTexteRequete(null);
 		
 		// on met à jour :
 		plug_lay.getSelect().mettreAJourColonnes();
+		plug_lay.getFrom().mettreAJour();
 		plug_lay.getWhere().getGestionnaire().mettreAJourColonnes();
 	}
 

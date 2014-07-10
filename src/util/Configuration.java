@@ -15,6 +15,7 @@ public class Configuration {
 	// ###                      CHANGEABLE PAR L'UTILISATEUR                        ###
 	// ################################################################################
 	
+	// /!\ attention aux modif structurelle (changements codé en dur) :
 	/** Url vers le service tap de Saada */
 	public static String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8080/vizier2/tap";
 	/** Url de la base de donnée */
@@ -71,13 +72,6 @@ public class Configuration {
 	
 	/** table selectionnée par default dans le from */
 	public static final String TABLE_PAR_DEFAULT = "ivoa.ObsCore";
-	
-	/** Tableau contenant tous les noms de champs à faire apparaitre pour la configuration des serveurs TAP et Saada 
-	 *		/!\ lié avec le champs du dessous */
-	public static final String[] TAB_NOM_CHAMPS_CONF_SERVEUR = {"TAP service URL", "Database URL", "User", "Password"};
-	/** Tableau contenant tous les champs à faire apparaitre pour la configuration des serveurs TAP et Saada 
-	 *		/!\ lié avec le champs du dessus */
-	public static String[] TAB_CONTENU_CHAMPS_CONF_SERVEUR = {URL_SERVICE_TAP, URL_BDD, USER_BDD, MOT_DE_PASSE_BDD};
 	
 	/** Index du champs password dans le tableau de champs pour la conf serveur */
 	public static final int INDEX_PASSWD_TAB_CHAMPS_CONF_SERVEUR = 3;

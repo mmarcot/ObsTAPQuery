@@ -70,7 +70,7 @@ public class BarreDeMenu extends JMenuBar {
 				fen.setContentPane(pan_conf);
 				fen.pack();
 				fen.setVisible(true);
-				fen.setLocationRelativeTo(null);
+				fen.setLocationRelativeTo(plug_lay);
 			}
 		});
 		

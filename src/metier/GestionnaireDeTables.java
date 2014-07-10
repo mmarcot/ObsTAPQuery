@@ -98,8 +98,9 @@ public class GestionnaireDeTables {
 	 */
 	private static void chercherTables() {
 		Connection conn = seConnecterBDD();
+		
 		// Si la connection est OK :
-		if( conn != null) {
+		if(conn != null) {
 			try {
 				Statement state = conn.createStatement();
 				ResultSet res_set = state.executeQuery("SELECT DISTINCT table_name " + 
