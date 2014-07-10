@@ -131,7 +131,7 @@ public class GestionnaireDeTables {
 		Connection conn = null;
 		try {
 			Class.forName("org.postgresql.Driver");
-			conn = DriverManager.getConnection(Configuration.URL_BDD_JDBC, Configuration.USER_BDD, Configuration.MOT_DE_PASSE_BDD);
+			conn = DriverManager.getConnection("jdbc:postgresql://" + Configuration.URL_BDD, Configuration.USER_BDD, Configuration.MOT_DE_PASSE_BDD);
 		} 
 		catch (Exception e) {
 			JOptionPane.showMessageDialog(null, Langage.getMessage_err_conn_bdd(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);

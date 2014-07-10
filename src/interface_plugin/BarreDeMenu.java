@@ -16,11 +16,17 @@ import util.Langage;
  */
 public class BarreDeMenu extends JMenuBar {
 	
+	/** référence au PluginLayout */
+	private PluginLayout plug_lay;
+	
 	
 	/**
 	 * Constructeur de notre barre de menu haute
+	 * @param pluginLayout 
 	 */
-	public BarreDeMenu() {
+	public BarreDeMenu(PluginLayout pluginLayout) {
+		this.plug_lay = pluginLayout;
+		
 		initMenuFichier();
 		initMenuOption();
 		initMenuHelp();
@@ -60,7 +66,7 @@ public class BarreDeMenu extends JMenuBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame fen = new JFrame(Langage.getTitreConfServeur());
-				PanneauConfServeur pan_conf = new PanneauConfServeur();
+				PanneauConfServeur pan_conf = new PanneauConfServeur(plug_lay);
 				fen.setContentPane(pan_conf);
 				fen.pack();
 				fen.setVisible(true);

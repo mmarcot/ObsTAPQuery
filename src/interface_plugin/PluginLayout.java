@@ -56,13 +56,13 @@ public class PluginLayout extends JPanel {
 		setPreferredSize(new Dimension(Configuration.LARGEUR_PLUGIN_PX, Configuration.HAUTEUR_PLUGIN_PX));
 		setLayout(new BorderLayout());
 		
-		BarreDeMenu barre_menu = new BarreDeMenu();
 		PartieGauche pan_gauche = new PartieGauche();
 		PanneauDroite pan_droite = new PanneauDroite();
 		pan_from = pan_gauche.getFrom();
 		pan_select = pan_gauche.getSelect();
 		pan_where = pan_droite.getWhere();
 		pan_requete = pan_droite.getRequete();
+		BarreDeMenu barre_menu = new BarreDeMenu(this);
 		
 		add(barre_menu, BorderLayout.NORTH);
 		add(pan_gauche, BorderLayout.WEST);

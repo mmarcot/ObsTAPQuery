@@ -19,8 +19,6 @@ public class Configuration {
 	public static String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8080/vizier2/tap";
 	/** Url de la base de donnée */
 	public static String URL_BDD = "obs-stage-s4.u-strasbg.fr:5432/vizier2";
-	/** Url de la base de donnée pour JDBC */
-	public static String URL_BDD_JDBC = "jdbc:postgresql://" + URL_BDD;
 	/** user de la bdd */
 	public static String USER_BDD = "postgres";
 	/** mot de passe de la bdd */

@@ -24,18 +24,29 @@ import util.Langage;
 public class PanneauConfServeur extends JPanel {
 	
 	private ArrayList<JTextField> ls_textfiels;
+	private PluginLayout plug_lay;
 	
 
 	/**
 	 * Constructeur d'un panneau de configuration pour l'url
 	 * du serveur tap et de la BDD
+	 * @param plug_lay 
 	 */
-	public PanneauConfServeur() {
+	public PanneauConfServeur(PluginLayout plug_lay) {
+		this.plug_lay = plug_lay;
 		this.ls_textfiels = new ArrayList<JTextField>();
 		
 		setLayout(new BorderLayout());
 		initPanChamps();
 		initPanBoutons();
+	}
+	
+	
+	/**
+	 * @return une référence au PluginLayout
+	 */
+	public PluginLayout getPlug_lay() {
+		return plug_lay;
 	}
 	
 	
@@ -92,25 +103,47 @@ public class PanneauConfServeur extends JPanel {
 		pan_champs.setLayout(new BoxLayout(pan_champs, BoxLayout.Y_AXIS));
 		pan_champs.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-		// on ajoute les champs et leur label un à un :
-		for(int i = 0; i < Configuration.TAB_NOM_CHAMPS_CONF_SERVEUR.length; i++) {
-			// label :
-			JLabel lab = new JLabel(Configuration.TAB_NOM_CHAMPS_CONF_SERVEUR[i], JLabel.TRAILING);
-			pan_champs.add(lab);
-			
-			// champs :
-			JTextField textField;
-			if(i == Configuration.INDEX_PASSWD_TAB_CHAMPS_CONF_SERVEUR) 
-				textField = new JPasswordField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
-			else 
-				textField = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
-			
-			ls_textfiels.add(textField);
-			lab.setLabelFor(textField);
-			textField.setText(Configuration.TAB_CONTENU_CHAMPS_CONF_SERVEUR[i]);
-			pan_champs.add(textField);
-			pan_champs.add(new JLabel(" ")); // espacement
-		}
+		
+		// champs TAP service URL :
+		JLabel lab_tap = new JLabel("TAP service URL", JLabel.TRAILING);
+		pan_champs.add(lab_tap);
+		JTextField tf_tap = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
+		ls_textfiels.add(tf_tap);
+		lab_tap.setLabelFor(tf_tap);
+		tf_tap.setText(Configuration.URL_SERVICE_TAP);
+		pan_champs.add(tf_tap);
+		pan_champs.add(new JLabel(" "));
+		
+		// champs URL BDD :
+		JLabel lab_bdd = new JLabel("Database URL", JLabel.TRAILING);
+		pan_champs.add(lab_bdd);
+		JTextField tf_bdd = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
+		ls_textfiels.add(tf_bdd);
+		lab_bdd.setLabelFor(tf_bdd);
+		tf_bdd.setText(Configuration.URL_BDD);
+		pan_champs.add(tf_bdd);
+		pan_champs.add(new JLabel(" "));
+		
+		// champs USER :
+		JLabel lab_user = new JLabel("User", JLabel.TRAILING);
+		pan_champs.add(lab_user);
+		JTextField tf_user = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
+		ls_textfiels.add(tf_user);
+		lab_user.setLabelFor(tf_user);
+		tf_user.setText(Configuration.USER_BDD);
+		pan_champs.add(tf_user);
+		pan_champs.add(new JLabel(" "));
+		
+		// champs MDP :
+		JLabel lab_mdp = new JLabel("Password", JLabel.TRAILING);
+		pan_champs.add(lab_mdp);
+		JPasswordField tf_mdp = new JPasswordField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
+		ls_textfiels.add(tf_mdp);
+		lab_mdp.setLabelFor(tf_mdp);
+		tf_mdp.setText(Configuration.MOT_DE_PASSE_BDD);
+		pan_champs.add(tf_mdp);
+		pan_champs.add(new JLabel(" "));
+
 		
 		add(pan_champs, BorderLayout.CENTER);
 	}
