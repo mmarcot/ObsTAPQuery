@@ -40,17 +40,8 @@ public class From extends JPanel {
 		
 		// JComboBox liste de tables :
 		combo_tables = new JComboBox();
-		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
-		combo_tables.setRenderer(renderer);
 		combo_tables.setAlignmentX(CENTER_ALIGNMENT);
-		ArrayList<String> liste_tables = GestionnaireDeTables.getListe_tables();
-		ArrayList<String> tooltips = new ArrayList<String>();
-		for(String table : liste_tables) {
-			combo_tables.addItem(table);
-			tooltips.add(table);
-		}
-		renderer.setTooltips(tooltips);
-		combo_tables.setSelectedItem(Configuration.TABLE_PAR_DEFAULT);
+		chargerComboBox();
 		combo_tables.addActionListener(new AuditeurComboBoxFrom());
 		add(combo_tables);
 		
@@ -64,6 +55,33 @@ public class From extends JPanel {
 	 * Methode qui permet de remet la table par défault
 	 */
 	public void mettreAJour() {
+		combo_tables.setSelectedItem(Configuration.TABLE_PAR_DEFAULT);
+		viderComboBox();
+		chargerComboBox();
+	}
+	
+	
+	/**
+	 * Permet de vider la combo box contenant la liste de tables
+	 */
+	private void viderComboBox() {
+		combo_tables.removeAllItems();
+	}
+	
+	
+	/**
+	 * Permet de charger la combo box contenant la liste de tables
+	 */
+	private void chargerComboBox() {
+		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
+		combo_tables.setRenderer(renderer);
+		ArrayList<String> liste_tables = GestionnaireDeTables.getListe_tables();
+		ArrayList<String> tooltips = new ArrayList<String>();
+		for(String table : liste_tables) {
+			combo_tables.addItem(table);
+			tooltips.add(table);
+		}
+		renderer.setTooltips(tooltips);
 		combo_tables.setSelectedItem(Configuration.TABLE_PAR_DEFAULT);
 	}
 	
