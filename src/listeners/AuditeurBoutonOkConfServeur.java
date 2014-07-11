@@ -33,13 +33,10 @@ public class AuditeurBoutonOkConfServeur implements ActionListener {
 		pan_conf = (PanneauConfServeur) but_src.getParent().getParent();
 		
 		// recup l'ArrayList contenant les champs texte de conf :
-		ArrayList<String> ls_conf_serv = pan_conf.getLs_conf_serv();
+		String str_url_tap = pan_conf.getChamps_url_tap().getText().trim();
 		
 		// affectation dans la configuration :
-		Configuration.URL_SERVICE_TAP = ls_conf_serv.get(0);
-		Configuration.URL_BDD = ls_conf_serv.get(1);
-		Configuration.USER_BDD = ls_conf_serv.get(2);
-		Configuration.MOT_DE_PASSE_BDD= ls_conf_serv.get(3);
+		Configuration.URL_SERVICE_TAP = str_url_tap;
 		
 		mettreAJour();
 		

@@ -23,7 +23,7 @@ import util.Langage;
  */
 public class PanneauConfServeur extends JPanel {
 	
-	private ArrayList<JTextField> ls_textfiels;
+	private JTextField champs_url_tap;
 	private PluginLayout plug_lay;
 	
 
@@ -34,7 +34,6 @@ public class PanneauConfServeur extends JPanel {
 	 */
 	public PanneauConfServeur(PluginLayout plug_lay) {
 		this.plug_lay = plug_lay;
-		this.ls_textfiels = new ArrayList<JTextField>();
 		
 		setLayout(new BorderLayout());
 		initPanChamps();
@@ -51,16 +50,10 @@ public class PanneauConfServeur extends JPanel {
 	
 	
 	/**
-	 * @return le contenu des JTextFields
+	 * @return le contenu du champs tap url
 	 */
-	public ArrayList<String> getLs_conf_serv() {
-		ArrayList<String> ls_conf_serv = new ArrayList<String>();
-		
-		for(JTextField tf : ls_textfiels) {
-			ls_conf_serv.add(tf.getText());
-		}
-		
-		return ls_conf_serv;
+	public JTextField getChamps_url_tap() {
+		return champs_url_tap;
 	}
 
 	
@@ -102,48 +95,15 @@ public class PanneauConfServeur extends JPanel {
 		JPanel pan_champs = new JPanel();
 		pan_champs.setLayout(new BoxLayout(pan_champs, BoxLayout.Y_AXIS));
 		pan_champs.setBorder(new EmptyBorder(10, 10, 10, 10));
-
 		
 		// champs TAP service URL :
 		JLabel lab_tap = new JLabel("TAP service URL", JLabel.TRAILING);
 		pan_champs.add(lab_tap);
-		JTextField tf_tap = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
-		ls_textfiels.add(tf_tap);
-		lab_tap.setLabelFor(tf_tap);
-		tf_tap.setText(Configuration.URL_SERVICE_TAP);
-		pan_champs.add(tf_tap);
+		champs_url_tap = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
+		lab_tap.setLabelFor(champs_url_tap);
+		champs_url_tap.setText(Configuration.URL_SERVICE_TAP);
+		pan_champs.add(champs_url_tap);
 		pan_champs.add(new JLabel(" "));
-		
-		// champs URL BDD :
-		JLabel lab_bdd = new JLabel("Database URL", JLabel.TRAILING);
-		pan_champs.add(lab_bdd);
-		JTextField tf_bdd = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
-		ls_textfiels.add(tf_bdd);
-		lab_bdd.setLabelFor(tf_bdd);
-		tf_bdd.setText(Configuration.URL_BDD);
-		pan_champs.add(tf_bdd);
-		pan_champs.add(new JLabel(" "));
-		
-		// champs USER :
-		JLabel lab_user = new JLabel("User", JLabel.TRAILING);
-		pan_champs.add(lab_user);
-		JTextField tf_user = new JTextField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
-		ls_textfiels.add(tf_user);
-		lab_user.setLabelFor(tf_user);
-		tf_user.setText(Configuration.USER_BDD);
-		pan_champs.add(tf_user);
-		pan_champs.add(new JLabel(" "));
-		
-		// champs MDP :
-		JLabel lab_mdp = new JLabel("Password", JLabel.TRAILING);
-		pan_champs.add(lab_mdp);
-		JPasswordField tf_mdp = new JPasswordField(Configuration.TAILLE_JTEXTFIELD_CONF_SERV);
-		ls_textfiels.add(tf_mdp);
-		lab_mdp.setLabelFor(tf_mdp);
-		tf_mdp.setText(Configuration.MOT_DE_PASSE_BDD);
-		pan_champs.add(tf_mdp);
-		pan_champs.add(new JLabel(" "));
-
 		
 		add(pan_champs, BorderLayout.CENTER);
 	}

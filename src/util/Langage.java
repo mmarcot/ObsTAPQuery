@@ -361,9 +361,9 @@ public class Langage {
 	 */
 	public static String getMenuItemUrlBDD() {
 		if(lang.equals("FR"))
-			return "URL du serveur";
+			return "URL service TAP";
 		else
-			return "Server's URL";
+			return "URL TAP service";
 	}
 
 
@@ -441,18 +441,6 @@ public class Langage {
 			return "OK";
 		else
 			return "OK";
-	}
-
-
-	/**
-	 * @return Texte correspondant au titre de la frame de 
-	 * configuration du serveur
-	 */
-	public static String getTitreConfServeur() {
-		if(lang.equals("FR"))
-			return "Configuration des serveurs";
-		else
-			return "Servers configuration";
 	}
 
 

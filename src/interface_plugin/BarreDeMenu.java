@@ -65,7 +65,7 @@ public class BarreDeMenu extends JMenuBar {
 		url_bdd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame fen = new JFrame(Langage.getTitreConfServeur());
+				JFrame fen = new JFrame(Langage.getMenuItemUrlBDD());
 				PanneauConfServeur pan_conf = new PanneauConfServeur(plug_lay);
 				fen.setContentPane(pan_conf);
 				fen.pack();
