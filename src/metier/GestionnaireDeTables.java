@@ -208,34 +208,49 @@ public class GestionnaireDeTables {
 				
 				// récupération des index des colonnes qui nous interesse :
 				int index_table_name = getIndexOfField("table_name", tab_fields);
+				int index_column_name = getIndexOfField("column_name", tab_fields);
+				int index_datatype= getIndexOfField("datatype", tab_fields);
+				int index_unit = getIndexOfField("unit", tab_fields);
+				int index_ucd = getIndexOfField("ucd", tab_fields);
+				int index_utype = getIndexOfField("utype", tab_fields);
 				
 				ArrayList<String> liste_tables = new ArrayList<String>();
-				ArrayList<String> liste_colonnes = new ArrayList<String>();
+				ArrayList<UnChamps> liste_colonnes = new ArrayList<UnChamps>();
 				
 				TRSet tr = currentResource.getTRSet(i);
 
 				if (tr != null) {
-					System.out.println("Number of items in TRset (= number of <TR></TR>) : " + tr.getItemCount());
-
+					
 					// for each row of the table
-					for (int j = 0; j < tr.getItemCount(); j++) {
+					for(int j = 0; j < tr.getItemCount(); j++) {
+						boolean ligne_deja_faite = false;
 
 						// get all the data of the row
 						TDSet theTDs = tr.getTDSet(j);
 
-						String currentLine = new String();
-
-						//System.out.println("Number of items in TDSet for the index " + (j+1) + " tr (= number of <TD></TD>) : " + theTDs.getItemCount());
-
 						// for each data of the row
-						for (int k = 0; k < theTDs.getItemCount(); k++) {
-							String data = theTDs.getContent(k);
+						for(int k = 0; k < theTDs.getItemCount(); k++) {
+							
+							String data = theTDs.getContent(k); // récup la donnée
+							
+							// on construit la liste des tables :
 							if(k == index_table_name && !liste_tables.contains(data) && !data.matches("TAP_SCHEMA.*")) { 
 								liste_tables.add(data);
-								System.out.println(data);
 							}
-							//currentLine = currentLine + theTDs.getContent(k);
-							//System.out.println("<" + theTDs.getContent(k) + ">");
+							
+							// on construit la liste des colonnes de la table séléctionnée :
+							if(theTDs.getContent(index_table_name).equals(table_selectionnee) && !ligne_deja_faite) {
+								ligne_deja_faite = true;
+								
+								String name = theTDs.getContent(index_column_name);
+								String datatype = theTDs.getContent(index_datatype);
+								String unit = theTDs.getContent(index_unit);
+								String ucd = theTDs.getContent(index_ucd);
+								String utype = theTDs.getContent(index_utype);
+								
+								liste_colonnes.add(new UnChamps(name, datatype, unit, ucd, utype));
+							}
+							
 						}
 					}
 				}
