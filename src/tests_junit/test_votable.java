@@ -29,9 +29,9 @@ public class test_votable {
 //	}
 	
 	
-	@Test
-	public void testParser() {
-		GestionnaireDeTables.parserVOTable();
-	}
+//	@Test
+//	public void testParser() {
+//		GestionnaireDeTables.parserVOTable();
+//	}
 
 }
