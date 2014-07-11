@@ -468,6 +468,15 @@ public class Langage {
 	}
 
 
+
+	public static String getMessage_err_url() {
+		if(lang.equals("FR"))
+			return "URL mal formé";
+		else
+			return "Malformed URL";
+	}
+
+
 	
 }
 

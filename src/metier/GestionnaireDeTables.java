@@ -10,6 +10,10 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
+import cds.savot.model.*;
+import cds.savot.pull.*;
+import cds.xml.TableParser;
+
 import util.Configuration;
 import util.Langage;
 
@@ -150,28 +154,77 @@ public class GestionnaireDeTables {
 	
 
 	/**
-	 * Permet de récupérer le contenu du fichier CSV distant
+	 * Permet de récupérer l'input stream de la VOTable distante 
 	 * @param url URL du fichier CSV
 	 * @return Contenu du fichier CSV
 	 */
-	public static String telechargerFichierCSV(URL url) {
+	public static InputStream getInputStream(URL url) {
 		InputStream input = null;
-		String content = "";
 		
 		try {
 			URLConnection connection = url.openConnection();
-//			if(connection.getContentLength() == -1) {
-//				throw new IOException("Invalid URL");
-//			}
 			input = connection.getInputStream();
-			content = new Scanner(input,"UTF-8").useDelimiter("\\A").next();
-			
 		} 
 		catch(IOException e) {
 			e.printStackTrace();
 		}
 		
-		return content;
+		return input;
+	}
+	
+
+	public static void parserVOTable() {
+		
+		// construction de l'URL :
+		URL url_src = null;
+		try {
+			url_src = new URL(Configuration.URL_SERVICE_TAP + "/sync?REQUEST=doQuery&LANG=ADQL&QUERY=SELECT+*+FROM+TAP_SCHEMA.columns");
+		} catch (MalformedURLException e) {
+			JOptionPane.showMessageDialog(null, Langage.getMessage_err_url(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+		
+		// récupération de l'input stream de la VOTable :
+		InputStream source = getInputStream(url_src);
+		
+		// begin the parsing
+		SavotPullParser sb = new SavotPullParser(source, SavotPullEngine.SEQUENTIAL, "UTF-8"); // parsing starting 
+
+		// get the next resource of the VOTable file
+		SavotResource currentResource = sb.getNextResource();  // get the next resource
+
+		// while a resource is available
+		while (currentResource != null) {
+
+			// for each table of this resource
+			for (int i = 0; i < currentResource.getTableCount(); i++) {
+				TRSet tr = currentResource.getTRSet(i);
+
+				if (tr != null) {
+					System.out.println("Number of items in TRset (= number of <TR></TR>) : " + tr.getItemCount());
+
+					// for each row of the table
+					for (int j = 0; j < tr.getItemCount(); j++) {
+
+						// get all the data of the row
+						TDSet theTDs = tr.getTDSet(j);
+
+						String currentLine = new String();
+
+						System.out.println("Number of items in TDSet for the index " + (j+1) + " tr (= number of <TD></TD>) : " + theTDs.getItemCount());
+
+						// for each data of the row
+						for (int k = 0; k < theTDs.getItemCount(); k++) {
+							currentLine = currentLine + theTDs.getContent(k);
+							System.out.println("<" + theTDs.getContent(k) + ">");
+						}
+					}
+				}
+			}
+			// get the next resource
+			currentResource = sb.getNextResource();
+		}
+
 	}
 	
 	
