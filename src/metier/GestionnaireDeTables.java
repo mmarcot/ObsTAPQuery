@@ -198,6 +198,20 @@ public class GestionnaireDeTables {
 
 			// for each table of this resource
 			for (int i = 0; i < currentResource.getTableCount(); i++) {
+				
+				// on récupère les fields dans un tableau :
+				FieldSet fields = currentResource.getFieldSet(i);
+				SavotField[] tab_fields = new SavotField[fields.getItemCount()];
+				for(int j=0; j<fields.getItemCount(); j++) {
+					tab_fields[j] = (SavotField)fields.getItemAt(j);
+				}
+				
+				// récupération des index des colonnes qui nous interesse :
+				int index_table_name = getIndexOfField("table_name", tab_fields);
+				
+				ArrayList<String> liste_tables = new ArrayList<String>();
+				ArrayList<String> liste_colonnes = new ArrayList<String>();
+				
 				TRSet tr = currentResource.getTRSet(i);
 
 				if (tr != null) {
@@ -211,12 +225,17 @@ public class GestionnaireDeTables {
 
 						String currentLine = new String();
 
-						System.out.println("Number of items in TDSet for the index " + (j+1) + " tr (= number of <TD></TD>) : " + theTDs.getItemCount());
+						//System.out.println("Number of items in TDSet for the index " + (j+1) + " tr (= number of <TD></TD>) : " + theTDs.getItemCount());
 
 						// for each data of the row
 						for (int k = 0; k < theTDs.getItemCount(); k++) {
-							currentLine = currentLine + theTDs.getContent(k);
-							System.out.println("<" + theTDs.getContent(k) + ">");
+							String data = theTDs.getContent(k);
+							if(k == index_table_name && !liste_tables.contains(data) && !data.matches("TAP_SCHEMA.*")) { 
+								liste_tables.add(data);
+								System.out.println(data);
+							}
+							//currentLine = currentLine + theTDs.getContent(k);
+							//System.out.println("<" + theTDs.getContent(k) + ">");
 						}
 					}
 				}
@@ -225,6 +244,24 @@ public class GestionnaireDeTables {
 			currentResource = sb.getNextResource();
 		}
 
+	}
+	
+	
+	/**
+	 * Permet de connaitre l'index du field passée en parametre
+	 * @param field_name Nom du field dont on veut l'index
+	 * @param tab_fields Tableau contenant l'ensemble des fields
+	 * @return L'index ou -1 si non trouvée 
+	 */
+	private static int getIndexOfField(String field_name, SavotField[] tab_fields) {
+		int index = -1;
+		
+		for(int i=0; i<tab_fields.length; i++) {
+			if(tab_fields[i].getName().equals(field_name))
+				return i;
+		}
+		
+		return index;
 	}
 	
 	
