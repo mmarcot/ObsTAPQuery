@@ -492,6 +492,42 @@ public class Langage {
 
 
 
+	public static String getLimit() {
+		if(lang.equals("FR"))
+			return "Clause LIMIT";
+		else
+			return "LIMIT clause";
+	}
+
+
+
+	public static String getLimitInputMessage() {
+		if(lang.equals("FR"))
+			return "Entrez la valeur de la clause LIMIT";
+		else
+			return "Enter the value of the LIMIT clause";
+	}
+
+
+
+	public static String getErreurEntrezNombreEntier() {
+		if(lang.equals("FR"))
+			return "Entrez un nombre entier SVP";
+		else
+			return "Please enter an integer";
+	}
+
+
+
+	public static String getNoLimit() {
+		if(lang.equals("FR"))
+			return "Pas de limite";
+		else
+			return "No limit";
+	}
+
+
+
 	
 }
 

@@ -15,9 +15,11 @@ public class Configuration {
 	// ###                      CHANGEABLE PAR L'UTILISATEUR                        ###
 	// ################################################################################
 	
-	// /!\ attention aux modif structurelle (changements codé en dur) :
-	/** Url vers le service tap de Saada */
+	/** Url vers le service tap */
 	public static String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8080/vizier2/tap";
+	
+	/** valeur de la clause LIMIT */
+	public static int LIMIT = -1;
 	
 	
 	
@@ -77,3 +79,15 @@ public class Configuration {
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
