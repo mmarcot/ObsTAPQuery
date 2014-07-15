@@ -25,12 +25,13 @@ import util.Langage;
  */
 public class AuditeurBoutonOkConfServeur implements ActionListener {
 
-	private PanneauConfServeur pan_conf;
+	private PluginLayout plug_lay;
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton but_src = (JButton) e.getSource();
-		pan_conf = (PanneauConfServeur) but_src.getParent().getParent();
+		PanneauConfServeur pan_conf = (PanneauConfServeur) but_src.getParent().getParent();
+		plug_lay = pan_conf.getPlug_lay();
 		
 		// recup l'ArrayList contenant les champs texte de conf :
 		String str_url_tap = pan_conf.getChamps_url_tap().getText().trim();
@@ -50,17 +51,7 @@ public class AuditeurBoutonOkConfServeur implements ActionListener {
 	private void mettreAJour() {
 		GestionnaireDeTables.changerTableSelectionnee(Configuration.TABLE_PAR_DEFAULT);
 		
-		PluginLayout plug_lay = pan_conf.getPlug_lay();
-		
-		// on nettoye tout :
-		plug_lay.getSelect().uncheckAll();
-		plug_lay.getWhere().toutEnlever();
-		plug_lay.getRequete().setTexteRequete(null);
-		
-		// on met à jour :
-		plug_lay.getSelect().mettreAJourColonnes();
-		plug_lay.getFrom().mettreAJour();
-		plug_lay.getWhere().getGestionnaire().mettreAJourColonnes();
+		plug_lay.mettreAJour(true);
 	}
 
 }

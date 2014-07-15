@@ -27,7 +27,6 @@ public class AuditeurMenuLoadQuery implements ActionListener {
 	 * @param p_plug_lay Référence au PluginLayout
 	 */
 	public AuditeurMenuLoadQuery(PluginLayout p_plug_lay) {
-		super();
 		this.plug_lay = p_plug_lay;
 	}
 

@@ -50,6 +50,24 @@ public class PluginLayout extends JPanel {
 	
 	
 	/**
+	 * Permet de tout nettoyer et de mettre à jour les colonnes 
+	 * @param maj_from Mise à jour du from (oui ou non)
+	 */
+	public void mettreAJour(boolean maj_from) {
+		// on nettoye tout :
+		getSelect().uncheckAll();
+		getWhere().toutEnlever();
+		getRequete().setTexteRequete(null);
+		
+		// on met à jour :
+		getSelect().mettreAJourColonnes();
+		getWhere().getGestionnaire().mettreAJourColonnes();
+		if(maj_from)
+			getFrom().mettreAJour();
+	}
+	
+	
+	/**
 	 * Méthode qui initialise les panneaux et leur disposition
 	 */
 	private void initPanneaux() {

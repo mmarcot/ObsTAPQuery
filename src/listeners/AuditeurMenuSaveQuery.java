@@ -27,7 +27,6 @@ public class AuditeurMenuSaveQuery implements ActionListener {
 	 * @param plug_lay Référence au plug-in
 	 */
 	public AuditeurMenuSaveQuery(PluginLayout plug_lay) {
-		super();
 		this.plug_lay = plug_lay;
 	}
 	
@@ -39,6 +38,8 @@ public class AuditeurMenuSaveQuery implements ActionListener {
 		
 		// on demande le fichier :
 		String chemin = JOptionPane.showInputDialog(Langage.getPath());
+		if(chemin == null)
+			return;
 		File fichier = new File(chemin); 
 		
 		// on écrit dans une fichier :

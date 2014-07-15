@@ -55,14 +55,7 @@ public class AuditeurComboBoxFrom implements ActionListener{
 	private void mettreAJour() {
 		GestionnaireDeTables.changerTableSelectionnee((String) combo_src.getSelectedItem());
 		
-		// on nettoye tout :
-		plug_lay.getSelect().uncheckAll();
-		plug_lay.getWhere().toutEnlever();
-		plug_lay.getRequete().setTexteRequete(null);
-		
-		// on met à jour :
-		plug_lay.getSelect().mettreAJourColonnes();
-		plug_lay.getWhere().getGestionnaire().mettreAJourColonnes();
+		plug_lay.mettreAJour(false);
 	}
 	
 
