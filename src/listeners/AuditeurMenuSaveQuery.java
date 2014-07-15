@@ -9,6 +9,7 @@ import java.io.*;
 import javax.swing.*;
 
 import util.BoiteOutils;
+import util.Langage;
 
 
 /**
@@ -36,8 +37,12 @@ public class AuditeurMenuSaveQuery implements ActionListener {
 		// on récupère le texte de la requete :
 		String content = plug_lay.getRequete().getTexte();
 		
+		// on demande le fichier :
+		String chemin = JOptionPane.showInputDialog(Langage.getPath());
+		File fichier = new File(chemin); 
+		
 		// on écrit dans une fichier :
-		BoiteOutils.ecrireDansUnFichier(content);		
+		BoiteOutils.ecrireDansLeFichier(fichier, content);		
 	}
 	
 }

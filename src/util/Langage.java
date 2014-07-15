@@ -483,6 +483,15 @@ public class Langage {
 
 
 
+	public static String getFileNotFound() {
+		if(lang.equals("FR"))
+			return "Fichier non trouvé";
+		else
+			return "File not found";
+	}
+
+
+
 	
 }
 

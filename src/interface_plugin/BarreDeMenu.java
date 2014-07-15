@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import listeners.AuditeurMenuLoadQuery;
 import listeners.AuditeurMenuSaveQuery;
 
 import util.Langage;
@@ -47,6 +48,7 @@ public class BarreDeMenu extends JMenuBar {
 		
 		// JMenuItem load query :
 		JMenuItem load_req = new JMenuItem(Langage.getMenuItemLoadReq());
+		load_req.addActionListener(new AuditeurMenuLoadQuery(plug_lay));
 		
 		// JMenuItem quitter :
 		JMenuItem quitter = new JMenuItem(Langage.getQuitter());
