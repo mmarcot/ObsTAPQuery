@@ -464,7 +464,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant au message d'erreur url incorrect
+	 */
 	public static String getMessage_err_url() {
 		if(lang.equals("FR"))
 			return "URL incorrect";
@@ -473,7 +475,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant à la saisie du path
+	 */
 	public static String getPath() {
 		if(lang.equals("FR"))
 			return "Chemin vers le fichier";
@@ -482,7 +486,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant au message d'erreur fichier non trouvé
+	 */
 	public static String getFileNotFound() {
 		if(lang.equals("FR"))
 			return "Fichier non trouvé";
@@ -491,7 +497,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant au à la clause limit
+	 */
 	public static String getLimit() {
 		if(lang.equals("FR"))
 			return "Clause LIMIT";
@@ -500,7 +508,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant à la saisie de la clause limit
+	 */
 	public static String getLimitInputMessage() {
 		if(lang.equals("FR"))
 			return "Entrez la valeur de la clause LIMIT";
@@ -509,7 +519,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant au message d'erreur lors de la saisie d'un nombre
+	 */
 	public static String getErreurEntrezNombreEntier() {
 		if(lang.equals("FR"))
 			return "Entrez un nombre entier SVP";
@@ -518,12 +530,25 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Texte correspondant à "pas de limite"
+	 */
 	public static String getNoLimit() {
 		if(lang.equals("FR"))
 			return "Pas de limite";
 		else
 			return "No limit";
+	}
+
+
+	/**
+	 * @return Texte correspondant à la saisie d'une limite
+	 */
+	public static String getMenuItemEnterLimitValue() {
+		if(lang.equals("FR"))
+			return "Entrer limite...";
+		else
+			return "Enter limit...";
 	}
 
 

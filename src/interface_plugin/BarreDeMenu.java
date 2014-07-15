@@ -95,26 +95,7 @@ public class BarreDeMenu extends JMenuBar {
 		
 		// clause LIMIT :
 		initClauseLimit(option);
-		
-		
-		
-		
-//		limit.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				String limit_str = JOptionPane.showInputDialog(plug_lay, Langage.getLimitInputMessage());
-//				if(limit_str != null) {
-//					try {
-//						Configuration.LIMIT = Integer.parseInt(limit_str.trim());
-//					}
-//					catch(NumberFormatException ex) {
-//						BoiteOutils.erreur(Langage.getErreurEntrezNombreEntier());
-//						ex.printStackTrace();
-//					}
-//				}
-//			}
-//		});
-		
+
 		
 		add(option);
 	}
@@ -156,12 +137,12 @@ public class BarreDeMenu extends JMenuBar {
 	 * @param option Référence au JMenu parent (pour add)
 	 */
 	private void initClauseLimit(JMenu option) {
-		JMenu limit = new JMenu(Langage.getLimit());
+		JMenu menu_limit = new JMenu(Langage.getLimit());
 		
 		// création d'un groupe de radio button :
 		ButtonGroup group = new ButtonGroup();
 		
-		// instanciation des radio button :
+		// instanciation des MenuItem :
 		JRadioButtonMenuItem limit_1000 = new JRadioButtonMenuItem("1 000");
 		JRadioButtonMenuItem limit_5000 = new JRadioButtonMenuItem("5 000");
 		JRadioButtonMenuItem limit_10000 = new JRadioButtonMenuItem("10 000");
@@ -170,6 +151,7 @@ public class BarreDeMenu extends JMenuBar {
 		JRadioButtonMenuItem limit_500000 = new JRadioButtonMenuItem("500 000");
 		JRadioButtonMenuItem limit_1000000 = new JRadioButtonMenuItem("1 000 000");
 		JRadioButtonMenuItem no_limit = new JRadioButtonMenuItem(Langage.getNoLimit());
+		JMenuItem saisie_limit = new JMenuItem(Langage.getMenuItemEnterLimitValue());
 		
 		// ajout des listeners :
 		limit_1000.addActionListener(new AuditeurRadioButtonLimit());
@@ -180,6 +162,21 @@ public class BarreDeMenu extends JMenuBar {
 		limit_500000.addActionListener(new AuditeurRadioButtonLimit());
 		limit_1000000.addActionListener(new AuditeurRadioButtonLimit());
 		no_limit.addActionListener(new AuditeurRadioButtonLimit());
+		saisie_limit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String limit_str = JOptionPane.showInputDialog(plug_lay, Langage.getLimitInputMessage());
+				if(limit_str != null) {
+					try {
+						Configuration.LIMIT = Integer.parseInt(limit_str.trim());
+					}
+					catch(NumberFormatException ex) {
+						BoiteOutils.erreur(Langage.getErreurEntrezNombreEntier());
+						ex.printStackTrace();
+					}
+				}
+			}
+		});
 		
 		// selection par défaut :
 		no_limit.setSelected(true);
@@ -195,17 +192,19 @@ public class BarreDeMenu extends JMenuBar {
 		group.add(no_limit);
 		
 		// on les ajoutent au JMenu :
-		limit.add(limit_1000);
-		limit.add(limit_5000);
-		limit.add(limit_10000);
-		limit.add(limit_50000);
-		limit.add(limit_100000);
-		limit.add(limit_500000);
-		limit.add(limit_1000000);
-		limit.add(no_limit);
+		menu_limit.add(limit_1000);
+		menu_limit.add(limit_5000);
+		menu_limit.add(limit_10000);
+		menu_limit.add(limit_50000);
+		menu_limit.add(limit_100000);
+		menu_limit.add(limit_500000);
+		menu_limit.add(limit_1000000);
+		menu_limit.add(no_limit);
+		menu_limit.addSeparator();
+		menu_limit.add(saisie_limit);
 		
 		// on l'affiche dans le JMenu Option :
-		option.add(limit);
+		option.add(menu_limit);
 	}
 	
 	
