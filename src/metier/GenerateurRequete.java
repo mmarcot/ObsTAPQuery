@@ -8,6 +8,8 @@ import interface_plugin.Where;
 
 import java.util.ArrayList;
 
+import util.Configuration;
+
 
 /**
  * Classe qui permet de générer une requete ADQL en fonction du select
@@ -22,6 +24,7 @@ public class GenerateurRequete {
 	private Where where;
 	private Requete requete;
 
+	
 	/**
 	 * Constructeur d'un générateur de requête avec les bonnes références
 	 * @param select Référence vers le select du plug-in
@@ -46,9 +49,10 @@ public class GenerateurRequete {
 		String req = new String();
 
 		// construction de la requete
-		req += (genererSelect() + "\n");
-		req += (genererFrom() + "\n");
-		req += (genererWhere() + "\n");
+		req += genererSelect();
+		req += genererFrom();
+		req += genererWhere();
+		req += genererLimit();
 		req = (req.trim() + ";");
 		
 		// affichage :
@@ -57,6 +61,22 @@ public class GenerateurRequete {
 	
 	
 	
+	/**
+	 * Methode qui génère la clause LIMIT si il y a lieu
+	 * @return String representation of the LIMIT clause
+	 */
+	private String genererLimit() {
+		String ret = new String();
+		
+		if(Configuration.LIMIT != -1) {
+			ret += ("LIMIT " + Integer.toString(Configuration.LIMIT)); 
+		}
+		
+		return ret + "\n";
+	}
+
+
+
 	/**
 	 * Methode qui génère la partie "select" de la requete
 	 */
@@ -79,7 +99,7 @@ public class GenerateurRequete {
 				ret += "*";
 		}
 		
-		return ret;
+		return ret + "\n";
 	}
 	
 	
@@ -91,7 +111,7 @@ public class GenerateurRequete {
 		String ret = "FROM ";
 		ret += from.getSelectedTable();
 		
-		return ret;
+		return ret + "\n";
 	}
 
 	
@@ -106,7 +126,7 @@ public class GenerateurRequete {
 		LigneDeContrainte[] tab_lignes_cont = where.getGestionnaire().getLignes();
 		
 		for(LigneDeContrainte ligne : tab_lignes_cont) {
-			ret += ligne.toString() + '\n';
+			ret += ligne.toString() + '\n'; 
 		}
 		
 		return ret;

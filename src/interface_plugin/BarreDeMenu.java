@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import listeners.AuditeurMenuLoadQuery;
 import listeners.AuditeurMenuSaveQuery;
+import listeners.AuditeurRadioButtonLimit;
 
 import util.BoiteOutils;
 import util.Configuration;
@@ -157,7 +158,10 @@ public class BarreDeMenu extends JMenuBar {
 	private void initClauseLimit(JMenu option) {
 		JMenu limit = new JMenu(Langage.getLimit());
 		
+		// création d'un groupe de radio button :
 		ButtonGroup group = new ButtonGroup();
+		
+		// instanciation des radio button :
 		JRadioButtonMenuItem limit_1000 = new JRadioButtonMenuItem("1 000");
 		JRadioButtonMenuItem limit_5000 = new JRadioButtonMenuItem("5 000");
 		JRadioButtonMenuItem limit_10000 = new JRadioButtonMenuItem("10 000");
@@ -166,8 +170,21 @@ public class BarreDeMenu extends JMenuBar {
 		JRadioButtonMenuItem limit_500000 = new JRadioButtonMenuItem("500 000");
 		JRadioButtonMenuItem limit_1000000 = new JRadioButtonMenuItem("1 000 000");
 		JRadioButtonMenuItem no_limit = new JRadioButtonMenuItem(Langage.getNoLimit());
+		
+		// ajout des listeners :
+		limit_1000.addActionListener(new AuditeurRadioButtonLimit());
+		limit_5000.addActionListener(new AuditeurRadioButtonLimit());
+		limit_10000.addActionListener(new AuditeurRadioButtonLimit());
+		limit_50000.addActionListener(new AuditeurRadioButtonLimit());
+		limit_100000.addActionListener(new AuditeurRadioButtonLimit());
+		limit_500000.addActionListener(new AuditeurRadioButtonLimit());
+		limit_1000000.addActionListener(new AuditeurRadioButtonLimit());
+		no_limit.addActionListener(new AuditeurRadioButtonLimit());
+		
+		// selection par défaut :
 		no_limit.setSelected(true);
 		
+		// on les ajoutent au groupe :
 		group.add(limit_1000);
 		group.add(limit_5000);
 		group.add(limit_10000);
@@ -177,6 +194,7 @@ public class BarreDeMenu extends JMenuBar {
 		group.add(limit_1000000);
 		group.add(no_limit);
 		
+		// on les ajoutent au JMenu :
 		limit.add(limit_1000);
 		limit.add(limit_5000);
 		limit.add(limit_10000);
@@ -186,6 +204,7 @@ public class BarreDeMenu extends JMenuBar {
 		limit.add(limit_1000000);
 		limit.add(no_limit);
 		
+		// on l'affiche dans le JMenu Option :
 		option.add(limit);
 	}
 	
