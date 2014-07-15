@@ -37,7 +37,7 @@ public class AuditeurMenuSaveQuery implements ActionListener {
 		String content = plug_lay.getRequete().getTexte();
 		
 		// on demande le fichier :
-		String chemin = JOptionPane.showInputDialog(Langage.getPath());
+		String chemin = JOptionPane.showInputDialog(plug_lay, Langage.getPath());
 		if(chemin == null)
 			return;
 		File fichier = new File(chemin); 

@@ -35,7 +35,7 @@ public class AuditeurMenuLoadQuery implements ActionListener {
 		String content = "";
 		
 		JFileChooser fileChooser = new JFileChooser();
-		int returnValue = fileChooser.showOpenDialog(null);
+		int returnValue = fileChooser.showOpenDialog(plug_lay);
 		if( returnValue == JFileChooser.APPROVE_OPTION ) {
 			File selectedFile = fileChooser.getSelectedFile();
 			content = BoiteOutils.lireLeFichier(selectedFile);
