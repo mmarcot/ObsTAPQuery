@@ -85,7 +85,8 @@ public class GestionnaireDeTables {
 			URLConnection connection = url.openConnection();
 			input = connection.getInputStream();
 		} 
-		catch(IOException e) {
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, Langage.getMessage_err_url(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 		
@@ -98,11 +99,15 @@ public class GestionnaireDeTables {
 	 */
 	private static void parserVOTable() {
 		
+		// création des listes à charger :
+		liste_tables = new ArrayList<String>();
+		liste_colonnes = new ArrayList<UnChamps>();
+		
 		// construction de l'URL :
 		URL url_src = null;
 		try {
 			url_src = new URL(Configuration.URL_SERVICE_TAP + "/sync?REQUEST=doQuery&LANG=ADQL&QUERY=SELECT+*+FROM+TAP_SCHEMA.columns");
-		} catch (MalformedURLException e) {
+		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, Langage.getMessage_err_url(), Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
@@ -136,9 +141,6 @@ public class GestionnaireDeTables {
 				int index_unit = getIndexOfField("unit", tab_fields);
 				int index_ucd = getIndexOfField("ucd", tab_fields);
 				int index_utype = getIndexOfField("utype", tab_fields);
-				
-				liste_tables = new ArrayList<String>();
-				liste_colonnes = new ArrayList<UnChamps>();
 				
 				TRSet tr = currentResource.getTRSet(i);
 

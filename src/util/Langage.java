@@ -387,6 +387,14 @@ public class Langage {
 		else
 			return "Save query";
 	}
+	
+	
+	public static String getMenuItemLoadReq() {
+		if(lang.equals("FR"))
+			return "Charger requête";
+		else
+			return "Load query";
+	}
 
 
 	/**
@@ -459,10 +467,20 @@ public class Langage {
 
 	public static String getMessage_err_url() {
 		if(lang.equals("FR"))
-			return "URL mal formé";
+			return "URL incorrect";
 		else
-			return "Malformed URL";
+			return "Bad URL";
 	}
+
+
+
+	public static String getPath() {
+		if(lang.equals("FR"))
+			return "Chemin vers le fichier";
+		else
+			return "Path to file";
+	}
+
 
 
 	

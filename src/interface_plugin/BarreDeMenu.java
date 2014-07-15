@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import listeners.AuditeurMenuSaveQuery;
+
 import util.Langage;
 
 
@@ -39,7 +41,14 @@ public class BarreDeMenu extends JMenuBar {
 	private void initMenuFichier() {
 		JMenu fichier = new JMenu(Langage.getMenuFichier());
 		
+		// JMenuItem save query :
 		JMenuItem enr_req = new JMenuItem(Langage.getMenuItemEnrReq());
+		enr_req.addActionListener(new AuditeurMenuSaveQuery(plug_lay));
+		
+		// JMenuItem load query :
+		JMenuItem load_req = new JMenuItem(Langage.getMenuItemLoadReq());
+		
+		// JMenuItem quitter :
 		JMenuItem quitter = new JMenuItem(Langage.getQuitter());
 		quitter.addActionListener(new ActionListener() {
 			@Override
@@ -48,10 +57,13 @@ public class BarreDeMenu extends JMenuBar {
 			}
 		});
 		
+		
 		fichier.add(enr_req);
+		fichier.add(load_req);
 		fichier.add(quitter);
 		add(fichier);
 	}
+	
 	
 	
 	/**
