@@ -72,5 +72,8 @@ public class Configuration {
 	/** Taille des JTextField pour la configuration des serveurs */
 	public static final int TAILLE_JTEXTFIELD_CONF_SERV = 30;
 	
+	/** Définit le path de l'icone de l'application */
+	public static final String PATH_TO_ICON = "img/icon.png";
+	
 	
 }

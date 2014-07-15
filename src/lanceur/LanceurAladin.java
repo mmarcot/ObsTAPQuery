@@ -4,6 +4,8 @@ import interface_plugin.PluginLayout;
 
 import javax.swing.*;
 
+import util.Configuration;
+
 import cds.aladin.AladinException;
 import cds.aladin.AladinPlugin;
 
@@ -22,6 +24,7 @@ public class LanceurAladin extends AladinPlugin{
 	@Override
 	public void exec() throws AladinException {
 		JFrame fen = new JFrame("ObsTAP Query");
+		fen.setIconImage(new ImageIcon(Configuration.PATH_TO_ICON).getImage());
 		
 		PluginLayout plug_lay = new PluginLayout(aladin);
 		fen.setContentPane(plug_lay);
