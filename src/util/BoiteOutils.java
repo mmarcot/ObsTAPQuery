@@ -41,8 +41,9 @@ public class BoiteOutils {
 	}
 	
 	
+	
 	/**
-	 * Methode qui lit le fichier et retourne son contenu
+	 * Methode qui lit le fichier et retourne son contenu en entier
 	 * @return Le contenu du fichier
 	 */
 	public static String lireLeFichier(File fichier) {
@@ -59,9 +60,10 @@ public class BoiteOutils {
 	}
 	
 	
+	
 	/**
-	 * Methode statique permettant d'afficher une erreur
-	 * @param message Le message de l'erreur
+	 * Methode statique permettant d'afficher une erreur (JOptionPane)
+	 * @param message Le message d'erreur
 	 */
 	public static void erreur(String message) {
 		JOptionPane.showMessageDialog(null, message, Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
