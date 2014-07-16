@@ -36,14 +36,15 @@ public class AuditeurMenuSaveQuery implements ActionListener {
 		// on récupère le texte de la requete :
 		String content = plug_lay.getRequete().getTexte();
 		
-		// on demande le fichier :
-		String chemin = JOptionPane.showInputDialog(plug_lay, Langage.getPath());
-		if(chemin == null)
-			return;
-		File fichier = new File(chemin); 
-		
-		// on écrit dans une fichier :
-		BoiteOutils.ecrireDansLeFichier(fichier, content);		
+		// on laisse l'user choisir le fichier :
+		JFileChooser fileChooser = new JFileChooser();
+		int returnValue = fileChooser.showSaveDialog(plug_lay);
+		if( returnValue == JFileChooser.APPROVE_OPTION ) {
+			File selectedFile = fileChooser.getSelectedFile();
+			// on écrit dans un fichier :
+			BoiteOutils.ecrireDansLeFichier(selectedFile, content);	
+		}
+			
 	}
 	
 }
