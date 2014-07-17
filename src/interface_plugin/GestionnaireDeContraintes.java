@@ -20,6 +20,7 @@ public class GestionnaireDeContraintes extends JPanel {
 	private int hauteur_une_ligne;
 	private int largeur_une_ligne;
 	
+	
 	/**
 	 * Constructeur d'un gestionnaire de contraintes
 	 */
@@ -49,7 +50,9 @@ public class GestionnaireDeContraintes extends JPanel {
 	}
 	
 	
-	
+	/**
+	 * Permet d'ajouter une ligne de contrainte au gestionnaire
+	 */
 	@Override
 	public Component add(Component comp) {
 		super.add(comp);
@@ -60,6 +63,9 @@ public class GestionnaireDeContraintes extends JPanel {
 	}
 	
 	
+	/**
+	 * Permet d'enlever une ligne de contrainte au gestionnaire
+	 */
 	@Override
 	public void remove(Component comp) {
 		super.remove(comp);
@@ -85,6 +91,7 @@ public class GestionnaireDeContraintes extends JPanel {
 		if(getComponentCount() > 0)
 			getComponent(getComponentCount()-1).repaint();
 	}
+	
 	
 	
 	/**

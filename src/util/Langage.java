@@ -571,6 +571,39 @@ public class Langage {
 
 
 
+	public static String getAbscisse() {
+		if(lang.equals("FR"))
+			return "X";
+		else
+			return "X";
+	}
+	
+	
+	public static String getOrdonnee() {
+		if(lang.equals("FR"))
+			return "Y";
+		else
+			return "Y";
+	}
+
+	
+	public static String getRayon() {
+		if(lang.equals("FR"))
+			return "Rayon";
+		else
+			return "Radius";
+	}
+
+
+
+	public static String getEntrezDouble() {
+		if(lang.equals("FR"))
+			return "Entrez un nombre réel SVP";
+		else
+			return "Please enter a float number";
+	}
+
+
 	
 }
 
