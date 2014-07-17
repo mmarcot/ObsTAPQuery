@@ -137,11 +137,11 @@ public class Langage {
 	 * Texte correspondant au bouton ajouter contrainte
 	 * @return 
 	 */
-	public static String getWhere_but_add() {
+	public static String getWhere_but_constraint() {
 		if(lang.equals("FR"))
-			return "Ajouter";
+			return "Contrainte";
 		else
-			return "Add";
+			return "Constraint";
 	}
 	
 	
@@ -549,6 +549,24 @@ public class Langage {
 			return "Entrer limite...";
 		else
 			return "Enter limit...";
+	}
+
+
+
+	public static String getPosition() {
+		if(lang.equals("FR"))
+			return "Position";
+		else
+			return "Position";
+	}
+
+
+
+	public static String getPosition_tt() {
+		if(lang.equals("FR"))
+			return "Ajouter une contrainte sur la position";
+		else
+			return "Add a constraint on position";
 	}
 
 

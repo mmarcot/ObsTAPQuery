@@ -4,7 +4,8 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import listeners.AuditeurBoutonAdd;
+import listeners.AuditeurBoutonContrainte;
+import listeners.AuditeurBoutonPosition;
 
 import util.Configuration;
 import util.Langage;
@@ -36,22 +37,32 @@ public class Where extends JPanel {
 		lab_where.setAlignmentX(Component.CENTER_ALIGNMENT);
 		wrapper.add(lab_where);
 		
-		// JButton ajouter :
-		JButton but_add_contrainte = new JButton(Langage.getWhere_but_add());
-		but_add_contrainte.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// wrapper de boutons :
+		JPanel wrap_but = new JPanel();
+		wrap_but.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// bouton ajouter :
+		JButton but_add_contrainte = new JButton(Langage.getWhere_but_constraint());
 		but_add_contrainte.setToolTipText(Langage.getWhere_but_add_tt());
-		but_add_contrainte.addActionListener(new AuditeurBoutonAdd());
-		wrapper.add(but_add_contrainte);
+		but_add_contrainte.addActionListener(new AuditeurBoutonContrainte());
+		wrap_but.add(but_add_contrainte);
+		// bouton position :
+		JButton but_position = new JButton(Langage.getPosition());
+		but_position.setToolTipText(Langage.getPosition_tt());
+		but_position.addActionListener(new AuditeurBoutonPosition());
+		wrap_but.add(but_position);
+		
+		wrapper.add(wrap_but);
+		
 		
 		// Ajout du wrapper au panneau Where
-		this.add(wrapper, BorderLayout.NORTH);
+		add(wrapper, BorderLayout.NORTH);
 		
 		// Ajout du gestionnaire de contraintes :
 		gestionnaire = new GestionnaireDeContraintes();
 		JScrollPane scroller_gest_cont = new JScrollPane(gestionnaire);
 		scroller_gest_cont.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
 		scroller_gest_cont.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
-		this.add(scroller_gest_cont, BorderLayout.CENTER);
+		add(scroller_gest_cont, BorderLayout.CENTER);
 	}
 	
 	
