@@ -66,7 +66,7 @@ public class AuditeurBoutonPosition implements ActionListener {
 		}
 		
 		// si tous les champs sont remplis :
-		if(txt_abs.getText() != null && txt_ord.getText() != null && txt_rayon.getText() != null) {
+		if(txt_abs.getText() != "" && txt_ord.getText() != "" && txt_rayon.getText() != "") {
 			// on determine si on a besoin d'une liaison :
 			boolean liaison = false;
 			if(gestionnaire.getComponentCount()>0)

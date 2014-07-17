@@ -40,8 +40,11 @@ public class LigneDePosition extends JPanel {
 		
 		// affichage de l'abscisse, ordonnée et rayon :
 		add(new JLabel(Langage.getAbscisse() + " : " + Double.toString(x)));
+		add(new JLabel("    "));
 		add(new JLabel(Langage.getOrdonnee() + " : " + Double.toString(y)));
+		add(new JLabel("    "));
 		add(new JLabel(Langage.getRayon() + " : " + Double.toString(rayon)));
+		add(new JLabel("  "));
 		
 		//JButton remove constraint :
 		JButton but_remove = new JButton(Langage.getWhere_but_remove());
