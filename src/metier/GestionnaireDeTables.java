@@ -141,6 +141,7 @@ public class GestionnaireDeTables {
 				int index_unit = getIndexOfField("unit", tab_fields);
 				int index_ucd = getIndexOfField("ucd", tab_fields);
 				int index_utype = getIndexOfField("utype", tab_fields);
+				int index_description = getIndexOfField("description", tab_fields);
 				
 				TRSet tr = currentResource.getTRSet(i);
 
@@ -172,8 +173,9 @@ public class GestionnaireDeTables {
 								String unit = theTDs.getContent(index_unit);
 								String ucd = theTDs.getContent(index_ucd);
 								String utype = theTDs.getContent(index_utype);
+								String description = theTDs.getContent(index_description);
 								
-								liste_colonnes.add(new UnChamps(name, datatype, unit, ucd, utype));
+								liste_colonnes.add(new UnChamps(name, datatype, unit, ucd, utype, description));
 							}
 							
 						}

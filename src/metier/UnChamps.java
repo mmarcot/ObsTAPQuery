@@ -13,6 +13,7 @@ public class UnChamps {
 	private String unit;
 	private String ucd;
 	private String utype;
+	private String description;
 	
 	/**
 	 * Constructeur d'un champs obscore
@@ -21,13 +22,15 @@ public class UnChamps {
 	 * @param unit L'unité de mesure
 	 * @param ucd Unité de la donnée
 	 * @param utype Type de l'unité
+	 * @param description Description du champs
 	 */
-	public UnChamps(String name, String datatype, String unit, String ucd, String utype) {
+	public UnChamps(String name, String datatype, String unit, String ucd, String utype, String description) {
 		this.name = name;
 		this.datatype = datatype;
 		this.unit = unit;
 		this.ucd = ucd;
 		this.utype = utype;
+		this.description = description;
 	}
 
 	
@@ -40,10 +43,10 @@ public class UnChamps {
 
 	
 	/**
-	 * @return the datatype
+	 * @return the description
 	 */
-	public String getDatatype() {
-		return datatype;
+	public String getDescription() {
+		return description;
 	}
 
 	

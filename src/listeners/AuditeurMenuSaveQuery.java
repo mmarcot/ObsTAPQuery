@@ -44,8 +44,8 @@ public class AuditeurMenuSaveQuery implements ActionListener {
 			// on écrit dans un fichier :
 			BoiteOutils.ecrireDansLeFichier(selectedFile, content);	
 		}
-			
 	}
+	
 	
 }
 

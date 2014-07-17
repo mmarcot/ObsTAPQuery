@@ -56,6 +56,7 @@ public class Select extends JPanel {
 	}
 	
 	
+	
 	/**
 	 * Methode qui va charger et afficher les champs obscore dans le select
 	 */
@@ -67,10 +68,12 @@ public class Select extends JPanel {
 		for(UnChamps champs : liste_col_str) {
 			JCheckBox cb = new JCheckBox(champs.getName());
 			cb.addActionListener(new AuditeurCheckboxColObs());
-			this.liste_checkbox.add(cb);
-			this.add(cb);
+			cb.setToolTipText(champs.getDescription());
+			liste_checkbox.add(cb);
+			add(cb);
 		}
 	}
+	
 	
 	
 	/**
