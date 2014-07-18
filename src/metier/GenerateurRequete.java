@@ -1,5 +1,6 @@
 package metier;
 
+import interface_plugin.AbstractLigne;
 import interface_plugin.From;
 import interface_plugin.LigneDeContrainte;
 import interface_plugin.Requete;
@@ -123,9 +124,9 @@ public class GenerateurRequete {
 		String ret = new String();
 		
 		// on récupère les lignes de contraintes :
-		LigneDeContrainte[] tab_lignes_cont = where.getGestionnaire().getLignes();
+		AbstractLigne[] tab_lignes_cont = where.getGestionnaire().getLignes();
 		
-		for(LigneDeContrainte ligne : tab_lignes_cont) {
+		for(AbstractLigne ligne : tab_lignes_cont) {
 			ret += ligne.toString() + '\n'; 
 		}
 		

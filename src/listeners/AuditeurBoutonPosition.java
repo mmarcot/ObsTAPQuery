@@ -70,7 +70,6 @@ public class AuditeurBoutonPosition implements ActionListener {
 		catch(NumberFormatException nfe) {
 			afficher_ligne = false;
 			BoiteOutils.erreur(plug_lay, Langage.getEntrezDouble());
-			nfe.printStackTrace();
 		}
 		
 		// on affiche la ligne si OK :

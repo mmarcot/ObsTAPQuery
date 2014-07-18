@@ -41,10 +41,13 @@ public class GestionnaireDeContraintes extends JPanel {
 	 * prennent en compte le changement de table dans le from
 	 */
 	public void mettreAJourColonnes() {
-		LigneDeContrainte[] tab_lignes = getLignes();
+		AbstractLigne[] tab_lignes = getLignes();
 		
-		for(LigneDeContrainte ligne : tab_lignes) {
-			ligne.mettreAJourColonnesComboBox();
+		// on met à jour uniquement les lignes de contraintes :
+		for(AbstractLigne ligne : tab_lignes) {
+			if(ligne instanceof LigneDeContrainte) {
+				((LigneDeContrainte) ligne).mettreAJourColonnesComboBox();
+			}
 		}
 		
 	}
@@ -112,15 +115,15 @@ public class GestionnaireDeContraintes extends JPanel {
 	 * sous forme de tableau
 	 * @return Tableau de LigneDeContrainte
 	 */
-	public LigneDeContrainte[] getLignes() {
+	public AbstractLigne[] getLignes() {
 			// on récupère les lignes de contraintes :
 			Component[] tab_lignes_cont = getComponents();
 
 			// on les cast correctement et on les met dans un tableau :
-			LigneDeContrainte[] tab_cont_ret = new LigneDeContrainte[getComponentCount()];
+			AbstractLigne[] tab_cont_ret = new AbstractLigne[getComponentCount()];
 			int i = 0;
 			for(Component ligne : tab_lignes_cont) {
-				tab_cont_ret[i] = (LigneDeContrainte) ligne;
+				tab_cont_ret[i] = (AbstractLigne) ligne;
 				i++;
 			}
 			

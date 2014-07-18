@@ -19,6 +19,7 @@ public class LigneDePosition extends AbstractLigne {
 	private boolean liaison;
 	/** Combo box de la liaison */
 	private JComboBox combo_liaison;
+	private double ra, dec, rayon;
 	
 	
 	/**
@@ -31,6 +32,9 @@ public class LigneDePosition extends AbstractLigne {
 	 */
 	public LigneDePosition(boolean liaison, double ra, double dec, double rayon) {
 		this.liaison = liaison;
+		this.ra = ra;
+		this.dec = dec;
+		this.rayon = rayon;
 		
 		// Affichage éventuel de la liaison :
 		if(liaison) {
@@ -52,6 +56,31 @@ public class LigneDePosition extends AbstractLigne {
 		but_remove.setToolTipText(Langage.getWhere_but_remove_tt());
 		but_remove.addActionListener(new AuditeurBoutonRemove());
 		add(but_remove);
+	}
+	
+	
+	/**
+	 * Formatte la ligne pour pouvoir l'afficher directement dans la requete résultante
+	 */
+	@Override
+	public String toString() {
+		String ret = new String();
+		
+		// gestion le la liaison :
+		if(liaison)
+			ret += (String)combo_liaison.getSelectedItem() + " ";
+		else
+			ret += "WHERE ";
+		
+		String str_ra = Double.toString(ra);
+		String str_dec = Double.toString(dec);
+		String str_rayon = Double.toString(rayon);
+		
+		ret += "CONTAINS(POINT('ICRS', ivoa.ObsCore.s_ra, ivoa.ObsCore.s_dec), CIRCLE('ICRS'," + 
+				str_ra + ", " + str_dec + ", " + str_rayon + ")) = 1";
+		
+		
+		return ret;
 	}
 	
 	
