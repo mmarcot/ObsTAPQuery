@@ -24,8 +24,8 @@ public class AbstractLigne extends JPanel {
 			if(liaison) {
 				liaison = false;
 			}
-			this.remove(combo_liaison);
-			this.revalidate();
+			remove(combo_liaison);
+			revalidate();
 		}
 	}
 

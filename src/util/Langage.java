@@ -576,24 +576,24 @@ public class Langage {
 
 
 	/**
-	 * @return Abscisse recherche par position
+	 * @return Ascension droite recherche par position
 	 */
-	public static String getAbscisse() {
+	public static String getRA() {
 		if(lang.equals("FR"))
-			return "X";
+			return "RA";
 		else
-			return "X";
+			return "RA";
 	}
 	
 	
 	/**
-	 * @return Ordonnée recherche position
+	 * @return Déclinaison recherche position
 	 */
-	public static String getOrdonnee() {
+	public static String getDEC() {
 		if(lang.equals("FR"))
-			return "Y";
+			return "DEC";
 		else
-			return "Y";
+			return "DEC";
 	}
 
 	

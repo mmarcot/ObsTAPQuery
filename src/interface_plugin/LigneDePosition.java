@@ -25,11 +25,11 @@ public class LigneDePosition extends AbstractLigne {
 	 * Constructeur d'une ligne de position qui réalise une contrainte sur un cercle
 	 * de centre x, y et de rayon donné
 	 * @param liaison Liaison avec la ligne précédente (oui ou non)
-	 * @param x Abscisse du centre de la position
-	 * @param y Ordonnée du centre de la position
+	 * @param ra Abscisse du centre de la position
+	 * @param dec Ordonnée du centre de la position
 	 * @param rayon Rayon souhaité
 	 */
-	public LigneDePosition(boolean liaison, double x, double y, double rayon) {
+	public LigneDePosition(boolean liaison, double ra, double dec, double rayon) {
 		this.liaison = liaison;
 		
 		// Affichage éventuel de la liaison :
@@ -39,12 +39,13 @@ public class LigneDePosition extends AbstractLigne {
 		}
 		
 		// affichage de l'abscisse, ordonnée et rayon :
-		add(new JLabel(Langage.getAbscisse() + " : " + Double.toString(x)));
+		add(new JLabel(" "));
+		add(new JLabel(Langage.getRA() + " : " + Double.toString(ra)));
 		add(new JLabel("    "));
-		add(new JLabel(Langage.getOrdonnee() + " : " + Double.toString(y)));
+		add(new JLabel(Langage.getDEC() + " : " + Double.toString(dec)));
 		add(new JLabel("    "));
 		add(new JLabel(Langage.getRayon() + " : " + Double.toString(rayon)));
-		add(new JLabel("  "));
+		add(new JLabel(" "));
 		
 		//JButton remove constraint :
 		JButton but_remove = new JButton(Langage.getWhere_but_remove());

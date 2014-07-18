@@ -1,5 +1,6 @@
 package util;
 
+import java.awt.*;
 import java.io.*;
 import java.util.Scanner;
 
@@ -52,7 +53,7 @@ public class BoiteOutils {
 		try {
 			sc = new Scanner(fichier);
 		} catch (FileNotFoundException e) {
-			erreur(Langage.getFileNotFound());
+			erreur(null, Langage.getFileNotFound());
 			e.printStackTrace();
 		}
 		
@@ -61,12 +62,14 @@ public class BoiteOutils {
 	
 	
 	
+	
 	/**
 	 * Methode statique permettant d'afficher une erreur (JOptionPane)
+	 * @param parent Le composant parent
 	 * @param message Le message d'erreur
 	 */
-	public static void erreur(String message) {
-		JOptionPane.showMessageDialog(null, message, Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
+	public static void erreur(Component parent, String message) {
+		JOptionPane.showMessageDialog(parent, message, Langage.getErreur(), JOptionPane.ERROR_MESSAGE);
 	}
 
 	

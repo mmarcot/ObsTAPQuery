@@ -171,7 +171,7 @@ public class BarreDeMenu extends JMenuBar {
 						Configuration.LIMIT = Integer.parseInt(limit_str.trim());
 					}
 					catch(NumberFormatException ex) {
-						BoiteOutils.erreur(Langage.getErreurEntrezNombreEntier());
+						BoiteOutils.erreur(plug_lay, Langage.getErreurEntrezNombreEntier());
 						ex.printStackTrace();
 					}
 				}

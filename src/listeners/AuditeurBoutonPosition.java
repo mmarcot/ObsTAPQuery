@@ -39,17 +39,17 @@ public class AuditeurBoutonPosition implements ActionListener {
 
 		// JPanel de label :
 		JPanel pan_lab = new JPanel(new GridLayout(0, 1, 2, 2));
-		pan_lab.add(new JLabel(Langage.getAbscisse(), SwingConstants.RIGHT));
-		pan_lab.add(new JLabel(Langage.getOrdonnee(), SwingConstants.RIGHT));
+		pan_lab.add(new JLabel(Langage.getRA(), SwingConstants.RIGHT));
+		pan_lab.add(new JLabel(Langage.getDEC(), SwingConstants.RIGHT));
 		pan_lab.add(new JLabel(Langage.getRayon(), SwingConstants.RIGHT));
 		wrapper.add(pan_lab, BorderLayout.WEST);
 
 		// JPanel de textField :
 		JPanel pan_text = new JPanel(new GridLayout(0, 1, 2, 2));
-		JTextField txt_abs = new JTextField();
-		pan_text.add(txt_abs);
-		JTextField txt_ord = new JTextField();
-		pan_text.add(txt_ord);
+		JTextField txt_ra = new JTextField();
+		pan_text.add(txt_ra);
+		JTextField txt_dec = new JTextField();
+		pan_text.add(txt_dec);
 		JTextField txt_rayon = new JTextField();
 		pan_text.add(txt_rayon);
 		wrapper.add(pan_text, BorderLayout.CENTER);
@@ -58,18 +58,18 @@ public class AuditeurBoutonPosition implements ActionListener {
 		JOptionPane.showMessageDialog(plug_lay, wrapper, Langage.getPosition(), JOptionPane.QUESTION_MESSAGE);
 		
 		// convertion des input en Double :
-		double x = 0;
-		double y = 0;
+		double ra = 0;
+		double dec = 0;
 		double rayon = 0;
 		boolean afficher_ligne = true;
 		try {
-			x = Double.parseDouble(txt_abs.getText());
-			y = Double.parseDouble(txt_ord.getText());
+			ra = Double.parseDouble(txt_ra.getText());
+			dec = Double.parseDouble(txt_dec.getText());
 			rayon = Double.parseDouble(txt_rayon.getText());
 		}
 		catch(NumberFormatException nfe) {
 			afficher_ligne = false;
-			BoiteOutils.erreur(Langage.getEntrezDouble());
+			BoiteOutils.erreur(plug_lay, Langage.getEntrezDouble());
 			nfe.printStackTrace();
 		}
 		
@@ -81,7 +81,7 @@ public class AuditeurBoutonPosition implements ActionListener {
 				liaison = true;
 			
 			// on ajoute une ligne de position dans les contraintes :
-			gestionnaire.add(new LigneDePosition(liaison, x, y, rayon));
+			gestionnaire.add(new LigneDePosition(liaison, ra, dec, rayon));
 		}
 		
 		
