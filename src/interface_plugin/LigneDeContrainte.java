@@ -228,16 +228,31 @@ public class LigneDeContrainte extends AbstractLigne {
 	
 	
 	/**
-	 * Methode qui met les guillements ( ' ' ) ou non en fonction de si
-	 * l'expression passée en paramêtre est une chaîne de caractère ou pas
+	 * Methode qui juge si il faut entourer l'expression de simple quote ou non
 	 * @param str Expression à parser
 	 * @return La chaine correctement formattée
 	 */
 	private static String formatterPourRequete(String str) {
-		if(isString(str) && !str.toLowerCase().equals("null"))
+		if(isString(str) && !str.toLowerCase().equals("null") && !dejaQuote(str))
 			str = "'" + str + "'";
 		
 		return " "+ str;
+	}
+	
+	
+	/**
+	 * Permet de savoir si une chaine de caractère est entourée de simple quote
+	 * ou non
+	 * @param str La chaine à tester
+	 * @return oui ou non
+	 */
+	private static boolean dejaQuote(String str) {
+		boolean ret = false;
+		
+		if(str.charAt(0) == '\'' && str.charAt(str.length()-1) == '\'')
+			ret = true;
+		
+		return ret;
 	}
 
 }
