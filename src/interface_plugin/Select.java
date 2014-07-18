@@ -52,6 +52,7 @@ public class Select extends JPanel {
 		afficherColonnes();
 		cb_select_all.setSelected(false);
 		
+		repaint();
 		revalidate();
 	}
 	
