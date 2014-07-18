@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 import util.BoiteOutils;
 import util.Langage;
@@ -58,36 +59,40 @@ public class AuditeurBoutonPosition implements ActionListener {
 		combo_unite.setSelectedItem("deg");
 		pan_unites.add(combo_unite);
 		wrapper.add(pan_unites, BorderLayout.EAST);
+		
+		// pour ajouter de l'espacement :
+		wrapper.setBorder(new EmptyBorder(0, 0, 10, 0));
 
 		// Demande à l'user :
-		JOptionPane.showMessageDialog(plug_lay, wrapper, Langage.getPosition(), JOptionPane.QUESTION_MESSAGE);
+		int selection = JOptionPane.showConfirmDialog(plug_lay, wrapper, Langage.getPosition(), JOptionPane.OK_CANCEL_OPTION);
 		
-		// convertion des input en Double :
-		double ra = 0;
-		double dec = 0;
-		double rayon = 0;
-		boolean afficher_ligne = true;
-		try {
-			ra = Double.parseDouble(txt_ra.getText());
-			dec = Double.parseDouble(txt_dec.getText());
-			rayon = Double.parseDouble(txt_rayon.getText());
-		}
-		catch(NumberFormatException nfe) {
-			afficher_ligne = false;
-			BoiteOutils.erreur(plug_lay, Langage.getEntrezDouble());
-		}
-		
-		// on affiche la ligne si OK :
-		if(afficher_ligne) {
-			// on determine si on a besoin d'une liaison :
-			boolean liaison = false;
-			if(gestionnaire.getComponentCount()>0)
-				liaison = true;
+		if(selection == JOptionPane.OK_OPTION) {
+			// convertion des input en Double :
+			double ra = 0;
+			double dec = 0;
+			double rayon = 0;
+			boolean afficher_ligne = true;
+			try {
+				ra = Double.parseDouble(txt_ra.getText());
+				dec = Double.parseDouble(txt_dec.getText());
+				rayon = Double.parseDouble(txt_rayon.getText());
+			}
+			catch(NumberFormatException nfe) {
+				afficher_ligne = false;
+				BoiteOutils.erreur(plug_lay, Langage.getEntrezDouble());
+			}
 			
-			// on ajoute une ligne de position dans les contraintes :
-			gestionnaire.add(new LigneDePosition(liaison, ra, dec, rayon, (String)combo_unite.getSelectedItem()));
+			// on affiche la ligne si OK :
+			if(afficher_ligne) {
+				// on determine si on a besoin d'une liaison :
+				boolean liaison = false;
+				if(gestionnaire.getComponentCount()>0)
+					liaison = true;
+				
+				// on ajoute une ligne de position dans les contraintes :
+				gestionnaire.add(new LigneDePosition(liaison, ra, dec, rayon, (String)combo_unite.getSelectedItem()));
+			}
 		}
-		
 		
 		
 	}
