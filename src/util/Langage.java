@@ -619,6 +619,39 @@ public class Langage {
 	}
 
 
+	/**
+	 * @return unité degré
+	 */
+	public static String getDeg() {
+		if(lang.equals("FR"))
+			return "deg";
+		else
+			return "deg";
+	}
+
+
+	/**
+	 * @return unité arcmin
+	 */
+	public static String getArcmin() {
+		if(lang.equals("FR"))
+			return "arcmin";
+		else
+			return "arcmin";
+	}
+	
+	
+	/**
+	 * @return unité arcsec
+	 */
+	public static String getArcsec() {
+		if(lang.equals("FR"))
+			return "arcsec";
+		else
+			return "arcsec";
+	}
+
+
 	
 }
 

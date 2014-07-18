@@ -20,6 +20,7 @@ public class LigneDePosition extends AbstractLigne {
 	/** Combo box de la liaison */
 	private JComboBox combo_liaison;
 	private double ra, dec, rayon;
+	private String unite_selected;
 	
 	
 	/**
@@ -29,12 +30,14 @@ public class LigneDePosition extends AbstractLigne {
 	 * @param ra Abscisse du centre de la position
 	 * @param dec Ordonnée du centre de la position
 	 * @param rayon Rayon souhaité
+	 * @param unite_selected Unité selectionnée dans la JComboBox
 	 */
-	public LigneDePosition(boolean liaison, double ra, double dec, double rayon) {
+	public LigneDePosition(boolean liaison, double ra, double dec, double rayon, String unite_selected) {
 		this.liaison = liaison;
 		this.ra = ra;
 		this.dec = dec;
 		this.rayon = rayon;
+		this.unite_selected = unite_selected;
 		
 		// Affichage éventuel de la liaison :
 		if(liaison) {
@@ -49,7 +52,7 @@ public class LigneDePosition extends AbstractLigne {
 		add(new JLabel(Langage.getDEC() + " : " + Double.toString(dec)));
 		add(new JLabel("    "));
 		add(new JLabel(Langage.getRayon() + " : " + Double.toString(rayon)));
-		add(new JLabel(" "));
+		add(new JLabel(unite_selected));
 		
 		//JButton remove constraint :
 		JButton but_remove = new JButton(Langage.getWhere_but_remove());
@@ -74,6 +77,12 @@ public class LigneDePosition extends AbstractLigne {
 		
 		String str_ra = Double.toString(ra);
 		String str_dec = Double.toString(dec);
+		
+		if(unite_selected.equals(Langage.getArcmin()))
+			rayon = rayon / 60;
+		else if(unite_selected.equals(Langage.getArcsec()))
+			rayon = rayon / 3600;
+		
 		String str_rayon = Double.toString(rayon);
 		
 		ret += "CONTAINS(POINT('ICRS', ivoa.ObsCore.s_ra, ivoa.ObsCore.s_dec), CIRCLE('ICRS'," + 

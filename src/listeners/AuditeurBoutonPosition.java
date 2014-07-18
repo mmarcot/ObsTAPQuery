@@ -4,17 +4,10 @@ import interface_plugin.GestionnaireDeContraintes;
 import interface_plugin.LigneDePosition;
 import interface_plugin.PluginLayout;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 import util.BoiteOutils;
 import util.Langage;
@@ -27,6 +20,8 @@ import util.Langage;
  *
  */
 public class AuditeurBoutonPosition implements ActionListener {
+	
+	private JComboBox combo_unite;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -53,6 +48,16 @@ public class AuditeurBoutonPosition implements ActionListener {
 		JTextField txt_rayon = new JTextField();
 		pan_text.add(txt_rayon);
 		wrapper.add(pan_text, BorderLayout.CENTER);
+		
+		// JPanel des unités :
+		JPanel pan_unites = new JPanel(new GridLayout(0, 1, 2, 2));
+		pan_unites.add(new JLabel(" "));
+		pan_unites.add(new JLabel(" "));
+		String[] tab_unites = {Langage.getDeg(), Langage.getArcmin(), Langage.getArcsec()};
+		combo_unite = new JComboBox(tab_unites);
+		combo_unite.setSelectedItem("deg");
+		pan_unites.add(combo_unite);
+		wrapper.add(pan_unites, BorderLayout.EAST);
 
 		// Demande à l'user :
 		JOptionPane.showMessageDialog(plug_lay, wrapper, Langage.getPosition(), JOptionPane.QUESTION_MESSAGE);
@@ -80,7 +85,7 @@ public class AuditeurBoutonPosition implements ActionListener {
 				liaison = true;
 			
 			// on ajoute une ligne de position dans les contraintes :
-			gestionnaire.add(new LigneDePosition(liaison, ra, dec, rayon));
+			gestionnaire.add(new LigneDePosition(liaison, ra, dec, rayon, (String)combo_unite.getSelectedItem()));
 		}
 		
 		
