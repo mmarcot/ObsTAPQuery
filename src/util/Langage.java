@@ -552,7 +552,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return bouton position
+	 */
 	public static String getPosition() {
 		if(lang.equals("FR"))
 			return "Position";
@@ -562,6 +564,9 @@ public class Langage {
 
 
 
+	/**
+	 * @return ToolTip bouton position
+	 */
 	public static String getPosition_tt() {
 		if(lang.equals("FR"))
 			return "Ajouter une contrainte sur la position";
@@ -570,7 +575,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Abscisse recherche par position
+	 */
 	public static String getAbscisse() {
 		if(lang.equals("FR"))
 			return "X";
@@ -579,6 +586,9 @@ public class Langage {
 	}
 	
 	
+	/**
+	 * @return Ordonnée recherche position
+	 */
 	public static String getOrdonnee() {
 		if(lang.equals("FR"))
 			return "Y";
@@ -587,6 +597,9 @@ public class Langage {
 	}
 
 	
+	/**
+	 * @return Rayon recherche position
+	 */
 	public static String getRayon() {
 		if(lang.equals("FR"))
 			return "Rayon";
@@ -595,7 +608,9 @@ public class Langage {
 	}
 
 
-
+	/**
+	 * @return Message erreur lors de la saisie d'un double
+	 */
 	public static String getEntrezDouble() {
 		if(lang.equals("FR"))
 			return "Entrez un nombre réel SVP";

@@ -71,7 +71,7 @@ public class GestionnaireDeContraintes extends JPanel {
 		super.remove(comp);
 		
 		if( getComponentCount() > 0 ) {
-			LigneDeContrainte premiere_ligne = (LigneDeContrainte) getComponent(0);
+			AbstractLigne premiere_ligne = (AbstractLigne) getComponent(0);
 			premiere_ligne.enleverLiaison();
 		}
 		

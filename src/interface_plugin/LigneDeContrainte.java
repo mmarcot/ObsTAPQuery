@@ -17,9 +17,8 @@ import metier.UnChamps;
  * @author Mallory Marcot
  *
  */
-public class LigneDeContrainte extends JPanel {
+public class LigneDeContrainte extends AbstractLigne {
 	
-	private boolean operateurDeLiaison;
 	private boolean compo_between;
 	
 	/** zone de texte si pas de between */
@@ -30,8 +29,6 @@ public class LigneDeContrainte extends JPanel {
 	private JTextField text2_between;
 	/** label "AND" entre les 2 valeurs du between */
 	private JLabel lab_and;
-	/** Combo box de la liaison */
-	private JComboBox combo_liaison;
 	/** Combo box de la colonne obscore */
 	private JComboBox combo_col_obs;
 	/** Combo box de l'opérateur */
@@ -44,11 +41,11 @@ public class LigneDeContrainte extends JPanel {
 	 * @param liaison Liaison avec la contrainte précédente (AND ou OR)
 	 */
 	public LigneDeContrainte(boolean liaison) {
-		this.operateurDeLiaison = liaison;
+		this.liaison = liaison;
 		this.compo_between = false;
 		
 		// Affichage éventuel de la liaison :
-		if(operateurDeLiaison) {
+		if(liaison) {
 			combo_liaison = new JComboBox(Configuration.TAB_LIAISONS);
 			this.add(combo_liaison);
 		}
@@ -167,21 +164,6 @@ public class LigneDeContrainte extends JPanel {
 	
 	
 	/**
-	 * Permet d'enlever la liaison d'une ligne de contrainte
-	 */
-	public void enleverLiaison() {
-		if(combo_liaison != null ) {
-			if(this.operateurDeLiaison) {
-				this.operateurDeLiaison = false;
-			}
-			this.remove(combo_liaison);
-			this.revalidate();
-		}
-	}
-	
-	
-	
-	/**
 	 * Permet de savoir si la composition actuelle est celle 
 	 * du between ou non
 	 * @return vrai ou faux
@@ -198,7 +180,7 @@ public class LigneDeContrainte extends JPanel {
 	public String toString() {
 		String ret = new String();
 		
-		if(operateurDeLiaison)
+		if(liaison)
 			ret += (String)combo_liaison.getSelectedItem() + " ";
 		else
 			ret += "WHERE ";

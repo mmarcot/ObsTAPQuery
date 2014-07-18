@@ -14,7 +14,7 @@ import util.Langage;
  * @author Mallory Marcot
  *
  */
-public class LigneDePosition extends JPanel {
+public class LigneDePosition extends AbstractLigne {
 	
 	private boolean liaison;
 	/** Combo box de la liaison */
@@ -52,5 +52,6 @@ public class LigneDePosition extends JPanel {
 		but_remove.addActionListener(new AuditeurBoutonRemove());
 		add(but_remove);
 	}
-
+	
+	
 }

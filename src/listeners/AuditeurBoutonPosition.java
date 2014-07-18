@@ -4,11 +4,17 @@ import interface_plugin.GestionnaireDeContraintes;
 import interface_plugin.LigneDePosition;
 import interface_plugin.PluginLayout;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import util.BoiteOutils;
 import util.Langage;
@@ -55,18 +61,20 @@ public class AuditeurBoutonPosition implements ActionListener {
 		double x = 0;
 		double y = 0;
 		double rayon = 0;
+		boolean afficher_ligne = true;
 		try {
 			x = Double.parseDouble(txt_abs.getText());
 			y = Double.parseDouble(txt_ord.getText());
 			rayon = Double.parseDouble(txt_rayon.getText());
 		}
 		catch(NumberFormatException nfe) {
+			afficher_ligne = false;
 			BoiteOutils.erreur(Langage.getEntrezDouble());
 			nfe.printStackTrace();
 		}
 		
-		// si tous les champs sont remplis :
-		if(txt_abs.getText() != "" && txt_ord.getText() != "" && txt_rayon.getText() != "") {
+		// on affiche la ligne si OK :
+		if(afficher_ligne) {
 			// on determine si on a besoin d'une liaison :
 			boolean liaison = false;
 			if(gestionnaire.getComponentCount()>0)
