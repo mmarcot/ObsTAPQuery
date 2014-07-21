@@ -1,19 +1,12 @@
 package metier;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.*;
-import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import javax.swing.*;
 
 import cds.savot.model.*;
 import cds.savot.pull.*;
-import cds.xml.TableParser;
-
 import util.Configuration;
 import util.Langage;
 
@@ -50,10 +43,14 @@ public class GestionnaireDeTables {
 	
 	
 	/**
+	 * Methode qui retourne la liste des tables depuis le service TAP ou celles déjà mémorisées
+	 * en fonction du paramêtre passé.
+	 * @param depuis_service_tap Chercher l'information depuis le service TAP (oui ou non) ?
 	 * @return the liste_tables
 	 */
-	public static ArrayList<String> getListe_tables() {
-		parserVOTable();
+	public static ArrayList<String> getListe_tables(boolean depuis_service_tap) {
+		if(depuis_service_tap)
+			parserVOTable();
 		
 		return liste_tables;
 	}
@@ -61,10 +58,14 @@ public class GestionnaireDeTables {
 	
 
 	/**
+	 * Methode qui retourne la liste des colonnes depuis le service TAP ou celles déjà mémorisées
+	 * en fonction du paramêtre passé.
+	 * @param depuis_service_tap Chercher l'information depuis le service TAP (oui ou non) ?
 	 * @return Liste des colonnes de la table sélectionnée
 	 */
-	public static ArrayList<UnChamps> getColonnes() {
-		parserVOTable();
+	public static ArrayList<UnChamps> getColonnes(boolean depuis_service_tap) {
+		if(depuis_service_tap)
+			parserVOTable();
 		
 		return liste_colonnes;
 	}

@@ -53,6 +53,7 @@ public class LigneDePosition extends AbstractLigne {
 		add(new JLabel("    "));
 		add(new JLabel(Langage.getRayon() + " : " + Double.toString(rayon)));
 		add(new JLabel(unite_selected));
+		add(new JLabel(" "));
 		
 		//JButton remove constraint :
 		JButton but_remove = new JButton(Langage.getWhere_but_remove());
@@ -75,16 +76,18 @@ public class LigneDePosition extends AbstractLigne {
 		else
 			ret += "WHERE ";
 		
-		String str_ra = Double.toString(ra);
-		String str_dec = Double.toString(dec);
-		
+		// on met le rayon dans la bonne unité :
 		if(unite_selected.equals(Langage.getArcmin()))
 			rayon = rayon / 60;
 		else if(unite_selected.equals(Langage.getArcsec()))
 			rayon = rayon / 3600;
 		
+		// on convertit en String :
+		String str_ra = Double.toString(ra);
+		String str_dec = Double.toString(dec);
 		String str_rayon = Double.toString(rayon);
 		
+		// on construit la chaine :
 		ret += "CONTAINS(POINT('ICRS', ivoa.ObsCore.s_ra, ivoa.ObsCore.s_dec), CIRCLE('ICRS'," + 
 				str_ra + ", " + str_dec + ", " + str_rayon + ")) = 1";
 		

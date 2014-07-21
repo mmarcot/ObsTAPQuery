@@ -60,10 +60,10 @@ public class PluginLayout extends JPanel {
 		getRequete().setTexteRequete(null);
 		
 		// on met à jour :
-		getSelect().mettreAJourColonnes();
-		getWhere().getGestionnaire().mettreAJourColonnes();
 		if(maj_from)
 			getFrom().mettreAJour();
+		getSelect().mettreAJourColonnes();
+		getWhere().getGestionnaire().mettreAJourColonnes();
 	}
 	
 	

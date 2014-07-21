@@ -15,7 +15,7 @@ public class TestGestTables {
 	 */
 	@Test
 	public void test() {
-		ArrayList<String> ls_tables = GestionnaireDeTables.getListe_tables();
+		ArrayList<String> ls_tables = GestionnaireDeTables.getListe_tables(true);
 		
 		for(String table : ls_tables) {
 			System.out.println(table);

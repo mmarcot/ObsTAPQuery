@@ -75,7 +75,7 @@ public class From extends JPanel {
 	private void chargerComboBox() {
 		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
 		combo_tables.setRenderer(renderer);
-		ArrayList<String> liste_tables = GestionnaireDeTables.getListe_tables();
+		ArrayList<String> liste_tables = GestionnaireDeTables.getListe_tables(true);
 		ArrayList<String> tooltips = new ArrayList<String>();
 		for(String table : liste_tables) {
 			combo_tables.addItem(table);

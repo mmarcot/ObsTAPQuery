@@ -90,7 +90,7 @@ public class LigneDeContrainte extends AbstractLigne {
 	private void chargerComboBoxColonnes() {
 		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
 		combo_col_obs.setRenderer(renderer);
-		ArrayList<UnChamps> liste_col_obs = GestionnaireDeTables.getColonnes();
+		ArrayList<UnChamps> liste_col_obs = GestionnaireDeTables.getColonnes(false);
 		ArrayList<String> tooltips_col_obs = new ArrayList<String>();
 		// ajout de l'item et du tooltip :
 		for(int i=0; i<liste_col_obs.size(); i++) {
