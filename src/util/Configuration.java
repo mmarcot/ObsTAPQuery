@@ -28,9 +28,9 @@ public class Configuration {
 	// ################################################################################
 	
 	/** Largeur totale du plug-in */
-	public static final int LARGEUR_PLUGIN_PX = 900;
+	public static final int LARGEUR_PLUGIN_PX = 950;
 	/** Hauteur totale du plug-in */
-	public static final int HAUTEUR_PLUGIN_PX = 670;
+	public static final int HAUTEUR_PLUGIN_PX = 700;
 	
 	/** Largeur du panneau From */
 	public static final int LARGEUR_FROM_PX = 190;

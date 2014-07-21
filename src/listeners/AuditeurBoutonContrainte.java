@@ -20,7 +20,7 @@ public class AuditeurBoutonContrainte implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton bout_src = (JButton)e.getSource();
-		Where pan_where = (Where)bout_src.getParent().getParent().getParent();
+		Where pan_where = (Where)bout_src.getParent().getParent();
 		
 		// on cherche si il faut mettre une liaison entre les conditions ou non :
 		boolean liaison = false;

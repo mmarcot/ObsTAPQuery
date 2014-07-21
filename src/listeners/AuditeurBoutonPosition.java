@@ -28,7 +28,7 @@ public class AuditeurBoutonPosition implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// récupère les références :
 		JButton but_src = (JButton) e.getSource();
-		PluginLayout plug_lay = (PluginLayout) but_src.getParent().getParent().getParent().getParent().getParent();
+		PluginLayout plug_lay = (PluginLayout) but_src.getParent().getParent().getParent().getParent();
 		GestionnaireDeContraintes gestionnaire = plug_lay.getWhere().getGestionnaire();
 		
 		JPanel wrapper = new JPanel(new BorderLayout(5, 5));

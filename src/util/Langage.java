@@ -674,6 +674,15 @@ public class Langage {
 	}
 
 
+
+	public static String getExemple() {
+		if(lang.equals("FR"))
+			return "Exemples";
+		else
+			return "Examples";
+	}
+
+
 	
 }
 

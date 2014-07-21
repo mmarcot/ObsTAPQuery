@@ -26,36 +26,33 @@ public class Where extends JPanel {
 	public Where() {
 		this.setLayout(new BorderLayout());
 		
-		// Contenueur titre + boutons :
-		JPanel wrapper = new JPanel();
-		wrapper.setLayout(new BoxLayout(wrapper, BoxLayout.Y_AXIS));
-		
 		// JLabel de titre : "Where" :
 		JLabel lab_where = new JLabel("Where", JLabel.CENTER);
 		Font pol_where = new Font(Configuration.POLICE, Font.BOLD, 20);
 		lab_where.setFont(pol_where);
 		lab_where.setAlignmentX(Component.CENTER_ALIGNMENT);
-		wrapper.add(lab_where);
+		add(lab_where, BorderLayout.NORTH);
 		
-		// wrapper de boutons :
-		JPanel wrap_but = new JPanel();
-		wrap_but.setAlignmentX(Component.CENTER_ALIGNMENT);
-		// bouton ajouter :
+		// Panneau latéral de boutons :
+		JPanel wrap_but = new JPanel(new GridLayout(0, 1, 0, 10));
+		
+		// bouton contrainte :
 		JButton but_add_contrainte = new JButton(Langage.getWhere_but_constraint());
 		but_add_contrainte.setToolTipText(Langage.getWhere_but_add_tt());
 		but_add_contrainte.addActionListener(new AuditeurBoutonContrainte());
 		wrap_but.add(but_add_contrainte);
+		
 		// bouton position :
 		JButton but_position = new JButton(Langage.getPosition());
 		but_position.setToolTipText(Langage.getPosition_tt());
 		but_position.addActionListener(new AuditeurBoutonPosition());
 		wrap_but.add(but_position);
 		
-		wrapper.add(wrap_but);
+		// bouton exemple :
+		JButton but_exemple = new JButton(Langage.getExemple());
+		wrap_but.add(but_exemple);
+		add(wrap_but, BorderLayout.EAST);
 		
-		
-		// Ajout du wrapper au panneau Where
-		add(wrapper, BorderLayout.NORTH);
 		
 		// Ajout du gestionnaire de contraintes :
 		gestionnaire = new GestionnaireDeContraintes();
