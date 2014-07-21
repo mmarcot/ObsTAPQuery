@@ -35,8 +35,12 @@ public class AuditeurBoutonPosition implements ActionListener {
 
 		// JPanel de label :
 		JPanel pan_lab = new JPanel(new GridLayout(0, 1, 2, 2));
-		pan_lab.add(new JLabel(Langage.getRA(), SwingConstants.RIGHT));
-		pan_lab.add(new JLabel(Langage.getDEC(), SwingConstants.RIGHT));
+		JLabel lab_ra = new JLabel(Langage.getRA(), SwingConstants.RIGHT);
+		lab_ra.setToolTipText(Langage.getRA_tt());
+		pan_lab.add(lab_ra);
+		JLabel lab_dec = new JLabel(Langage.getDEC(), SwingConstants.RIGHT);
+		lab_dec.setToolTipText(Langage.getDEC_tt());
+		pan_lab.add(lab_dec);
 		pan_lab.add(new JLabel(Langage.getRayon(), SwingConstants.RIGHT));
 		wrapper.add(pan_lab, BorderLayout.WEST);
 

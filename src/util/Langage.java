@@ -652,6 +652,28 @@ public class Langage {
 	}
 
 
+	/**
+	 * @return Right ascension
+	 */
+	public static String getRA_tt() {
+		if(lang.equals("FR"))
+			return "Ascension droite";
+		else
+			return "Right ascension";
+	}
+	
+	
+	/**
+	 * @return Déclinaison
+	 */
+	public static String getDEC_tt() {
+		if(lang.equals("FR"))
+			return "Déclinaison";
+		else
+			return "Declination";
+	}
+
+
 	
 }
 
