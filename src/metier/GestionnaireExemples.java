@@ -24,10 +24,11 @@ public class GestionnaireExemples {
 	/** tableau contenant les requetes correspondant aux exemples */
 	private static String[] tab_req = {
 		"SELECT *\nFROM ivoa.ObsCore\nWHERE dataproduct_type = 'cube';",
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE s_dec > 80;",
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 55000 AND 54000;",
+
+		"SELECT *\nFROM ivoa.ObsCore\nWHERE s_dec > 80",
+		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 55000 AND 55100;",
 		"SELECT *\nFROM ivoa.ObsCore\nWHERE em_min BETWEEN 2E-4 AND 9E-4;",
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 53000 AND 55100\nAND em_min BETWEEN 0.01 AND 0.02\nAND facility_name = 'VLA';"
+		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 53000 AND 54000\nAND em_min BETWEEN 0.01 AND 0.02\nAND facility_name = 'VLA';"
 	};
 	
 	
