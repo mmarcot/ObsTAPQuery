@@ -58,6 +58,7 @@ public class AuditeurBoutonExemple implements ActionListener {
 		// panneau de boutons :
 		JPanel pan_but = new JPanel();
 		JButton but_ok = new JButton(Langage.getOk());
+		but_ok.addActionListener(new AuditeurBoutonOkExemple(plug_lay));
 		JButton but_annuler = new JButton(Langage.getCancel());
 		but_annuler.addActionListener(new ActionListener() {
 			@Override
