@@ -35,9 +35,14 @@ public class AuditeurBoutonOkExemple implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton but_src = (JButton) e.getSource();
+		
+		// on recupère l'index de la ligne selectionnée :
 		int index_sel = jlist_ex.getSelectedIndex();
 		
-		plug_lay.getRequete().setTexteRequete(GestionnaireExemples.getTab_req()[index_sel]);
+		// si une ligne est effectivement selectionnée alors on affiche la requete
+		// correspondante dans la zone de requete resultante :
+		if(index_sel != -1)
+			plug_lay.getRequete().setTexteRequete(GestionnaireExemples.getTab_req()[index_sel]);
 		
 		// on ferme la fenetre :
 		((JFrame)but_src.getParent().getParent().getParent().getParent().getParent()).dispose();
