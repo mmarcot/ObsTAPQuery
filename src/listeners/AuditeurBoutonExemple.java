@@ -8,6 +8,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import metier.GestionnaireExemples;
 import util.Configuration;
 import util.Langage;
 
@@ -27,13 +28,6 @@ public class AuditeurBoutonExemple implements ActionListener {
 		JButton but_src = (JButton) e.getSource();
 		PluginLayout plug_lay = (PluginLayout) but_src.getParent().getParent().getParent().getParent();
 		
-		String[] tab_exemples = {
-				"Select only cube datasets",
-				"Select datasets with central position in a north cap of 10 degrees radius (s_dec > +80)",
-				"Select datasets with observation date between modified julian day 55000 and 55100",
-				"Select datasets with minimal wavelength between 2E-4 and 8E-4 and maximal wavelength either the same or unknown",
-				"Select datasets with observation date between modified julian day 55000 and 55100 , minimal wavelength between 2E-4 and 8E-4 and maximal wavelength either the same or unknown and facility =  ESO"
-		};
 		
 		// création de la fenetre et du panel :
 		final JFrame fen_ex = new JFrame(Langage.getExemple());
@@ -42,7 +36,7 @@ public class AuditeurBoutonExemple implements ActionListener {
 		
 		// création de la JList :
 		JPanel pan_list = new JPanel();
-		JList<String> jlist = new JList<String>(tab_exemples); 
+		JList<String> jlist = new JList<String>(GestionnaireExemples.getTab_exemples()); 
 		jlist.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		jlist.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 		jlist.setVisibleRowCount(-1);
@@ -58,7 +52,7 @@ public class AuditeurBoutonExemple implements ActionListener {
 		// panneau de boutons :
 		JPanel pan_but = new JPanel();
 		JButton but_ok = new JButton(Langage.getOk());
-		but_ok.addActionListener(new AuditeurBoutonOkExemple(plug_lay));
+		but_ok.addActionListener(new AuditeurBoutonOkExemple(plug_lay, jlist));
 		JButton but_annuler = new JButton(Langage.getCancel());
 		but_annuler.addActionListener(new ActionListener() {
 			@Override
