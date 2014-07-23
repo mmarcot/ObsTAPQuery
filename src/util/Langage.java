@@ -683,6 +683,24 @@ public class Langage {
 	}
 
 
+
+	public static String getExemple_tt() {
+		if(lang.equals("FR"))
+			return "Pour essayer quelques exemples";
+		else
+			return "Try some examples";
+	}
+
+
+
+	public static String getChoisirExemple() {
+		if(lang.equals("FR"))
+			return "Choisissez un exemple";
+		else
+			return "Please choose an example";
+	}
+
+
 	
 }
 

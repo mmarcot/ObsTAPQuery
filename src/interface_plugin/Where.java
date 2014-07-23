@@ -5,8 +5,8 @@ import java.awt.*;
 import javax.swing.*;
 
 import listeners.AuditeurBoutonContrainte;
+import listeners.AuditeurBoutonExemple;
 import listeners.AuditeurBoutonPosition;
-
 import util.Configuration;
 import util.Langage;
 
@@ -50,7 +50,11 @@ public class Where extends JPanel {
 		
 		// bouton exemple :
 		JButton but_exemple = new JButton(Langage.getExemple());
+		but_exemple.setToolTipText(Langage.getExemple_tt());
+		but_exemple.addActionListener(new AuditeurBoutonExemple());
 		wrap_but.add(but_exemple);
+		
+		// ajout du wrapper de boutons :
 		add(wrap_but, BorderLayout.EAST);
 		
 		
