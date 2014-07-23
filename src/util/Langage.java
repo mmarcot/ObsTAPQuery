@@ -102,9 +102,9 @@ public class Langage {
 	 */
 	public static String getReq_executer_tt() {
 		if(lang.equals("FR"))
-			return "Permet d'exécuter la requête et de voir son résultat";
+			return "Permet d'exécuter la requête et de voir son résultat dans Aladin";
 		else
-			return "To perform the query and see the result";
+			return "To perform the query and see the result in Aladin";
 	}
 	
 	
