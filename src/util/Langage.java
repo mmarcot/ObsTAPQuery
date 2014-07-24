@@ -139,9 +139,9 @@ public class Langage {
 	 */
 	public static String getWhere_but_constraint() {
 		if(lang.equals("FR"))
-			return "Contrainte";
+			return "<html>Contrainte<br>générique</html>";
 		else
-			return "Constraint";
+			return "<html>Generic field's<br>constraint</html>";
 	}
 	
 	
@@ -698,6 +698,15 @@ public class Langage {
 			return "Choisissez un exemple";
 		else
 			return "Please choose an example";
+	}
+
+
+
+	public static String getTitrePartieWhere() {
+		if(lang.equals("FR"))
+			return "Contraintes";
+		else
+			return "Constraints";
 	}
 
 

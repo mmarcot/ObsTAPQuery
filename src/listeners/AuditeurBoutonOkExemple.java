@@ -15,7 +15,7 @@ import metier.GestionnaireExemples;
  * @author Mallory Marcot
  *
  */
-public class AuditeurBoutonOkExemple implements ActionListener{
+public class AuditeurBoutonOkExemple implements ActionListener {
 	
 	private PluginLayout plug_lay;
 	private JList<String> jlist_ex;

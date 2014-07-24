@@ -6,7 +6,7 @@ package metier;
  * @author Mallory Marcot
  *
  */
-public class UnChamps {
+public class UnChamp {
 	
 	private String name;
 	private String datatype;
@@ -24,7 +24,7 @@ public class UnChamps {
 	 * @param utype Type de l'unité
 	 * @param description Description du champs
 	 */
-	public UnChamps(String name, String datatype, String unit, String ucd, String utype, String description) {
+	public UnChamp(String name, String datatype, String unit, String ucd, String utype, String description) {
 		this.name = name;
 		this.datatype = datatype;
 		this.unit = unit;

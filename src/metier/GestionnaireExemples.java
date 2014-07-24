@@ -1,5 +1,8 @@
 package metier;
 
+import interface_plugin.AbstractLigne;
+import interface_plugin.LigneDeContrainte;
+
 
 /**
  * Classe statique qui gère les différents exemples de requete et leur selection
@@ -11,6 +14,9 @@ public class GestionnaireExemples {
 	
 	/** variable qui dit quel est l'exemple selectionné dans le tableau */
 	private static int selected_index = 1;
+	
+	
+	// /!\ les 2 tableaux suivant sont liées : le texte doit correspondre à la requete (en terme d'index)
 	
 	/** tableau contenant les exemples */
 	private static String[] tab_exemples = {
@@ -24,12 +30,13 @@ public class GestionnaireExemples {
 	/** tableau contenant les requetes correspondant aux exemples */
 	private static String[] tab_req = {
 		"SELECT *\nFROM ivoa.ObsCore\nWHERE dataproduct_type = 'cube';",
-
 		"SELECT *\nFROM ivoa.ObsCore\nWHERE s_dec > 80",
 		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 55000 AND 55100;",
 		"SELECT *\nFROM ivoa.ObsCore\nWHERE em_min BETWEEN 2E-4 AND 9E-4;",
 		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 53000 AND 54000\nAND em_min BETWEEN 0.01 AND 0.02\nAND facility_name = 'VLA';"
 	};
+	
+
 	
 	
 	

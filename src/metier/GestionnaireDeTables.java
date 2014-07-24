@@ -20,7 +20,7 @@ import util.Langage;
 public class GestionnaireDeTables {
 	
 	private static ArrayList<String> liste_tables;
-	private static ArrayList<UnChamps> liste_colonnes;
+	private static ArrayList<UnChamp> liste_colonnes;
 	/** permet de centraliser la table selectionnée afin qu'elle soit accessible de partout */
 	private static String table_selectionnee = Configuration.TABLE_PAR_DEFAULT;
 	
@@ -63,7 +63,7 @@ public class GestionnaireDeTables {
 	 * @param depuis_service_tap Chercher l'information depuis le service TAP (oui ou non) ?
 	 * @return Liste des colonnes de la table sélectionnée
 	 */
-	public static ArrayList<UnChamps> getColonnes(boolean depuis_service_tap) {
+	public static ArrayList<UnChamp> getColonnes(boolean depuis_service_tap) {
 		if(depuis_service_tap)
 			parserVOTable();
 		
@@ -102,7 +102,7 @@ public class GestionnaireDeTables {
 		
 		// création des listes à charger :
 		liste_tables = new ArrayList<String>();
-		liste_colonnes = new ArrayList<UnChamps>();
+		liste_colonnes = new ArrayList<UnChamp>();
 		
 		// construction de l'URL :
 		URL url_src = null;
@@ -176,7 +176,7 @@ public class GestionnaireDeTables {
 								String utype = theTDs.getContent(index_utype);
 								String description = theTDs.getContent(index_description);
 								
-								liste_colonnes.add(new UnChamps(name, datatype, unit, ucd, utype, description));
+								liste_colonnes.add(new UnChamp(name, datatype, unit, ucd, utype, description));
 							}
 							
 						}

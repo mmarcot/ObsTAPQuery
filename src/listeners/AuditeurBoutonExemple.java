@@ -28,11 +28,9 @@ public class AuditeurBoutonExemple implements ActionListener {
 		JButton but_src = (JButton) e.getSource();
 		PluginLayout plug_lay = (PluginLayout) but_src.getParent().getParent().getParent().getParent();
 		
-		
 		// création de la fenetre et du panel :
 		final JFrame fen_ex = new JFrame(Langage.getExemple());
 		JPanel wrapper = new JPanel(new BorderLayout());
-		
 		
 		// création de la JList :
 		JPanel pan_list = new JPanel();

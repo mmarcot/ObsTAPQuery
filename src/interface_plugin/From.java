@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import listeners.AuditeurComboBoxFrom;
 import metier.GestionnaireDeTables;
-import metier.UnChamps;
+import metier.UnChamp;
 
 import util.Configuration;
 

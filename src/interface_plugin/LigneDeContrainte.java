@@ -10,7 +10,7 @@ import util.Langage;
 import listeners.AuditeurBoutonRemove;
 import listeners.AuditeurOperateurs;
 import metier.GestionnaireDeTables;
-import metier.UnChamps;
+import metier.UnChamp;
 
 /**
  * Classe qui modélise une unique contrainte du gestionnaire 
@@ -44,6 +44,15 @@ public class LigneDeContrainte extends AbstractLigne {
 		this.liaison = liaison;
 		this.compo_between = false;
 		
+		initLigne();
+	}
+	
+	
+	
+	/**
+	 * Methode qui initialise une ligne de contrainte
+	 */
+	private void initLigne() {
 		// Affichage éventuel de la liaison :
 		if(liaison) {
 			combo_liaison = new JComboBox(Configuration.TAB_LIAISONS);
@@ -90,7 +99,7 @@ public class LigneDeContrainte extends AbstractLigne {
 	private void chargerComboBoxColonnes() {
 		ComboboxToolTipRenderer renderer = new ComboboxToolTipRenderer();
 		combo_col_obs.setRenderer(renderer);
-		ArrayList<UnChamps> liste_col_obs = GestionnaireDeTables.getColonnes(false);
+		ArrayList<UnChamp> liste_col_obs = GestionnaireDeTables.getColonnes(false);
 		ArrayList<String> tooltips_col_obs = new ArrayList<String>();
 		// ajout de l'item et du tooltip :
 		for(int i=0; i<liste_col_obs.size(); i++) {
@@ -253,6 +262,51 @@ public class LigneDeContrainte extends AbstractLigne {
 			ret = true;
 		
 		return ret;
+	}
+
+
+
+	/**
+	 * @return the text_valeur
+	 */
+	public JTextField getText_valeur() {
+		return text_valeur;
+	}
+
+
+
+	/**
+	 * @return the text1_between
+	 */
+	public JTextField getText1_between() {
+		return text1_between;
+	}
+
+
+
+	/**
+	 * @return the text2_between
+	 */
+	public JTextField getText2_between() {
+		return text2_between;
+	}
+
+
+
+	/**
+	 * @return the combo_col_obs
+	 */
+	public JComboBox getCombo_col_obs() {
+		return combo_col_obs;
+	}
+
+
+
+	/**
+	 * @return the combo_oper
+	 */
+	public JComboBox getCombo_oper() {
+		return combo_oper;
 	}
 
 }
