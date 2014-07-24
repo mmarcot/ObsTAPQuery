@@ -130,6 +130,19 @@ public class GestionnaireDeContraintes extends JPanel {
 			return tab_cont_ret;
 	}
 	
+	
+	
+	/**
+	 * Methode qui dit si la prochaine ligne de contrainte a besoin d'une
+	 * liaison ou non
+	 * @return oui ou non
+	 */
+	public boolean besoinLiaison() {
+		if(getComponentCount() > 0)
+			return true;
+		else return false;
+	}
+	
 }
 
 

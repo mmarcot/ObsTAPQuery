@@ -50,8 +50,9 @@ public class Configuration {
 	/** vertical gap flowlayout dans le gestionnaire de contrainte */
 	public static final int VGAP_FLOWLAYOUT = 5;
 	
-	/** Tableau contenant l'ensemble des opérateurs du where */
-	public static final String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">=", "LIKE", "NOT LIKE", "IS", "IS NOT", "BETWEEN", "NOT BETW"};
+	/** Tableau contenant l'ensemble des opérateurs du where 
+	 * /!\ codage en dur ne pas changer l'ordre des opérateurs */
+	public static final String[] TAB_OPERATEURS_WHERE = {"=", "!=", "<", ">", "<=", ">=", "BETWEEN", "NOT BETW", "IS", "IS NOT", "LIKE", "NOT LIKE"};
 	/** Tableau contenant l'ensemble des opérateurs de liaison */
 	public static final String[] TAB_LIAISONS = {"AND", "OR"};
 	/** Nombre de lignes max dans la combo box des opérateurs 
@@ -64,7 +65,7 @@ public class Configuration {
 	public static final int TAILLE_JTEXTFIELD_NORMAL = 14;
 	
 	/** Liste des caractère définissant une chaine de carac */
-	public static final String LISTE_CARACTERE_STRING = "AZERTYUIOPQSDFGHJKLMWXCVBN%_[]^";
+	public static final String LISTE_CARACTERE_STRING = "AZRTYUIOPQSDFGHJKLMWXCVBN%_[]^";
 	
 	/** table selectionnée par default dans le from */
 	public static final String TABLE_PAR_DEFAULT = "ivoa.ObsCore";

@@ -42,7 +42,7 @@ public class AuditeurBoutonOkExemple implements ActionListener {
 		// si une ligne est effectivement selectionnée alors on affiche la requete
 		// correspondante dans la zone de requete resultante :
 		if(index_sel != -1)
-			plug_lay.getRequete().setTexteRequete(GestionnaireExemples.getTab_req()[index_sel]);
+			GestionnaireExemples.executerExemple(plug_lay.getWhere().getGestionnaire(), index_sel);
 		
 		// on ferme la fenetre :
 		((JFrame)but_src.getParent().getParent().getParent().getParent().getParent()).dispose();

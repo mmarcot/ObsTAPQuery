@@ -1,7 +1,10 @@
 package metier;
 
+import util.Configuration;
 import interface_plugin.AbstractLigne;
+import interface_plugin.GestionnaireDeContraintes;
 import interface_plugin.LigneDeContrainte;
+import interface_plugin.PluginLayout;
 
 
 /**
@@ -20,23 +23,90 @@ public class GestionnaireExemples {
 	
 	/** tableau contenant les exemples */
 	private static String[] tab_exemples = {
-			"Select only cube datasets",
-			"Select datasets with central position in a north cap of 10 degrees radius (s_dec > +80)",
-			"Select datasets with observation date between modified julian day 55000 and 55100",
-			"Select datasets with minimal wavelength between 2E-4 and 9E-4 and maximal wavelength either the same or unknown",
-			"Select datasets with observation date between modified julian day 53000 and 54000, minimal wavelength between 0.01 and 0.02 and maximal wavelength either the same or unknown and facility = VLA"
+		"Select only cube datasets",
+		"Select datasets with central position in a north cap of 10 degrees radius (s_dec > +80)",
+		"Select datasets with observation date between modified julian day 55000 and 55100",
+		"Select datasets with minimal wavelength between 2E-4 and 9E-4 and maximal wavelength either the same or unknown",
+		"Select datasets with observation date between modified julian day 53000 and 54000, minimal wavelength between 0.01 and 0.02 and maximal wavelength either the same or unknown and facility = VLA"
 	};
 	
-	/** tableau contenant les requetes correspondant aux exemples */
-	private static String[] tab_req = {
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE dataproduct_type = 'cube';",
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE s_dec > 80",
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 55000 AND 55100;",
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE em_min BETWEEN 2E-4 AND 9E-4;",
-		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 53000 AND 54000\nAND em_min BETWEEN 0.01 AND 0.02\nAND facility_name = 'VLA';"
-	};
-	
+//	/** tableau contenant les requetes correspondant aux exemples */
+//	private static String[] tab_req = {
+//		"SELECT *\nFROM ivoa.ObsCore\nWHERE dataproduct_type = 'cube';",
+//		"SELECT *\nFROM ivoa.ObsCore\nWHERE s_dec > 80",
+//		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 55000 AND 55100;",
+//		"SELECT *\nFROM ivoa.ObsCore\nWHERE em_min BETWEEN 2E-4 AND 9E-4;",
+//		"SELECT *\nFROM ivoa.ObsCore\nWHERE t_min BETWEEN 53000 AND 54000\nAND em_min BETWEEN 0.01 AND 0.02\nAND facility_name = 'VLA';"
+//	};
+//	
 
+	
+	/**
+	 * Methode qui ajoute les lignes corresponsant à la requete dans le 
+	 * gestionnaire de contraintes
+	 * @param gestionnaire Référence au gestionnaire de contrainte
+	 * @param index_req Index de la requête selectionnée par l'user
+	 */
+	public static void executerExemple(GestionnaireDeContraintes gestionnaire, int index_req) {
+		
+		// construction des requetes dans le gestionnaire de contrainte :
+		if(index_req == 0) {
+			LigneDeContrainte ligne = new LigneDeContrainte(gestionnaire.besoinLiaison());
+			ligne.getCombo_col_obs().setSelectedItem("dataproduct_type");
+			ligne.getCombo_oper().setSelectedItem(Configuration.TAB_OPERATEURS_WHERE[0]);
+			ligne.getText_valeur().setText("cube");
+			gestionnaire.add(ligne);
+		}
+		else if(index_req == 1) {
+			LigneDeContrainte ligne = new LigneDeContrainte(gestionnaire.besoinLiaison());
+			ligne.getCombo_col_obs().setSelectedItem("s_dec");
+			ligne.getCombo_oper().setSelectedItem(Configuration.TAB_OPERATEURS_WHERE[3]);
+			ligne.getText_valeur().setText("80");
+			gestionnaire.add(ligne);
+		}
+		else if(index_req == 2) {
+			LigneDeContrainte ligne = new LigneDeContrainte(gestionnaire.besoinLiaison());
+			ligne.toBetweenComposition();
+			ligne.getCombo_oper().setSelectedItem(Configuration.TAB_OPERATEURS_WHERE[6]);
+			ligne.getCombo_col_obs().setSelectedItem("t_min");
+			ligne.getText1_between().setText("55000");
+			ligne.getText2_between().setText("55100");
+			gestionnaire.add(ligne);
+		}
+		else if(index_req == 3) {
+			LigneDeContrainte ligne = new LigneDeContrainte(gestionnaire.besoinLiaison());
+			ligne.toBetweenComposition();
+			ligne.getCombo_oper().setSelectedItem(Configuration.TAB_OPERATEURS_WHERE[6]);
+			ligne.getCombo_col_obs().setSelectedItem("em_min");
+			ligne.getText1_between().setText("2E-4");
+			ligne.getText2_between().setText("9E-4");
+			gestionnaire.add(ligne);
+		}
+		else if(index_req == 4) {
+			LigneDeContrainte ligne = new LigneDeContrainte(gestionnaire.besoinLiaison());
+			ligne.toBetweenComposition();
+			ligne.getCombo_oper().setSelectedItem(Configuration.TAB_OPERATEURS_WHERE[6]);
+			ligne.getCombo_col_obs().setSelectedItem("t_min");
+			ligne.getText1_between().setText("53000");
+			ligne.getText2_between().setText("54000");
+			gestionnaire.add(ligne);
+			
+			LigneDeContrainte ligne2 = new LigneDeContrainte(gestionnaire.besoinLiaison());
+			ligne2.toBetweenComposition();
+			ligne2.getCombo_oper().setSelectedItem(Configuration.TAB_OPERATEURS_WHERE[6]);
+			ligne2.getCombo_col_obs().setSelectedItem("em_min");
+			ligne2.getText1_between().setText("0.01");
+			ligne2.getText2_between().setText("0.02");
+			gestionnaire.add(ligne2);
+			
+			LigneDeContrainte ligne3 = new LigneDeContrainte(gestionnaire.besoinLiaison());
+			ligne3.getCombo_col_obs().setSelectedItem("facility_name");
+			ligne3.getCombo_oper().setSelectedItem(Configuration.TAB_OPERATEURS_WHERE[0]);
+			ligne3.getText_valeur().setText("VLA");
+			gestionnaire.add(ligne3);
+		}
+		
+	}
 	
 	
 	
@@ -68,12 +138,7 @@ public class GestionnaireExemples {
 
 
 
-	/**
-	 * @return Le tableau contenant les requetes
-	 */
-	public static String[] getTab_req() {
-		return tab_req;
-	}
+	
 }
 
 

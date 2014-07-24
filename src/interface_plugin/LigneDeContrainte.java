@@ -267,7 +267,8 @@ public class LigneDeContrainte extends AbstractLigne {
 
 
 	/**
-	 * @return the text_valeur
+	 * @return Le JTextField correspondant au texte entré par l'user dans le cas
+	 * d'une compo normale
 	 */
 	public JTextField getText_valeur() {
 		return text_valeur;
@@ -276,7 +277,8 @@ public class LigneDeContrainte extends AbstractLigne {
 
 
 	/**
-	 * @return the text1_between
+	 * @return Le JTextField n°1 correspondant au texte entré par l'user dans le cas
+	 * d'une compo between
 	 */
 	public JTextField getText1_between() {
 		return text1_between;
@@ -285,7 +287,8 @@ public class LigneDeContrainte extends AbstractLigne {
 
 
 	/**
-	 * @return the text2_between
+	 * @return Le JTextField n°2 correspondant au texte entré par l'user dans le cas
+	 * d'une compo between
 	 */
 	public JTextField getText2_between() {
 		return text2_between;
@@ -294,7 +297,7 @@ public class LigneDeContrainte extends AbstractLigne {
 
 
 	/**
-	 * @return the combo_col_obs
+	 * @return La combo box listant l'ensemble des champs
 	 */
 	public JComboBox getCombo_col_obs() {
 		return combo_col_obs;
@@ -303,7 +306,7 @@ public class LigneDeContrainte extends AbstractLigne {
 
 
 	/**
-	 * @return the combo_oper
+	 * @return La combo box listant les opérateurs disponible (=, !=, >, <=, IS...)
 	 */
 	public JComboBox getCombo_oper() {
 		return combo_oper;
