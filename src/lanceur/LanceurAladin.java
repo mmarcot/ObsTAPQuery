@@ -18,8 +18,8 @@ public class LanceurAladin extends AladinPlugin{
 				"It is a plug-in that allow you to perform ObsTAP queries " +
 				"easily.";
 	}
-	public String author() { return "Mallory Marcot"; }
-	public String version() { return "0.1 - June 2014"; }
+	public String author() { return "Mallory Marcot et François Bonnarel"; }
+	public String version() { return "0.9 - July 2014"; }
 	
 	@Override
 	public void exec() throws AladinException {

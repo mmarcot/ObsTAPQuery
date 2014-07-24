@@ -23,11 +23,11 @@ public class GestionnaireExemples {
 	
 	/** tableau contenant les exemples */
 	private static String[] tab_exemples = {
-		"Select only cube datasets",
-		"Select datasets with central position in a north cap of 10 degrees radius (s_dec > +80)",
-		"Select datasets with observation date between modified julian day 55000 and 55100",
-		"Select datasets with minimal wavelength between 2E-4 and 9E-4 and maximal wavelength either the same or unknown",
-		"Select datasets with observation date between modified julian day 53000 and 54000, minimal wavelength between 0.01 and 0.02 and maximal wavelength either the same or unknown and facility = VLA"
+		"Preselected fields for only cube datasets",
+		"Preselected fields for datasets with central position in a north cap of 10 degrees radius (s_dec > +80)",
+		"Preselected fields for datasets with observation date between modified julian day 55000 and 55100",
+		"Preselected fields for datasets with minimal wavelength between 2E-4 and 9E-4",
+		"Preselected fields for datasets with observation date between modified julian day 53000 and 54000, minimal wavelength between 0.01 and 0.02 and facility = VLA"
 	};
 	
 
