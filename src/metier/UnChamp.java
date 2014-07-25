@@ -53,10 +53,11 @@ public class UnChamp {
 	@Override
 	public String toString() {
 		String ret = new String("<html>");
-		ret += "datatype : " + this.datatype + "<br/>";
-		ret += "unit : " + this.unit + "<br/>";
-		ret += "ucd : " + this.ucd + "<br/>";
-		ret += "utype : " + this.utype;
+		ret += "<strong>" + this.description + "</strong><br/>";
+		ret += "<em>datatype :</em> " + this.datatype + "<br/>";
+		ret += "<em>unit :</em> " + this.unit + "<br/>";
+		ret += "<em>ucd :</em> " + this.ucd + "<br/>";
+		ret += "<em>utype :</em> " + this.utype;
 		ret += "</html>";
 		
 		return ret;
