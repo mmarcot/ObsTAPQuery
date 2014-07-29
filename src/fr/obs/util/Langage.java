@@ -12,12 +12,14 @@ import javax.swing.Icon;
  *
  */
 public class Langage {
-	private static String lang = "EN";
 	
 	/** Langage francais */
 	public static String FRANCAIS = "FR";
 	/** Langage anglais */
 	public static String ENGLISH = "EN";
+	
+	/** langage actuellement utilisé */
+	private static String current_lang = ENGLISH;
 	
 	
 	
@@ -26,7 +28,7 @@ public class Langage {
 	 * @param l le nouveau langage
 	 */
 	public static void setLangage(String l) {
-		lang = l;
+		current_lang = l;
 	}
 	
 	
@@ -36,7 +38,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_titre() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Requête résultante";
 		else
 			return "Resulting query";
@@ -49,7 +51,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_desc() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Cliquez sur '" + getReq_generer() +
 					"', modifiez la, puis exécutez la.";
 		else
@@ -64,7 +66,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_generer() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Générer requête";
 		else
 			return "Generate query";
@@ -77,7 +79,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_generer_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Génère la requête dans la zone de texte à gauche";
 		else
 			return "Generate the query in the left text area";
@@ -89,7 +91,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_executer() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Exécuter requête";
 		else
 			return "Perform query";
@@ -101,7 +103,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_executer_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Permet d'exécuter la requête et de voir son résultat dans Aladin";
 		else
 			return "To perform the query and see the result in Aladin";
@@ -113,7 +115,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_help() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Aide";
 		else
 			return "Help";
@@ -125,7 +127,7 @@ public class Langage {
 	 * @return String
 	 */
 	public static String getReq_help_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Pour recevoir de l'aide";
 		else
 			return "To get helped";
@@ -138,7 +140,7 @@ public class Langage {
 	 * @return 
 	 */
 	public static String getWhere_but_constraint() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "<html>Contrainte<br>générique</html>";
 		else
 			return "<html>Generic field's<br>constraint</html>";
@@ -150,7 +152,7 @@ public class Langage {
 	 * @return 
 	 */
 	public static String getWhere_but_add_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Ajoute une ligne de contrainte";
 		else
 			return "Add a constraint line";
@@ -164,7 +166,7 @@ public class Langage {
 	 * @return 
 	 */
 	public static String getWhere_but_remove() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Supprimer";
 		else
 			return "Remove";
@@ -176,7 +178,7 @@ public class Langage {
 	 * @return 
 	 */
 	public static String getWhere_but_remove_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Supprimer cette contrainte";
 		else
 			return "Remove this constraint";
@@ -188,7 +190,7 @@ public class Langage {
 	 * @return L'aide
 	 */
 	public static String getAide() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Le contenu de l'aide";
 		else
 			return "Content help";
@@ -201,7 +203,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getReq_clear() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Recommencer";
 		else
 			return "Clear all";
@@ -213,7 +215,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getReq_clear_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Vider tous les champs";
 		else
 			return "Clear all fields";
@@ -225,7 +227,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getAttention() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Attention";
 		else
 			return "Warning";
@@ -237,7 +239,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getReq_clear_message_dialog() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Etes-vous sûr de vouloir recommencer la saisie ?";
 		else
 			return "Are you sure that you want to clear all fields ?";
@@ -249,7 +251,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getReq_changer_table_message_dialog() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Cette action va nettoyer la saisie";
 		else
 			return "It's going to clear all fields, please confirm";
@@ -262,7 +264,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getErreur() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Erreur";
 		else
 			return "Error";
@@ -274,7 +276,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getReq_perform_message_dialog_err() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Le plug-in doit fonctionner avec Aladin";
 		else
 			return "The plug-in must run with Aladin";
@@ -287,7 +289,7 @@ public class Langage {
 	 * @return
 	 */
 	public static String getMessage_err_conn_bdd() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Impossible de se connecter à la base de données";
 		else
 			return "Failing to connect with the database";
@@ -300,7 +302,7 @@ public class Langage {
 	 * @return
 	 */
 	public static String getMessage_err_recup_bdd() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Impossible recupérer le TAP schéma";
 		else
 			return "Unable to get the TAP schema";
@@ -313,7 +315,7 @@ public class Langage {
 	 * @return texte
 	 */
 	public static String getSelect_all() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Tout cocher";
 		else
 			return "Select all";
@@ -326,7 +328,7 @@ public class Langage {
 	 * @return
 	 */
 	public static String getMessage_err_recup_bdd_tables() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Impossible de récupérer les différentes tables dans la base de données";
 		else
 			return "Unable to get tables from database";
@@ -338,7 +340,7 @@ public class Langage {
 	 * @return
 	 */
 	public static String getMessage_err_recup_bdd_colonnes() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Impossible de récupérer les différentes colonnes dans la table";
 		else
 			return "Unable to get columns from table";
@@ -349,7 +351,7 @@ public class Langage {
 	 * @return Texte correspondant au JMenu "Option"
 	 */
 	public static String getMenuOption() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Option";
 		else
 			return "Option";
@@ -360,7 +362,7 @@ public class Langage {
 	 * @return Texte correspondant au JMenuItem "url du serveur"
 	 */
 	public static String getMenuItemUrlBDD() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "URL service TAP";
 		else
 			return "URL TAP service";
@@ -371,7 +373,7 @@ public class Langage {
 	 * @return Texte correspondant au JMenu "fichier"
 	 */
 	public static String getMenuFichier() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Fichier";
 		else
 			return "File";
@@ -382,7 +384,7 @@ public class Langage {
 	 * @return Texte correspondant au JMenuItem "enregistrer la requete"
 	 */
 	public static String getMenuItemEnrReq() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Sauv. requête";
 		else
 			return "Save query";
@@ -390,7 +392,7 @@ public class Langage {
 	
 	
 	public static String getMenuItemLoadReq() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Charger requête";
 		else
 			return "Load query";
@@ -401,7 +403,7 @@ public class Langage {
 	 * @return Texte correspondant au JMenu help
 	 */
 	public static String getMenuHelp() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Aide";
 		else
 			return "Help";
@@ -412,7 +414,7 @@ public class Langage {
 	 * @return Texte correspondant au JMenuItem documentation
 	 */
 	public static String getMenuItemDocu() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Documentation";
 		else
 			return "Documentation";
@@ -423,7 +425,7 @@ public class Langage {
 	 * @return Texte correspondant au JMenuItem about
 	 */
 	public static String getMenuItemAbout() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "À propos";
 		else
 			return "About";
@@ -434,7 +436,7 @@ public class Langage {
 	 * @return Texte correspondant à cancel
 	 */
 	public static String getCancel() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Annuler";
 		else
 			return "Cancel";
@@ -445,7 +447,7 @@ public class Langage {
 	 * @return Texte correspondant à OK
 	 */
 	public static String getOk() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "OK";
 		else
 			return "OK";
@@ -457,7 +459,7 @@ public class Langage {
 	 * @return Texte correspondant au mot quitter
 	 */
 	public static String getQuitter() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Quitter";
 		else
 			return "Exit";
@@ -468,7 +470,7 @@ public class Langage {
 	 * @return Texte correspondant au message d'erreur url incorrect
 	 */
 	public static String getMessage_err_url() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "URL incorrect";
 		else
 			return "Bad URL";
@@ -479,7 +481,7 @@ public class Langage {
 	 * @return Texte correspondant à la saisie du path
 	 */
 	public static String getPath() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Chemin vers le fichier";
 		else
 			return "Path to file";
@@ -490,7 +492,7 @@ public class Langage {
 	 * @return Texte correspondant au message d'erreur fichier non trouvé
 	 */
 	public static String getFileNotFound() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Fichier non trouvé";
 		else
 			return "File not found";
@@ -501,7 +503,7 @@ public class Langage {
 	 * @return Texte correspondant au à la clause limit
 	 */
 	public static String getLimit() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Clause LIMIT";
 		else
 			return "LIMIT clause";
@@ -512,7 +514,7 @@ public class Langage {
 	 * @return Texte correspondant à la saisie de la clause limit
 	 */
 	public static String getLimitInputMessage() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Entrez la valeur de la clause LIMIT";
 		else
 			return "Enter the value of the LIMIT clause";
@@ -523,7 +525,7 @@ public class Langage {
 	 * @return Texte correspondant au message d'erreur lors de la saisie d'un nombre
 	 */
 	public static String getErreurEntrezNombreEntier() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Entrez un nombre entier SVP";
 		else
 			return "Please enter an integer";
@@ -534,7 +536,7 @@ public class Langage {
 	 * @return Texte correspondant à "pas de limite"
 	 */
 	public static String getNoLimit() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Pas de limite";
 		else
 			return "No limit";
@@ -545,7 +547,7 @@ public class Langage {
 	 * @return Texte correspondant à la saisie d'une limite
 	 */
 	public static String getMenuItemEnterLimitValue() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Entrer limite...";
 		else
 			return "Enter limit...";
@@ -556,7 +558,7 @@ public class Langage {
 	 * @return bouton position
 	 */
 	public static String getPosition() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Position";
 		else
 			return "Position";
@@ -568,7 +570,7 @@ public class Langage {
 	 * @return ToolTip bouton position
 	 */
 	public static String getPosition_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Ajouter une contrainte sur la position";
 		else
 			return "Add a constraint on position";
@@ -579,7 +581,7 @@ public class Langage {
 	 * @return Ascension droite recherche par position
 	 */
 	public static String getRA() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "RA";
 		else
 			return "RA";
@@ -590,7 +592,7 @@ public class Langage {
 	 * @return Déclinaison recherche position
 	 */
 	public static String getDEC() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "DEC";
 		else
 			return "DEC";
@@ -601,7 +603,7 @@ public class Langage {
 	 * @return Rayon recherche position
 	 */
 	public static String getRayon() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Rayon";
 		else
 			return "Radius";
@@ -612,7 +614,7 @@ public class Langage {
 	 * @return Message erreur lors de la saisie d'un double
 	 */
 	public static String getEntrezDouble() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Entrez un nombre réel SVP";
 		else
 			return "Please enter a float number";
@@ -623,7 +625,7 @@ public class Langage {
 	 * @return unité degré
 	 */
 	public static String getDeg() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "deg";
 		else
 			return "deg";
@@ -634,7 +636,7 @@ public class Langage {
 	 * @return unité arcmin
 	 */
 	public static String getArcmin() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "arcmin";
 		else
 			return "arcmin";
@@ -645,7 +647,7 @@ public class Langage {
 	 * @return unité arcsec
 	 */
 	public static String getArcsec() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "arcsec";
 		else
 			return "arcsec";
@@ -656,7 +658,7 @@ public class Langage {
 	 * @return Right ascension
 	 */
 	public static String getRA_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Ascension droite";
 		else
 			return "Right ascension";
@@ -667,7 +669,7 @@ public class Langage {
 	 * @return Déclinaison
 	 */
 	public static String getDEC_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Déclinaison";
 		else
 			return "Declination";
@@ -676,7 +678,7 @@ public class Langage {
 
 
 	public static String getExemple() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Exemples";
 		else
 			return "Examples";
@@ -685,7 +687,7 @@ public class Langage {
 
 
 	public static String getExemple_tt() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Pour essayer quelques exemples";
 		else
 			return "Try some examples";
@@ -694,7 +696,7 @@ public class Langage {
 
 
 	public static String getChoisirExemple() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Choisissez un exemple";
 		else
 			return "Please choose an example";
@@ -703,7 +705,7 @@ public class Langage {
 
 
 	public static String getTitrePartieWhere() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "Contraintes";
 		else
 			return "Constraints";
@@ -712,7 +714,7 @@ public class Langage {
 
 
 	public static String getPreselectedFields() {
-		if(lang.equals("FR"))
+		if(current_lang.equals("FR"))
 			return "<html><br>Champs selectionnés pour :</html>";
 		else
 			return "<html><br>Preselected fields for :</html>";
