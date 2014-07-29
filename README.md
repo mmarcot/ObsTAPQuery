@@ -10,5 +10,5 @@ Getting started :
 5. Select the ObsTAPQuery.jar file
 6. Click on 'ObsTAP Query' in the left area
 7. Click 'Start' button
-
-
+ 
+To get more informations go to the [ObsTAPQuery wiki](https://github.com/mmarcot/ObsTAPQuery/wiki)
