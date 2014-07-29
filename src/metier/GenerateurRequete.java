@@ -53,28 +53,12 @@ public class GenerateurRequete {
 		req += genererSelect();
 		req += genererFrom();
 		req += genererWhere();
-		req += genererLimit();
 		req = (req.trim() + ";");
 		
 		// affichage :
 		requete.setTexteRequete(req);
 	}
 	
-	
-	
-	/**
-	 * Methode qui génère la clause LIMIT si il y a lieu
-	 * @return String representation of the LIMIT clause
-	 */
-	private String genererLimit() {
-		String ret = new String();
-		
-		if(Configuration.LIMIT != -1) {
-			ret += ("LIMIT " + Integer.toString(Configuration.LIMIT)); 
-		}
-		
-		return ret + "\n";
-	}
 
 
 
@@ -83,6 +67,9 @@ public class GenerateurRequete {
 	 */
 	private String genererSelect() {
 		String ret = new String("SELECT ");
+		if(Configuration.LIMIT != -1) {
+			ret += ("TOP " + Integer.toString(Configuration.LIMIT) + " "); 
+		}
 		ArrayList<String> liste_col_checked = select.getChecked();
 		boolean all_selected = select.getCb_select_all().isSelected();
 		

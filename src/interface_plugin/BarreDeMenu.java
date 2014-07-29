@@ -143,24 +143,24 @@ public class BarreDeMenu extends JMenuBar {
 		ButtonGroup group = new ButtonGroup();
 		
 		// instanciation des MenuItem :
+		JRadioButtonMenuItem limit_100 = new JRadioButtonMenuItem("100");
+		JRadioButtonMenuItem limit_500 = new JRadioButtonMenuItem("500");
 		JRadioButtonMenuItem limit_1000 = new JRadioButtonMenuItem("1 000");
 		JRadioButtonMenuItem limit_5000 = new JRadioButtonMenuItem("5 000");
 		JRadioButtonMenuItem limit_10000 = new JRadioButtonMenuItem("10 000");
 		JRadioButtonMenuItem limit_50000 = new JRadioButtonMenuItem("50 000");
 		JRadioButtonMenuItem limit_100000 = new JRadioButtonMenuItem("100 000");
-		JRadioButtonMenuItem limit_500000 = new JRadioButtonMenuItem("500 000");
-		JRadioButtonMenuItem limit_1000000 = new JRadioButtonMenuItem("1 000 000");
 		JRadioButtonMenuItem no_limit = new JRadioButtonMenuItem(Langage.getNoLimit());
 		JMenuItem saisie_limit = new JMenuItem(Langage.getMenuItemEnterLimitValue());
 		
 		// ajout des listeners :
+		limit_100.addActionListener(new AuditeurRadioButtonLimit());
+		limit_500.addActionListener(new AuditeurRadioButtonLimit());
 		limit_1000.addActionListener(new AuditeurRadioButtonLimit());
 		limit_5000.addActionListener(new AuditeurRadioButtonLimit());
 		limit_10000.addActionListener(new AuditeurRadioButtonLimit());
 		limit_50000.addActionListener(new AuditeurRadioButtonLimit());
 		limit_100000.addActionListener(new AuditeurRadioButtonLimit());
-		limit_500000.addActionListener(new AuditeurRadioButtonLimit());
-		limit_1000000.addActionListener(new AuditeurRadioButtonLimit());
 		no_limit.addActionListener(new AuditeurRadioButtonLimit());
 		saisie_limit.addActionListener(new ActionListener() {
 			@Override
@@ -179,26 +179,26 @@ public class BarreDeMenu extends JMenuBar {
 		});
 		
 		// selection par défaut :
-		no_limit.setSelected(true);
+		limit_1000.setSelected(true);
 		
 		// on les ajoutent au groupe :
+		group.add(limit_100);
+		group.add(limit_500);
 		group.add(limit_1000);
 		group.add(limit_5000);
 		group.add(limit_10000);
 		group.add(limit_50000);
 		group.add(limit_100000);
-		group.add(limit_500000);
-		group.add(limit_1000000);
 		group.add(no_limit);
 		
 		// on les ajoutent au JMenu :
+		menu_limit.add(limit_100);
+		menu_limit.add(limit_500);
 		menu_limit.add(limit_1000);
 		menu_limit.add(limit_5000);
 		menu_limit.add(limit_10000);
 		menu_limit.add(limit_50000);
 		menu_limit.add(limit_100000);
-		menu_limit.add(limit_500000);
-		menu_limit.add(limit_1000000);
 		menu_limit.add(no_limit);
 		menu_limit.addSeparator();
 		menu_limit.add(saisie_limit);

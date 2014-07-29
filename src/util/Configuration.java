@@ -19,7 +19,7 @@ public class Configuration {
 	public static String URL_SERVICE_TAP = "http://obs-stage-s4.u-strasbg.fr:8080/vizier2/tap";
 	
 	/** valeur de la clause LIMIT */
-	public static int LIMIT = -1;
+	public static int LIMIT = 1000;
 	
 	
 	
