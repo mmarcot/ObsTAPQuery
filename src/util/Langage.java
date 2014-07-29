@@ -710,6 +710,15 @@ public class Langage {
 	}
 
 
+
+	public static String getPreselectedFields() {
+		if(lang.equals("FR"))
+			return "<html><br>Champs selectionnés pour :</html>";
+		else
+			return "<html><br>Preselected fields for :</html>";
+	}
+
+
 	
 }
 

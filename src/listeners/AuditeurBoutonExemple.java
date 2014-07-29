@@ -20,9 +20,6 @@ import util.Langage;
  */
 public class AuditeurBoutonExemple implements ActionListener {
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton but_src = (JButton) e.getSource();
@@ -40,11 +37,15 @@ public class AuditeurBoutonExemple implements ActionListener {
 		jlist.setVisibleRowCount(-1);
 		pan_list.add(jlist, BorderLayout.CENTER);
 		
+		// ajout du titre de la JList :
+		wrapper.add(new JLabel(Langage.getPreselectedFields()), BorderLayout.NORTH);
+		
 		// ajout d'un scroller :
 		JScrollPane listScroller = new JScrollPane(pan_list);
 		listScroller.getVerticalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_VER);
 		listScroller.getHorizontalScrollBar().setUnitIncrement(Configuration.VITESSE_SCROLL_HOR);
 		listScroller.setPreferredSize(new Dimension(500, pan_list.getPreferredSize().height+20));
+		listScroller.setBorder(null);
 		wrapper.add(listScroller, BorderLayout.CENTER);
 		
 		// panneau de boutons :
